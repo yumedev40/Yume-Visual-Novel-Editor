@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Game/Shaders/Spatial_Image_Switcher.shader" type="Shader" id=1]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Backgrounds/white_screen.png" type="Texture" id=2]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Backgrounds/night_sky_bg_00000.png" type="Texture" id=3]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Backgrounds/candle_light_bg_00000.png" type="Texture" id=4]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/transition_amount = 0.0
+shader_param/empty_base = ExtResource( 2 )
+shader_param/image_a = ExtResource( 3 )
+shader_param/image_b = ExtResource( 4 )
