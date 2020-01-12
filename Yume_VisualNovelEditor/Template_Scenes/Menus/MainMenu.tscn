@@ -1,0 +1,99 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Backgrounds/basic_bg_purple.png" type="Texture" id=1]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Titles/MainMenu.png" type="Texture" id=2]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Titles/begin_new_game_normal.png" type="Texture" id=3]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Titles/begin_new_game_over.png" type="Texture" id=4]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Titles/continue_button_text.png" type="Texture" id=5]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Titles/continue_button_over.png" type="Texture" id=6]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Titles/load_button_normal.png" type="Texture" id=7]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Titles/load_button_over.png" type="Texture" id=8]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Titles/settings_button_normal.png" type="Texture" id=9]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Titles/settings_button_over.png" type="Texture" id=10]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Titles/exit_button_normal.png" type="Texture" id=11]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Titles/exit_button_over.png" type="Texture" id=12]
+
+[node name="Main Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BG" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Title" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -320.0
+margin_top = 227.0
+margin_right = 320.0
+margin_bottom = 327.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -662.0
+alignment = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Buttons" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 667.0
+margin_right = 1252.0
+margin_bottom = 662.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Begin" type="TextureButton" parent="HBoxContainer/Buttons"]
+margin_right = 585.0
+margin_bottom = 90.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+
+[node name="Continue" type="TextureButton" parent="HBoxContainer/Buttons"]
+margin_top = 94.0
+margin_right = 585.0
+margin_bottom = 184.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+
+[node name="Load" type="TextureButton" parent="HBoxContainer/Buttons"]
+margin_top = 188.0
+margin_right = 585.0
+margin_bottom = 278.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+
+[node name="Settings" type="TextureButton" parent="HBoxContainer/Buttons"]
+margin_top = 282.0
+margin_right = 585.0
+margin_bottom = 372.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
+
+[node name="Exit" type="TextureButton" parent="HBoxContainer/Buttons"]
+margin_top = 376.0
+margin_right = 585.0
+margin_bottom = 466.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 12 )

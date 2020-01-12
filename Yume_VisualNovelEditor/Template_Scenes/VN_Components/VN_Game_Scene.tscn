@@ -1,0 +1,140 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Game/Component_Scripts/vn_main_parser.gd" type="Script" id=1]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Game/Materials/Canvas_Image_Switcher.tres" type="Material" id=2]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Game/Images/texture_frame_base.png" type="Texture" id=3]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Game/Component_Scripts/image_slideshow.gd" type="Script" id=4]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Backgrounds/candle_light_bg_00000.png" type="Texture" id=5]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Backgrounds/night_sky_bg_00000.png" type="Texture" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Game/Component_Scripts/vn_stage_layers_container.gd" type="Script" id=8]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Game/Environments/Default_World_Environment.tres" type="Environment" id=9]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Game/Materials/canvas_screen_space_effects.tres" type="Material" id=10]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Game/Component_Scripts/screen_space_effects.gd" type="Script" id=11]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Game/Component_Scripts/OverlayColor.gd" type="Script" id=12]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/VN_Components/Textboxes/Textbox_Scenes/Default_Dialogue_Box.tscn" type="PackedScene" id=13]
+
+[node name="VN Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VISUAL_COMPONENTS" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Backdrop" type="TextureRect" parent="VISUAL_COMPONENTS"]
+material = ExtResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+script = ExtResource( 4 )
+image_a = ExtResource( 5 )
+image_b = ExtResource( 6 )
+
+[node name="Stage" type="ViewportContainer" parent="VISUAL_COMPONENTS"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="VISUAL_COMPONENTS/Stage"]
+size = Vector2( 1024, 600 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="VN_World" type="Spatial" parent="VISUAL_COMPONENTS/Stage/Viewport"]
+
+[node name="_scale_target_" type="Sprite3D" parent="VISUAL_COMPONENTS/Stage/Viewport/VN_World"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -55.5 )
+visible = false
+pixel_size = 0.0118
+texture = ExtResource( 7 )
+
+[node name="SceneLayers" type="Spatial" parent="VISUAL_COMPONENTS/Stage/Viewport/VN_World"]
+script = ExtResource( 8 )
+cam_path = NodePath("../Camera")
+reference_point_path = NodePath("../_scale_target_")
+
+[node name="BGLayer1" type="Sprite3D" parent="VISUAL_COMPONENTS/Stage/Viewport/VN_World/SceneLayers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -225 )
+cast_shadow = 0
+pixel_size = 0.0478378
+alpha_cut = 2
+
+[node name="BGLayer2" type="Sprite3D" parent="VISUAL_COMPONENTS/Stage/Viewport/VN_World/SceneLayers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -177.75 )
+cast_shadow = 0
+pixel_size = 0.0377919
+alpha_cut = 2
+
+[node name="BGLayer3" type="Sprite3D" parent="VISUAL_COMPONENTS/Stage/Viewport/VN_World/SceneLayers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -130.5 )
+cast_shadow = 0
+pixel_size = 0.0277459
+alpha_cut = 2
+
+[node name="CharacterLayer" type="Spatial" parent="VISUAL_COMPONENTS/Stage/Viewport/VN_World/SceneLayers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -83.25 )
+
+[node name="BGLayer4" type="Sprite3D" parent="VISUAL_COMPONENTS/Stage/Viewport/VN_World/SceneLayers/CharacterLayer"]
+cast_shadow = 0
+pixel_size = 0.0177
+alpha_cut = 2
+
+[node name="FGLayer1" type="Sprite3D" parent="VISUAL_COMPONENTS/Stage/Viewport/VN_World/SceneLayers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36 )
+cast_shadow = 0
+pixel_size = 0.00765405
+alpha_cut = 2
+
+[node name="Camera" type="Camera" parent="VISUAL_COMPONENTS/Stage/Viewport/VN_World"]
+environment = ExtResource( 9 )
+current = true
+fov = 12.8
+far = 1500.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="VISUAL_COMPONENTS/Stage/Viewport/VN_World"]
+transform = Transform( 0.66968, -0.478843, 0.567661, 0, 0.764372, 0.644776, -0.74265, -0.431793, 0.511884, 0, 4.06699, 0 )
+
+[node name="OverlayImage" type="TextureRect" parent="VISUAL_COMPONENTS"]
+material = ExtResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="ScreenSpaceEffects" type="TextureRect" parent="VISUAL_COMPONENTS"]
+material = ExtResource( 10 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+script = ExtResource( 11 )
+root_path = NodePath("../..")
+modulate_color = Color( 1, 1, 1, 1 )
+
+[node name="OverlayScreen" type="CanvasLayer" parent="VISUAL_COMPONENTS"]
+layer = 2
+
+[node name="OverlayColor" type="ColorRect" parent="VISUAL_COMPONENTS/OverlayScreen"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 12 )
+root_path = NodePath("../../..")
+
+[node name="UI_COMPONENTS" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="DialogueBox_UI" type="Control" parent="UI_COMPONENTS"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Dialogue_Box" parent="UI_COMPONENTS/DialogueBox_UI" instance=ExtResource( 13 )]
+visible = false
