@@ -1,0 +1,285 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI_Scripts/transition_settings_component.gd" type="Script" id=1]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/transparency_grid.png" type="Texture" id=2]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Component_Scripts/brightness_to_transparency.gd" type="Script" id=3]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Materials/curve_ramp_recolor.tres" type="Material" id=4]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/down_arrow_grabber.png" type="Texture" id=5]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.72549, 0.74902, 0.764706, 1 )
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform bool modulate = false;
+
+uniform float transparency : hint_range(0.0, 1.0) = 0.0;
+
+uniform vec4 color : hint_color = vec4(vec3(1.0), 1.0);
+
+uniform sampler2D grid;
+
+
+void fragment() {
+	vec4 grid_tex = texture(grid, vec2(SCREEN_UV.x * 80.0, SCREEN_UV.y * 40.0));
+	
+	if (modulate){
+		COLOR = mix( grid_tex * color, grid_tex, transparency );
+	} else {
+		COLOR = mix( color, grid_tex, transparency );
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 2 )
+shader_param/modulate = false
+shader_param/transparency = 0.0
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/grid = ExtResource( 2 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+width = 240
+curve = SubResource( 5 )
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[node name="transition_settings_component" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 40.0
+custom_constants/separation = 5
+script = ExtResource( 1 )
+__meta__ = {
+"transition_settings": true
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+editor/display_folded = true
+margin_right = 1920.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer"]
+margin_top = 5.0
+margin_right = 63.0
+margin_bottom = 19.0
+text = "Transition"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 67.0
+margin_right = 70.0
+margin_bottom = 24.0
+
+[node name="Direction" type="OptionButton" parent="VBoxContainer2/HBoxContainer"]
+margin_left = 74.0
+margin_right = 194.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 120, 0 )
+focus_mode = 0
+text = "From"
+items = [ "From", null, false, 0, null, "To", null, false, 1, null ]
+selected = 0
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 198.0
+margin_right = 201.0
+margin_bottom = 24.0
+
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 205.0
+margin_right = 208.0
+margin_bottom = 24.0
+
+[node name="Label2" type="Label" parent="VBoxContainer2/HBoxContainer"]
+margin_left = 212.0
+margin_top = 5.0
+margin_right = 275.0
+margin_bottom = 19.0
+text = "Ease Type"
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 279.0
+margin_right = 282.0
+margin_bottom = 24.0
+
+[node name="Ease_Type" type="OptionButton" parent="VBoxContainer2/HBoxContainer"]
+margin_left = 286.0
+margin_right = 406.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 120, 0 )
+focus_mode = 0
+text = "Linear"
+items = [ "Linear", null, false, 0, null, "In", null, false, 1, null, "Out", null, false, 2, null, "In_Out", null, false, 3, null, "Out_In", null, false, 4, null, "Elastic", null, false, 5, null, "Bounce", null, false, 6, null ]
+selected = 0
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 410.0
+margin_right = 413.0
+margin_bottom = 24.0
+
+[node name="HSeparator8" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 417.0
+margin_right = 420.0
+margin_bottom = 24.0
+
+[node name="Label3" type="Label" parent="VBoxContainer2/HBoxContainer"]
+margin_left = 424.0
+margin_top = 5.0
+margin_right = 479.0
+margin_bottom = 19.0
+text = "Duration"
+
+[node name="HSeparator11" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 483.0
+margin_right = 486.0
+margin_bottom = 24.0
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer2/HBoxContainer"]
+margin_left = 490.0
+margin_right = 610.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 120, 0 )
+step = 0.1
+value = 1.0
+align = 2
+suffix = "second(s)"
+
+[node name="HSeparator9" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 614.0
+margin_right = 617.0
+margin_bottom = 24.0
+
+[node name="HSeparator10" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 621.0
+margin_right = 624.0
+margin_bottom = 24.0
+
+[node name="HSeparator13" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 628.0
+margin_right = 631.0
+margin_bottom = 24.0
+
+[node name="HSeparator14" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 635.0
+margin_right = 638.0
+margin_bottom = 24.0
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 29.0
+margin_right = 1920.0
+margin_bottom = 32.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2"]
+margin_top = 37.0
+margin_right = 1920.0
+margin_bottom = 57.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2"]
+margin_right = 62.0
+margin_bottom = 20.0
+alignment = 1
+
+[node name="PreviewButton" type="Button" parent="VBoxContainer2/HBoxContainer2/VBoxContainer"]
+margin_right = 62.0
+margin_bottom = 20.0
+focus_mode = 0
+toggle_mode = true
+enabled_focus_mode = 0
+text = "Preview"
+
+[node name="HSeparator12" type="HSeparator" parent="VBoxContainer2/HBoxContainer2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 66.0
+margin_right = 69.0
+margin_bottom = 20.0
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer2/HBoxContainer2"]
+margin_left = 73.0
+margin_right = 1920.0
+margin_bottom = 20.0
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer2/HBoxContainer2/PanelContainer"]
+material = SubResource( 4 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 1845.0
+margin_bottom = 18.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 3 )
+
+[node name="CurveImage" type="TextureRect" parent="VBoxContainer2/HBoxContainer2/PanelContainer"]
+visible = false
+material = ExtResource( 4 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 1845.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 120, 15 )
+mouse_filter = 2
+size_flags_horizontal = 3
+texture = SubResource( 6 )
+expand = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/PanelContainer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 1845.0
+margin_bottom = 18.0
+mouse_filter = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PreviewSlider" type="HSlider" parent="VBoxContainer2/HBoxContainer2/PanelContainer/VBoxContainer"]
+margin_top = 8.0
+margin_right = 1843.0
+margin_bottom = 8.0
+focus_mode = 0
+mouse_filter = 2
+size_flags_vertical = 1
+custom_icons/grabber_disabled = ExtResource( 5 )
+custom_icons/grabber_highlight = ExtResource( 5 )
+custom_icons/grabber = ExtResource( 5 )
+custom_styles/slider = SubResource( 7 )
+step = 0.1
+value = 100.0
+editable = false
+scrollable = false
+ticks_on_borders = true
+focus_mode = 0
+[connection signal="item_selected" from="VBoxContainer2/HBoxContainer/Direction" to="." method="_on_Direction_item_selected"]
+[connection signal="item_selected" from="VBoxContainer2/HBoxContainer/Ease_Type" to="." method="_on_Ease_Type_item_selected"]
+[connection signal="changed" from="VBoxContainer2/HBoxContainer/SpinBox" to="." method="_on_SpinBox_changed"]
+[connection signal="value_changed" from="VBoxContainer2/HBoxContainer/SpinBox" to="." method="_on_SpinBox_value_changed"]
+[connection signal="pressed" from="VBoxContainer2/HBoxContainer2/VBoxContainer/PreviewButton" to="." method="_on_Preview_pressed"]
+[connection signal="value_changed" from="VBoxContainer2/HBoxContainer2/PanelContainer/VBoxContainer/PreviewSlider" to="." method="_on_PreviewSlider_value_changed"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI_Scripts/breakpoint_component.gd" type="Script" id=1]
+
+[node name="null_component" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+__meta__ = {
+"breakpoint_component": true,
+"debug_options_component": true
+}

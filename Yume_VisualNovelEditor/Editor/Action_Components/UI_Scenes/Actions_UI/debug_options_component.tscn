@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI_Scripts/debug_options_component.gd" type="Script" id=1]
+
+[node name="debug_options_component" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+__meta__ = {
+"debug_options_component": true
+}
+
+[node name="MenuButton" type="OptionButton" parent="."]
+margin_right = 1756.0
+margin_bottom = 40.0
+focus_mode = 0
+mouse_filter = 1
+size_flags_horizontal = 3
+enabled_focus_mode = 0
+text = "Output String"
+items = [ "Output String", null, false, 0, false, "Push Warning", null, false, 1, false, "Push Error", null, false, 2, false ]
+selected = 0
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1760.0
+margin_right = 1763.0
+margin_bottom = 40.0
+mouse_filter = 1
+
+[node name="CheckButton" type="CheckButton" parent="."]
+margin_left = 1767.0
+margin_right = 1920.0
+margin_bottom = 40.0
+focus_mode = 0
+mouse_filter = 1
+enabled_focus_mode = 0
+text = "Breakpoint "

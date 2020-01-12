@@ -1,0 +1,103 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI_Scripts/text_box_component.gd" type="Script" id=1]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/char_icon.png" type="Texture" id=2]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/add_variable_button.png" type="Texture" id=3]
+
+[node name="text_box_component" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_constants/separation = 5
+script = ExtResource( 1 )
+__meta__ = {
+"breakpoint_component": true,
+"debug_options_component": true,
+"text_box_component": true,
+"text_string_component": true
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+margin_right = 1920.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer"]
+margin_top = 33.0
+margin_right = 27.0
+margin_bottom = 47.0
+text = "Text"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 31.0
+margin_right = 34.0
+margin_bottom = 80.0
+
+[node name="LineEdit" type="TextEdit" parent="VBoxContainer2/HBoxContainer"]
+margin_left = 38.0
+margin_right = 1669.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 80 )
+size_flags_horizontal = 3
+highlight_current_line = true
+show_line_numbers = true
+smooth_scrolling = true
+caret_blink = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer"]
+margin_left = 1673.0
+margin_right = 1709.0
+margin_bottom = 80.0
+alignment = 1
+
+[node name="character_list" type="MenuButton" parent="VBoxContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 5.0
+margin_right = 36.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 36, 0 )
+icon = ExtResource( 2 )
+items = [ "Sample Character 1", null, 0, false, false, -1, 0, null, "", false, "Sample Character 2", null, 0, false, false, -1, 0, null, "", false, "Sample Character 3", null, 0, false, false, -1, 0, null, "", false ]
+
+[node name="variables_list" type="MenuButton" parent="VBoxContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 39.0
+margin_right = 36.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 36, 36 )
+icon = ExtResource( 3 )
+items = [ "Global Variables", null, 0, false, false, -1, 0, null, "", true, "Placeholder global variable 1", null, 0, false, false, -1, 0, null, "", false, "Local Variables", null, 0, false, false, -1, 0, null, "", true, "Placeholder Local Variable 1", null, 0, false, false, -1, 0, null, "", false, "Placeholder Local Variable 2", null, 0, false, false, -1, 0, null, "", false ]
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1713.0
+margin_right = 1716.0
+margin_bottom = 80.0
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1720.0
+margin_right = 1723.0
+margin_bottom = 80.0
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1727.0
+margin_right = 1730.0
+margin_bottom = 80.0
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer2/HBoxContainer"]
+margin_left = 1734.0
+margin_right = 1920.0
+margin_bottom = 80.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Placeholder Text"
+align = 2

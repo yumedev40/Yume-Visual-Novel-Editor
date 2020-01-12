@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Theme/action_button_hover.tres" type="StyleBox" id=1]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Theme/action_button_pressed.tres" type="StyleBox" id=2]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Theme/action_button_normal.tres" type="StyleBox" id=3]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Action_Components/ActionNode.gd" type="Script" id=4]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/base_node_icon.png" type="Texture" id=5]
+
+[node name="ActionNode" type="Button"]
+margin_right = 507.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 0, 39 )
+hint_tooltip = "Action Node Description"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 3 )
+enabled_focus_mode = 0
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_right = -10.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 7.0
+margin_right = 487.0
+margin_bottom = 31.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+margin_right = 24.0
+margin_bottom = 24.0
+mouse_filter = 2
+texture = ExtResource( 5 )
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 24.0
+margin_right = 36.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 12, 0 )
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 36.0
+margin_top = 5.0
+margin_right = 487.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Action Name - Action Description"
+autowrap = true

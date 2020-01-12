@@ -1,0 +1,99 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI_Scripts/additional_animation_parameters.gd" type="Script" id=1]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/arrow_icon.png" type="Texture" id=2]
+
+[node name="animation_options" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"additional_animation_settings": true
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 5.0
+margin_right = 106.0
+margin_bottom = 19.0
+text = "Animation Mode"
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 110.0
+margin_right = 113.0
+margin_bottom = 24.0
+
+[node name="Animation Mode" type="OptionButton" parent="."]
+margin_left = 117.0
+margin_right = 267.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 150, 0 )
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Default"
+items = [ "Default", null, false, 0, null, "Fade", null, false, -1, null, "Instant", null, false, -1, null, "Typewriter", null, false, -1, null ]
+selected = 0
+
+[node name="HSeparator" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 271.0
+margin_right = 274.0
+margin_bottom = 24.0
+
+[node name="Speed" type="HBoxContainer" parent="."]
+visible = false
+margin_left = 278.0
+margin_right = 422.0
+margin_bottom = 24.0
+
+[node name="TextureRect" type="TextureRect" parent="Speed"]
+margin_right = 16.0
+margin_bottom = 24.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="Label2" type="Label" parent="Speed"]
+margin_left = 20.0
+margin_top = 5.0
+margin_right = 59.0
+margin_bottom = 19.0
+text = "Speed"
+
+[node name="HSeparator4" type="HSeparator" parent="Speed"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 63.0
+margin_right = 66.0
+margin_bottom = 24.0
+
+[node name="SpinBox" type="SpinBox" parent="Speed"]
+margin_left = 70.0
+margin_right = 144.0
+margin_bottom = 24.0
+min_value = 0.4
+step = 0.1
+value = 0.5
+
+[node name="HSeparator5" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 278.0
+margin_right = 281.0
+margin_bottom = 24.0
+
+[node name="HSeparator6" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 285.0
+margin_right = 288.0
+margin_bottom = 24.0
+
+[node name="OptionButton" type="OptionButton" parent="."]
+visible = false
+margin_left = 292.0
+margin_right = 407.0
+margin_bottom = 24.0
+focus_mode = 0
+text = "Apply Once"
+items = [ "Apply Once", null, false, -1, null, "Overwrite Existing Settings", null, false, -1, null ]
+selected = 0
+[connection signal="item_selected" from="Animation Mode" to="." method="_on_Animation_Mode_item_selected"]

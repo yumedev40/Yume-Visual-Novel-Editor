@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI_Scripts/image_component.gd" type="Script" id=1]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/file_icon.png" type="Texture" id=2]
+
+[node name="Image_Component" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 40.0
+custom_constants/separation = 5
+script = ExtResource( 1 )
+__meta__ = {
+"image_component": true
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 13.0
+margin_right = 40.0
+margin_bottom = 27.0
+rect_pivot_offset = Vector2( -844.542, -253.017 )
+mouse_filter = 1
+text = "Image"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 45.0
+margin_right = 48.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -889.542, -240.017 )
+mouse_filter = 1
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 53.0
+margin_right = 56.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -897.542, -240.017 )
+mouse_filter = 1
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 61.0
+margin_right = 789.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+clear_button_enabled = true
+caret_blink = true
+
+[node name="Button" type="Button" parent="."]
+margin_left = 794.0
+margin_right = 822.0
+margin_bottom = 40.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 2 )
+
+[node name="HSeparator4" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 827.0
+margin_right = 1920.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -2636.54, -240.017 )
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_right = 275.0
+margin_bottom = 130.0
+popup_exclusive = true
+window_title = "Open a File"
+resizable = true
+dialog_hide_on_ok = true
+mode = 0
+filters = PoolStringArray( "*png", "*jpg", "*webp" )
+[connection signal="focus_entered" from="LineEdit" to="." method="_on_LineEdit_focus_entered"]
+[connection signal="text_changed" from="LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]

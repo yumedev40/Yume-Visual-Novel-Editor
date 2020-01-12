@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI_Scripts/debug_message_component.gd" type="Script" id=1]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/breakpoint_icon.png" type="Texture" id=2]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/add_variable_button.png" type="Texture" id=3]
+
+[node name="debug_message_component" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 100.0
+script = ExtResource( 1 )
+__meta__ = {
+"debug_message_component": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+margin_right = 6.0
+margin_bottom = 100.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+margin_top = 43.0
+margin_right = 101.0
+margin_bottom = 57.0
+mouse_filter = 1
+text = "Debug Message"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 105.0
+margin_right = 108.0
+margin_bottom = 100.0
+mouse_filter = 1
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 112.0
+margin_right = 1873.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+focus_mode = 1
+size_flags_horizontal = 3
+text = "Debug Message Text"
+highlight_current_line = true
+show_line_numbers = true
+smooth_scrolling = true
+wrap_enabled = true
+caret_block_mode = true
+caret_blink = true
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1877.0
+margin_right = 1880.0
+margin_bottom = 100.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 1884.0
+margin_right = 1920.0
+margin_bottom = 100.0
+alignment = 2
+
+[node name="MenuButton" type="MenuButton" parent="VBoxContainer"]
+margin_top = 70.0
+margin_right = 36.0
+margin_bottom = 100.0
+mouse_filter = 1
+icon = ExtResource( 3 )
+flat = false
+items = [ "Global Variables", null, 0, false, true, -1, 0, null, "", true, "Global Placeholder Var 1", null, 0, false, false, -1, 0, null, "", false, "Global Placeholder Var 2", null, 0, false, false, -1, 0, null, "", false, "Local Variables", null, 0, false, true, -1, 0, null, "", true, "Local Placeholder Var 1", null, 0, false, false, -1, 0, null, "", false, "Local Placeholder Var 2", null, 0, false, false, -1, 0, null, "", false ]

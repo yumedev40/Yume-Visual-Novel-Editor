@@ -1,0 +1,75 @@
+#Action Nodes
+
+
+#Category
+[category: Canvas]
+[description: A set of actions that effect the view of the scene]
+[color_theme: (230,230,230)]
+
+#Nodes
+[action: Fade Screen]
+[description: Fade the screen to a color]
+[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/fade_screen_node_icon.png]
+[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/fade_screen_action.gd]
+
+[action: Modulate Scene Color]
+[description: Modulate all scene elements with a color]
+[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/modulate_screen_node_icon.png]
+[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/modulate_scene_color_.gd]
+
+
+
+
+#Category
+[category: Dialogue]
+[description: A set of actions that control the display and output of the scene's dialogue box]
+[color_theme: (121,232,147)]
+
+#Nodes
+[action: Adjust Dialogue Box Settings]
+[description: Adjust the scene's dialogue box settings]
+[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/dialogue_box_settings_node_icon.png]
+[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/adjust_dialogue_box_settings_action.gd]
+
+[action: Expressed Line]
+[description: Display a message with the scene's dialogue box]
+[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/dialogue_node_icon.png]
+[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/expressed_line_action.gd]
+
+
+
+
+#Category
+[category: Stage]
+[description: A set of actions that effect the visible components of the scene]
+[color_theme: (71,190,230)]
+
+#Nodes
+[action: Backdrop]
+[description: Set a backdrop image]
+[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/backdrop_node_icon.png]
+[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/null_action.gd]
+
+
+
+
+#Category
+[category: Debug]
+[description: A set of actions for debug testing]
+[color_theme: (69,114,186)]
+
+#Nodes
+[action: Debug]
+[description: A simple debug action node]
+[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/debug_node_bug_icon.png]
+[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/debug_action.gd]
+
+[action: Breakpoint]
+[description: Suspends scene and prints game variable values to the output panel]
+[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/breakpoint_node_icon.png]
+[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/breakpoint_action.gd]
+
+[action: Print]
+[description: Print a message, push a warning, or push an error to the ouput panel]
+[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/print_node_icon.png]
+[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/print_action.gd]

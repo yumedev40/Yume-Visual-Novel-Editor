@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI_Scripts/color_picker_component.gd" type="Script" id=1]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/arrow_icon.png" type="Texture" id=2]
+
+[node name="color_picker_component" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"color_picker": true
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 13.0
+margin_right = 33.0
+margin_bottom = 27.0
+text = "Color"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 37.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 44.0
+margin_right = 47.0
+margin_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 51.0
+margin_right = 67.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+margin_left = 71.0
+margin_right = 271.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 200, 0 )
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+align = 2
+edit_alpha = false
+
+[node name="HSeparator3" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 275.0
+margin_right = 278.0
+margin_bottom = 40.0
+
+[node name="HSeparator4" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 282.0
+margin_right = 285.0
+margin_bottom = 40.0
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = 289.0
+margin_right = 447.0
+margin_bottom = 40.0
+pressed = true
+text = "Blend With Previous"
+[connection signal="color_changed" from="ColorPickerButton" to="." method="_on_ColorPickerButton_color_changed"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
