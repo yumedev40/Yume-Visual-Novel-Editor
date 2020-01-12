@@ -1,0 +1,12 @@
+[gd_scene format=2]
+
+[node name="FileDialog" type="FileDialog"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/files_disabled = Color( 0.262745, 0.333333, 0.501961, 1 )
+window_title = "Open a Directory"
+dialog_hide_on_ok = true
+mode = 2
+filters = PoolStringArray( "*.therearenofileswiththisextension" )
+show_hidden_files = true

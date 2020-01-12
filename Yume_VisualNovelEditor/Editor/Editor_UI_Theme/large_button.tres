@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=6 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Theme/button_disabled.tres" type="StyleBox" id=1]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Theme/button_focus.tres" type="StyleBox" id=2]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Theme/button_hover.tres" type="StyleBox" id=3]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Theme/button_normal.tres" type="StyleBox" id=4]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Theme/button_pressed.tres" type="StyleBox" id=5]
+
+[resource]
+Button/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+Button/colors/font_color_disabled = Color( 0.607843, 0.639216, 0.705882, 1 )
+Button/colors/font_color_hover = Color( 0.121569, 0.145098, 0.192157, 1 )
+Button/colors/font_color_pressed = Color( 0.266667, 0.337255, 0.435294, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = ExtResource( 1 )
+Button/styles/focus = ExtResource( 2 )
+Button/styles/hover = ExtResource( 3 )
+Button/styles/normal = ExtResource( 4 )
+Button/styles/pressed = ExtResource( 5 )
