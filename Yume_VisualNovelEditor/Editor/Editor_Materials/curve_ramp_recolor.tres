@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Materials/shaders/curve_ramp_recolor.shader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/base_color = Color( 0, 0.12549, 0.227451, 1 )
+shader_param/adjust_color = Color( 0, 0.478431, 0.898039, 1 )
