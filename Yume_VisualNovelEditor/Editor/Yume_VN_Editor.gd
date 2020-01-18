@@ -1,7 +1,7 @@
 tool
 extends VBoxContainer
 
-export(String) var plugin_version : String = "0.0.0"
+export(String) var plugin_version : String = "0.1.0"
 
 # Editor Windows
 export(NodePath) var home_screen_path : NodePath
@@ -62,6 +62,7 @@ var scene_list_tree : Object
 
 # Internal Variables
 var editor_interface : Object
+var plugin_root : Object
 
 var run_first_time : bool = true
 var home_menu_tween : Tween = Tween.new()
@@ -305,15 +306,15 @@ func _validate_dir() -> bool:
 			return false
 	
 	if files_found.size() > 0:
-#		flag = false
-#		_visual_validation_filepath_feedback(flag)
-#		new_project_error_label.show()
-#		new_project_error_label.append_bbcode(str("* The Specified Directory Contains One Or More Files.  Please Select Or Create An Empty Directory:\n  > ", str(new_project_directory_path.text)))
-#		return false
-		
-		flag = true
+		flag = false
 		_visual_validation_filepath_feedback(flag)
-		return true
+		new_project_error_label.show()
+		new_project_error_label.append_bbcode(str("* The Specified Directory Contains One Or More Files.  Please Select Or Create An Empty Directory:\n  > ", str(new_project_directory_path.text)))
+		return false
+		
+#		flag = true
+#		_visual_validation_filepath_feedback(flag)
+#		return true
 	else:
 		flag = true
 		_visual_validation_filepath_feedback(flag)
@@ -388,6 +389,9 @@ func _setup_project_directory() -> void:
 	# Create Story Folders
 	dir.make_dir_recursive(str(dirpath, "/", story_directory, "/", "story_files"))
 	
+	# Create Game Data Folders
+	dir.make_dir_recursive(str(dirpath, "/", "game_data"))
+	
 	# Generate thumbnails folder
 #	dir.make_dir_recursive(str(dirpath, "/", "_thumbs_"))
 
@@ -411,6 +415,7 @@ func _setup_project_initial_file() -> void:
 			"project_name":  new_project_name.text,
 			"project_directory": dirpath,
 			"project_scene_list": {
+				"controller": str(dirpath, "/game_data/yume_game_controller.gd"),
 				"main_menu": str(dirpath, "/", "game_scenes", "/", "main_menu", "/", "Main_Menu", ".tscn"),
 				"settings_menu": "",
 				"game_scene": str(dirpath, "/", "game_scenes", "/", "game_main", "/", "VN_Main", ".tscn"),
@@ -427,6 +432,7 @@ func _setup_project_initial_file() -> void:
 			"project_name":  new_project_name.text,
 			"project_directory": dirpath,
 			"project_scene_list": {
+				"controller": "",
 				"main_menu": "",
 				"settings_menu": "",
 				"game_scene": "",
@@ -505,6 +511,7 @@ func _open_project() -> void:
 	project_open = true
 	
 	editor_screen._reset()
+	yield(get_tree().create_timer(0.02),"timeout")
 	editor_screen._setup()
 	
 	# Switch to Editor View
@@ -551,6 +558,11 @@ func _setup_project_settings(data:Dictionary, story:Dictionary) -> void:
 			# Set main menu as main scene
 			ProjectSettings.set("application/run/main_scene", data["project_scene_list"]["main_menu"])
 	
+	# Setup game controller singleton
+	if data.has("project_directory") && data.has("project_scene_list"):
+		if data["project_scene_list"]["controller"] != "":
+			var controller_base_name : String = data["project_scene_list"]["controller"].get_file().split(".")[0]
+			plugin_root.emit_signal("autoload", controller_base_name, data["project_scene_list"]["controller"])
 	
 	if story:
 		editor_screen.story_data = story
@@ -593,13 +605,14 @@ func _save_project() -> void:
 		file.store_line(to_json(project_data))
 		file.close()
 		
+		editor_screen.views_container.get_node("Story Editor").scene_actions_editor_panel.save()
+		
 		var story_data_file : File = File.new()
 		var story_data : Dictionary = editor_screen.views_container.get_node("Story Editor").get_tree_data()
+		
 		story_data_file.open(str(dirpath, "/story_data/story_data", ".yvndata"), File.WRITE)
 		story_data_file.store_line(to_json(story_data))
 		story_data_file.close()
-		
-		editor_screen.views_container.get_node("Story Editor").scene_actions_editor_panel.save()
 		
 		_setup_project_settings(project_data, story_data)
 		

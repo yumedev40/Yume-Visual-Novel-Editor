@@ -23,6 +23,7 @@ func _reset() -> void:
 
 
 func fade_overlay(transition_direction:bool, overlay_color:Color, duration:float, ease_type:int, blend:bool) -> void:
+	
 	var blend_ignore : bool = false
 	
 	if !visible:

@@ -33,12 +33,23 @@ func generate_menu_script(node:Object) -> GDScript:
 	var line_4 : String = ""
 	var line_5 : String = ""
 	
+	line_2 += str("var tween : Tween = Tween.new()\n\n")
+	
+	line_4 += str("\tadd_child(tween)\n")
+	line_4 += str('\ttween.connect("tween_all_completed", self, "_on_all_tweens_completed")\n\n')
+	
 	for i in button_list.size():
 		match button_list[i].name:
 			"Begin":
 				line_2 += str("onready var _begin : Button = $'", button_path_list[i], "'\n")
 				line_4 += "\t_begin.connect('pressed', self, '_on_Begin_pressed')\n"
-				line_5 += "\nfunc _on_Begin_pressed() -> void:\n\tprint('Begin pressed.')\n"
+				line_5 += "\nfunc _on_Begin_pressed() -> void:\n"
+				line_5 += '\n\tvar canvas_modulate : CanvasModulate = CanvasModulate.new()\n'
+				line_5 += '\n\tadd_child(canvas_modulate)\n'
+				line_5 += '\n\ttween.stop_all()\n'
+				line_5 += '\n\ttween.interpolate_property(canvas_modulate, "color", Color.white, Color.black, 1.0, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)\n'
+				line_5 += '\n\ttween.start()\n'
+				line_5 += '\n\tdisable_all_buttons()\n'
 			"Continue":
 				line_2 += str("onready var _continue : Button = $'", button_path_list[i], "'\n")
 				line_4 += "\t_continue.connect('pressed', self, '_on_Continue_pressed')\n"
@@ -54,7 +65,17 @@ func generate_menu_script(node:Object) -> GDScript:
 			"Exit":
 				line_2 += str("onready var _exit : Button = $'", button_path_list[i], "'\n")
 				line_4 += "\t_exit.connect('pressed', self, '_on_Exit_pressed')\n"
-				line_5 += "\nfunc _on_Exit_pressed() -> void:\n\tprint('Exit pressed.')\n"
+				line_5 += "\nfunc _on_Exit_pressed() -> void:\n\tget_tree().quit()\n"
+	
+	line_5 += str("\n\nfunc disable_all_buttons() -> void:")
+	line_5 += str("\n\t_begin.disabled = true")
+	line_5 += str("\n\t_continue.disabled = true")
+	line_5 += str("\n\t_load.disabled = true")
+	line_5 += str("\n\t_settings.disabled = true")
+	line_5 += str("\n\t_exit.disabled = true")
+	
+	line_5 += str("\n\nfunc _on_all_tweens_completed() -> void:")
+	line_5 += '\n\tget_tree().change_scene(str(yume_game_controller.directory_paths["game_scenes"], "/game_main/VN_Main.tscn"))\n'
 	
 	var menu_script : GDScript = GDScript.new()
 	menu_script.source_code = str(line_1, line_2, line_3, line_4, line_5, "\n")

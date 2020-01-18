@@ -138,6 +138,7 @@ rect_min_size = Vector2( 0, 2 )
 custom_styles/panel = SubResource( 1 )
 
 [node name="TopBar" type="PanelContainer" parent="."]
+editor/display_folded = true
 margin_top = 2.0
 margin_right = 1920.0
 margin_bottom = 23.0
@@ -157,7 +158,7 @@ margin_right = 35.0
 margin_bottom = 20.0
 mouse_default_cursor_shape = 2
 text = "File"
-items = [ "New Project", null, 0, false, true, 0, 0, null, "", false, "Load Project", null, 0, false, false, 1, 0, null, "", false, "", null, 0, false, false, -1, 0, null, "", true, "Save Project", null, 0, false, false, 2, 0, null, "", false, "Save Project As", null, 0, false, true, 3, 0, null, "", false, "", null, 0, false, false, -1, 0, null, "", true, "Close Project", null, 0, false, false, 4, 0, null, "", false ]
+items = [ "New Project", null, 0, false, false, 0, 0, null, "", false, "Load Project", null, 0, false, false, 1, 0, null, "", false, "", null, 0, false, false, -1, 0, null, "", true, "Save Project", null, 0, false, false, 2, 0, null, "", false, "Save Project As", null, 0, false, true, 3, 0, null, "", false, "", null, 0, false, false, -1, 0, null, "", true, "Close Project", null, 0, false, false, 4, 0, null, "", false ]
 
 [node name="Project" type="MenuButton" parent="TopBar/HBoxContainer"]
 visible = false
@@ -238,6 +239,7 @@ margin_right = 1920.0
 margin_bottom = 20.0
 
 [node name="EditorScreen" type="HBoxContainer" parent="."]
+editor/display_folded = true
 visible = false
 margin_top = 23.0
 margin_right = 1920.0
@@ -718,7 +720,7 @@ mouse_filter = 0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Actions/PanelContainer2/VBoxContainer/PanelContainer2/HBoxContainer/PreviewRunningSprite"]
 frames = SubResource( 7 )
 animation = "loading"
-frame = 6
+frame = 3
 playing = true
 offset = Vector2( 8, 8 )
 
@@ -746,6 +748,10 @@ margin_right = 1403.0
 margin_bottom = 536.0
 editor_root_path = NodePath("../../../../../../..")
 menu_fold_button_path = NodePath("../../PanelContainer2/HBoxContainer/MenuFoldButtons")
+max_v_bar_value = 1e+006
+min_scroll_speed = 10.0
+max_scroll_speed = 60.0
+wheel_step = 0.1
 
 [node name="Menu List" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews"]
 editor/display_folded = true
@@ -979,7 +985,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="WelcomeScreen" type="PanelContainer" parent="."]
-editor/display_folded = true
 margin_top = 23.0
 margin_right = 1920.0
 margin_bottom = 1080.0
@@ -1073,7 +1078,7 @@ margin_left = 460.0
 margin_right = 520.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0.345098, 0.505882, 0.745098, 1 )
-text = "ver. 0.0.0"
+text = "ver. 0.1.0"
 
 [node name="HSeparator" type="HSeparator" parent="WelcomeScreen/VBoxContainer/HBoxContainer/welcome/VBoxContainer/PanelContainer/VBoxContainer"]
 margin_top = 18.0

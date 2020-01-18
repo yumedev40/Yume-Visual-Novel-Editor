@@ -30,6 +30,8 @@ func _ready() -> void:
 		"Modulate Scene Color":
 			hide() ## Temporarily hide component until functionality is added
 			$Label.text = "Mask"
+		"Backdrop":
+			node_container_base.character_name_preview = true
 	
 	
 	# handle load data
@@ -135,11 +137,30 @@ func file_check(new_text:String) -> void:
 		
 		
 		image = new_text
+		
 		line_edit.set("custom_colors/font_color", Color.green)
+		
+		line_edit.hint_tooltip = new_text
+		
+		for i in get_parent().get_children():
+			if i.has_meta("transition_settings"):
+				i.get_node("VBoxContainer2/HBoxContainer2/PanelContainer/ColorRect").set_image(load(new_text))
+		
+		match action_node_root.action_title:
+			"Backdrop":
+				node_container_base.set_character_name(new_text.get_file().split(".")[0])
 	else:
 #		image_thumbnail.texture = null
 #		push_error(str("Image filepath is not a valid file > ", new_text))
 		line_edit.set("custom_colors/font_color", Color.red)
+		
+		for i in get_parent().get_children():
+			if i.has_meta("transition_settings"):
+				i.get_node("VBoxContainer2/HBoxContainer2/PanelContainer/ColorRect").set_image(null)
+		
+		match action_node_root.action_title:
+			"Backdrop":
+				node_container_base.set_character_name("")
 
 
 func _on_Button_pressed() -> void:

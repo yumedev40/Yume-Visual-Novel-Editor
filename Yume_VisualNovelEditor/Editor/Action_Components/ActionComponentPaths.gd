@@ -18,11 +18,17 @@ const image : String = "res://addons/Yume_VisualNovelEditor/Editor/Action_Compon
 
 const null_ : String = "res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI/null_component.tscn"
 
+const scene : String = "res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI/scene_component.tscn"
+
 const text_string : String = "res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI/text_string_component.tscn"
 
 const text_box : String = "res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI/text_box_component.tscn"
 
+const toggle : String = "res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI/toggle_component.tscn"
+
 const transition_settings : String = "res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI/transition_settings_component.tscn"
+
+const value : String = "res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI/value_component.tscn"
 
 
 

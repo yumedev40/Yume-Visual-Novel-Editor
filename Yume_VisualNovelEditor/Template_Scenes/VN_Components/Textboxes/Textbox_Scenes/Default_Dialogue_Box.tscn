@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Game/Component_Scripts/dialogue_box.gd" type="Script" id=1]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Resources/Dynamic_Font_Files/Ubuntu_Font/Ubuntu-Bold-36px.tres" type="DynamicFont" id=2]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Resources/Dynamic_Font_Files/Ubuntu_Font/Ubuntu-BoldItalic-36px.tres" type="DynamicFont" id=3]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Resources/Dynamic_Font_Files/Ubuntu_Font/Ubuntu-Italic-36px.tres" type="DynamicFont" id=4]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Resources/Dynamic_Font_Files/Ubuntu_Font/Ubuntu-Regular-36px.tres" type="DynamicFont" id=5]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Game/Images/continue_icon.png" type="Texture" id=2]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Resources/Dynamic_Font_Files/Ubuntu_Font/Ubuntu-Bold-36px.tres" type="DynamicFont" id=3]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Resources/Dynamic_Font_Files/Ubuntu_Font/Ubuntu-BoldItalic-36px.tres" type="DynamicFont" id=4]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Resources/Dynamic_Font_Files/Ubuntu_Font/Ubuntu-Italic-36px.tres" type="DynamicFont" id=5]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Resources/Dynamic_Font_Files/Ubuntu_Font/Ubuntu-Regular-36px.tres" type="DynamicFont" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 40.0
@@ -26,8 +27,12 @@ corner_radius_bottom_left = 10
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+box_path = NodePath("HBoxContainer/PanelContainer")
 nametag_path = NodePath("HBoxContainer/PanelContainer/VBoxContainer/RichTextLabel")
 dialoguebox_path = NodePath("HBoxContainer/PanelContainer/VBoxContainer/RichTextLabel2")
+completion_sprite_path = NodePath("HBoxContainer/PanelContainer/Continue_Icon")
+completion_sprite_texture = ExtResource( 2 )
+completion_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="."]
 modulate = Color( 1, 1, 1, 0 )
@@ -60,6 +65,10 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 9.0
 custom_styles/panel = SubResource( 1 )
 
+[node name="Continue_Icon" type="Sprite" parent="HBoxContainer/PanelContainer"]
+visible = false
+position = Vector2( 1685, 239 )
+
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer"]
 margin_left = 40.0
 margin_top = 20.0
@@ -67,41 +76,31 @@ margin_right = 1680.0
 margin_bottom = 254.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+visible = false
 margin_right = 1640.0
 margin_bottom = 44.88
 rect_min_size = Vector2( 0, 44.88 )
-custom_fonts/normal_font = ExtResource( 2 )
+custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
-bbcode_text = "Name Tag
-"
-text = "Name Tag
-"
 scroll_active = false
 
 [node name="HSeparator" type="HSeparator" parent="HBoxContainer/PanelContainer/VBoxContainer"]
-margin_top = 48.0
+modulate = Color( 1, 1, 1, 0 )
 margin_right = 1640.0
-margin_bottom = 52.0
+margin_bottom = 4.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="HBoxContainer/PanelContainer/VBoxContainer"]
-margin_top = 56.0
-margin_right = 1640.0
-margin_bottom = 234.0
+visible = false
+margin_top = 8.0
+margin_right = 834.0
+margin_bottom = 111.0
 rect_min_size = Vector2( 0, 42 )
 size_flags_vertical = 3
-custom_fonts/bold_italics_font = ExtResource( 3 )
-custom_fonts/italics_font = ExtResource( 4 )
-custom_fonts/bold_font = ExtResource( 2 )
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/bold_italics_font = ExtResource( 4 )
+custom_fonts/italics_font = ExtResource( 5 )
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 6 )
 bbcode_enabled = true
-bbcode_text = "Dialogue Text Line 1
-Dialogue Text Line 2
-Dialogue Text Line 3
-Dialogue Text Line 4"
-text = "Dialogue Text Line 1
-Dialogue Text Line 2
-Dialogue Text Line 3
-Dialogue Text Line 4"
 scroll_active = false
 
 [node name="HSeparator" type="HSeparator" parent="HBoxContainer"]

@@ -62,6 +62,9 @@ func _setup() -> void:
 	if viewport.get_child_count() < 2:
 		var VN_Main : Object = load(editor_root.project_scene_list["game_scene"]).instance()
 		VN_Main.debug_mode = true
+		
+		yield(get_tree().create_timer(0.1),"timeout")
+
 		viewport.add_child(VN_Main)
 		preview_scene = VN_Main
 		VN_Main.connect("completed", self, "_preview_completed")

@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Component_Scripts/scene_action_node_menu_bar.gd" type="Script" id=1]
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/base_node_icon.png" type="Texture" id=2]
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Theme/node_menu_medium_gray_bar.tres" type="StyleBox" id=3]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/transparency_grid.png" type="Texture" id=4]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Theme/dark_bg.tres" type="StyleBox" id=5]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Theme/dark_bg.tres" type="StyleBox" id=4]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/transparency_grid.png" type="Texture" id=5]
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/up_arrow.png" type="Texture" id=6]
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/raise_up_arrow.png" type="Texture" id=7]
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/lower_down_arrow.png" type="Texture" id=8]
@@ -13,13 +13,17 @@
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxFlat" id=4]
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=5]
 code = "shader_type canvas_item;
 render_mode unshaded;
 
@@ -47,17 +51,17 @@ void fragment() {
 	}
 }"
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
 shader_param/flip = true
-shader_param/start_color = Color( 1, 1, 1, 1 )
+shader_param/start_color = Color( 0, 0, 0, 1 )
 shader_param/end_color = Color( 0.66, 0.66, 0.66, 1 )
 shader_param/use_texture = true
-shader_param/grid = ExtResource( 4 )
+shader_param/grid = ExtResource( 5 )
 
-[sub_resource type="ProxyTexture" id=5]
+[sub_resource type="ProxyTexture" id=7]
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=8]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
@@ -148,31 +152,63 @@ margin_bottom = 21.0
 custom_constants/separation = 5
 alignment = 2
 
+[node name="PreviewImage" type="TextureRect" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
+visible = false
+margin_right = 24.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 24, 16 )
+expand = true
+stretch_mode = 4
+
+[node name="CharacterName" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
+visible = false
+margin_top = 1.0
+margin_bottom = 15.0
+size_flags_vertical = 3
+custom_styles/focus = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+meta_underlined = false
+scroll_active = false
+
+[node name="CharacterDialogue" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
+visible = false
+margin_right = 201.0
+margin_bottom = 16.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+custom_styles/focus = ExtResource( 4 )
+custom_styles/normal = ExtResource( 4 )
+meta_underlined = false
+scroll_active = false
+
 [node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
 visible = false
-margin_right = 64.0
+margin_left = 170.0
+margin_right = 234.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 64, 14 )
 mouse_filter = 2
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 4 )
 
 [node name="PreviewRamp" type="TextureRect" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/PanelContainer2"]
-material = SubResource( 4 )
+material = SubResource( 6 )
 margin_left = 1.0
 margin_top = 1.0
 margin_right = 63.0
 margin_bottom = 15.0
 mouse_filter = 2
-texture = SubResource( 5 )
+texture = SubResource( 7 )
 expand = true
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
 visible = false
-margin_right = 64.0
+margin_left = 204.0
+margin_right = 268.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 64, 14 )
 mouse_filter = 2
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 4 )
 
 [node name="PreviewColor" type="ColorRect" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/PanelContainer"]
 margin_left = 1.0
@@ -190,13 +226,14 @@ stretch_mode = 4
 
 [node name="PreviewLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
 visible = false
-margin_right = 915.0
+margin_left = 203.0
+margin_right = 303.0
 margin_bottom = 16.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/focus = ExtResource( 5 )
-custom_styles/normal = ExtResource( 5 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/normal = ExtResource( 4 )
 bbcode_enabled = true
 scroll_active = false
 
@@ -290,7 +327,7 @@ margin_bottom = 46.0
 rect_min_size = Vector2( 0, 20 )
 mouse_filter = 1
 size_flags_horizontal = 3
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 8 )
 
 [node name="UI" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/PanelContainer2"]
 margin_left = 10.0

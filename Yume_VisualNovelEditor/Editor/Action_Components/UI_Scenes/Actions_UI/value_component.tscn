@@ -1,0 +1,94 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI_Scripts/value_component.gd" type="Script" id=1]
+
+[node name="value_component" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_constants/separation = 5
+script = ExtResource( 1 )
+__meta__ = {
+"breakpoint_component": true,
+"debug_options_component": true
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 8.0
+margin_right = 34.0
+margin_bottom = 22.0
+text = "value"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 39.0
+margin_right = 42.0
+margin_bottom = 31.0
+
+[node name="SpinBox" type="SpinBox" parent="."]
+margin_left = 47.0
+margin_right = 187.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 140, 0 )
+step = 0.1
+value = 1.0
+suffix = "second(s)"
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 192.0
+margin_right = 195.0
+margin_bottom = 31.0
+
+[node name="HSeparator3" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 200.0
+margin_right = 203.0
+margin_bottom = 31.0
+
+[node name="HSeparator4" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 208.0
+margin_right = 211.0
+margin_bottom = 31.0
+
+[node name="CheckBox" type="CheckBox" parent="."]
+visible = false
+margin_left = 150.0
+margin_right = 256.0
+margin_bottom = 40.0
+focus_mode = 0
+text = "Parameter 1"
+
+[node name="HSeparator6" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 216.0
+margin_right = 219.0
+margin_bottom = 31.0
+
+[node name="HSeparator5" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 224.0
+margin_right = 227.0
+margin_bottom = 31.0
+
+[node name="HSeparator7" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 232.0
+margin_right = 235.0
+margin_bottom = 31.0
+
+[node name="CheckBox2" type="CheckBox" parent="."]
+visible = false
+margin_left = 174.0
+margin_right = 280.0
+margin_bottom = 40.0
+focus_mode = 0
+text = "Parameter 1"
+[connection signal="changed" from="SpinBox" to="." method="_on_SpinBox_changed"]
+[connection signal="focus_entered" from="SpinBox" to="." method="_on_SpinBox_focus_entered"]
+[connection signal="mouse_entered" from="SpinBox" to="." method="_on_SpinBox_mouse_entered"]
+[connection signal="mouse_exited" from="SpinBox" to="." method="_on_SpinBox_mouse_exited"]
+[connection signal="value_changed" from="SpinBox" to="." method="_on_SpinBox_value_changed"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
+[connection signal="toggled" from="CheckBox2" to="." method="_on_CheckBox2_toggled"]

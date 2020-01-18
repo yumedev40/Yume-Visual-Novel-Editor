@@ -26,15 +26,41 @@
 [color_theme: (121,232,147)]
 
 #Nodes
-[action: Adjust Dialogue Box Settings]
-[description: Adjust the scene's dialogue box settings]
-[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/dialogue_box_settings_node_icon.png]
-[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/adjust_dialogue_box_settings_action.gd]
+#[action: Adjust Dialogue Box Settings]
+#[description: Adjust the scene's dialogue box settings]
+#[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/dialogue_box_settings_node_icon.png]
+#[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/adjust_dialogue_box_settings_action.gd]
+
+[action: Dialogue Box Visibility]
+[description: Change the scene's dialogue box visibility]
+[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/dialogue_box_visibility_node_icon.png]
+[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/dialogue_box_visibility_action.gd]
 
 [action: Expressed Line]
 [description: Display a message with the scene's dialogue box]
 [icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/dialogue_node_icon.png]
 [script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/expressed_line_action.gd]
+
+
+
+
+
+#Category
+[category: Sequence]
+[description: A set of actions that effect the progression of the story]
+[color_theme: (252, 205, 111)]
+
+#Nodes
+[action: End]
+[description: Ends the story and proceeds to a specified scene and, if no scene is specified, returns to the main menu]
+[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/end_node_icon.png]
+[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/end_action.gd]
+
+[action: Wait]
+[description: Waits for a set amount of time, or user input, before moving on]
+[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/wait_node_icons.png]
+[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/wait_action.gd]
+
 
 
 
@@ -48,7 +74,7 @@
 [action: Backdrop]
 [description: Set a backdrop image]
 [icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/backdrop_node_icon.png]
-[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/null_action.gd]
+[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/backdrop_action.gd]
 
 
 
@@ -59,10 +85,10 @@
 [color_theme: (69,114,186)]
 
 #Nodes
-[action: Debug]
-[description: A simple debug action node]
-[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/debug_node_bug_icon.png]
-[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/debug_action.gd]
+#[action: Debug]
+#[description: A simple debug action node]
+#[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/debug_node_bug_icon.png]
+#[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/debug_action.gd]
 
 [action: Breakpoint]
 [description: Suspends scene and prints game variable values to the output panel]
