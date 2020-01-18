@@ -1,6 +1,8 @@
 tool
 extends Control
 
+onready var backdrop = $"VISUAL_COMPONENTS/Backdrop"
+
 onready var overlay_color = $"VISUAL_COMPONENTS/OverlayScreen/OverlayColor"
 
 onready var screen_space_fx = $"VISUAL_COMPONENTS/ScreenSpaceEffects"
@@ -8,6 +10,7 @@ onready var screen_space_fx = $"VISUAL_COMPONENTS/ScreenSpaceEffects"
 
 var raw_edit_preview : bool = false
 var debug_mode : bool = false
+var waiting_for_input : bool = false
 
 var skip_index : int = 0 setget skip_to_index, get_skip_index
 
@@ -36,17 +39,19 @@ func _ready() -> void:
 	connect("success", self, "on_action_success")
 	connect("failure", self, "on_action_failure")
 	
-#	if debug_mode:
-#		print("VN stage is in Debug mode")
-#	else:
-#		print("VN stage is in Game mode")
+	if !debug_mode && !Engine.is_editor_hint():
+		if yume_game_controller.initial_scene == "":
+#			print("start from beginning")
+			preview_complete_scene([1,1], get_initial_file())
+		else:
+			print("start from specific file")
 
 
 func _reset() -> void:
 	var nodes : Array = _filter_array(_get_object_child_nodes(self))
 	for i in nodes:
 		if i.has_method("_reset"):
-			i.call("_reset")
+			i.call_deferred("_reset")
 
 
 
@@ -93,16 +98,22 @@ func get_actions_array() -> Array:
 # Connected Methods
 func on_action_success() -> void:
 #	print("action succeeded")
-#
+	
 	if debug_mode && !raw_edit_preview:
+		action_tags.pop_front()
+		update_action_state()
+	elif !debug_mode:
 		action_tags.pop_front()
 		update_action_state()
 
 
 func on_action_failure() -> void:
 #	print("action failed")
-#
+	
 	if debug_mode && !raw_edit_preview:
+		action_tags.pop_front()
+		update_action_state()
+	elif !debug_mode:
 		action_tags.pop_front()
 		update_action_state()
 
@@ -164,16 +175,106 @@ func parse_file(filepath:String) -> void:
 # Action Pushdown Automata
 func call_action_stack() -> void:
 	match current_action.to_lower():
+		"backdrop":
+			var image_path : String
+			var transition_info : Array = []
+			var instant : bool
+			var new_image : StreamTexture
+			
+			if action_tags[0].has("image") && action_tags[0].has("transition_settings") && action_tags[0].has("toggle"):
+				image_path = action_tags[0]["image"][0]
+				transition_info = action_tags[0]["transition_settings"]
+				instant = action_tags[0]["toggle"][0]
+				
+				if action_tags[0]["toggle"][0]:
+					transition_info[2] = 0.0
+			else:
+				push_warning(str(current_action, " is missing one of the following components: [image][transition_settings][toggle] -- action failed"))
+				emit_signal("failure")
+				return
+			
+			if image_path != "":
+				backdrop.transition_backdrop(load(image_path), transition_info)
+			else:
+				backdrop.transition_backdrop(null, transition_info)
+		
 		"breakpoint":
 			if !Engine.is_editor_hint() && !debug_mode:
 				breakpoint
 			else:
 				printerr("Breakpoint")
 			emit_signal("success")
-			
+		
 		"debug":
 			print("Basic debug test node")
 			emit_signal("success")
+		
+		"dialogue box visibility":
+			# Dialogue box reference
+			var dialogue_box : Object = $UI_COMPONENTS/DialogueBox_UI/Dialogue_Box
+			
+			var visibility : bool
+			var reset_flag : bool
+			
+			if action_tags[0].has("toggle"):
+				visibility = action_tags[0]["toggle"][0]
+				reset_flag = action_tags[0]["toggle"][1]
+				
+				dialogue_box.reset_on_hide = reset_flag
+				dialogue_box.set_box_visibility(visibility)
+			else:
+				push_warning(str(current_action, " is missing one of the following components: [toggle] -- action failed"))
+				emit_signal("failure")
+				return
+		
+		"end":
+			var filepath : String
+			
+			if action_tags[0].has("scene"):
+				filepath = action_tags[0]["scene"][0]
+			else:
+				push_warning(str(current_action, " is missing one of the following components: [scene] -- action failed"))
+				emit_signal("failure")
+				return
+			
+			match filepath:
+				"":
+					if !debug_mode:
+						var main_menu_path : String = str(yume_game_controller.directory_paths["project_directory"], "/game_scenes/main_menu/Main_Menu.tscn")
+						
+						get_tree().change_scene(main_menu_path)
+					else:
+						push_warning(str("End of story called with no destination scene set -- would return to main menu"))
+						
+						emit_signal("success")
+				_:
+					if !debug_mode:
+						get_tree().change_scene(str(filepath))
+					else:
+						push_warning(str("End of story called -- would change to destination scene ", filepath))
+						
+						emit_signal("success")
+		
+		"expressed line":
+			# Dialogue box reference
+			var dialogue_box : Object = $UI_COMPONENTS/DialogueBox_UI/Dialogue_Box
+			var name_string : String
+			var dialogue_string : String
+			
+			
+			if action_tags[0].has("text_box") && action_tags[0].has("text_string"):
+				name_string = action_tags[0]["text_string"][0]
+				match action_tags[0]["text_box"][1]:
+					true:
+						dialogue_string = action_tags[0]["text_box"][2]
+					false:
+						dialogue_string = action_tags[0]["text_box"][0]
+			else:
+				push_warning(str(current_action, " is missing one of the following components: [text_box][text_string] -- action failed"))
+				emit_signal("failure")
+				return
+			
+			dialogue_box.start_dialogue(name_string, dialogue_string, debug_mode)
 			
 		"fade screen":
 			var transition_direction : bool = true
@@ -285,10 +386,60 @@ func call_action_stack() -> void:
 					push_warning(str(current_action, " is missing its debug options component -- action failed"))
 					emit_signal("failure")
 					return
+		
+		"wait":
+			var wait_time : float = 0.01
+			
+			if action_tags[0].has("value"):
+				wait_time = action_tags[0]["value"][0]
+			else:
+				push_warning(str(current_action, " is missing one of the following components: [value] -- action failed"))
+				emit_signal("failure")
+				return
+			
+			$InputControl.wait_for_time(wait_time)
+		
 		_:
 			emit_signal("failure")
 
 
+
+
+
+
+
+
+
+
+
+func get_initial_file() -> String:
+	var file_path : String = ""
+	
+	var story_data_path : String = str(yume_game_controller.directory_paths["story_data"], "/story_data.yvndata")
+	
+	var story_data_file : File = File.new()
+	var story_data : Array = []
+	
+	if story_data_file.file_exists(story_data_path):
+#		print("story_data_file_exists")
+		story_data_file.open(story_data_path, File.READ)
+		
+		while !story_data_file.eof_reached():
+			story_data.append(parse_json(story_data_file.get_line()))
+		
+		story_data_file.close()
+	
+#	print(story_data)
+	
+	if typeof(story_data[0]) == TYPE_DICTIONARY:
+		if story_data[0].has("chapters"):
+			if story_data[0]["chapters"].keys().size() > 0:
+				if story_data[0]["chapters"]["Chapter 1"]["scenes"].keys().size() > 0:
+					file_path = story_data[0]["chapters"]["Chapter 1"]["scenes"]["Scene 1"]["script_path"].replace(".yscndata", ".yscn")
+	
+#	print(file_path)
+	
+	return file_path
 
 
 
@@ -318,3 +469,4 @@ func _filter_array(array:Array) -> Array:
 			new_array.append(base_array[i])
 	
 	return new_array
+
