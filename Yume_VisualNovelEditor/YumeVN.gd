@@ -6,6 +6,10 @@ var editor_icon : StreamTexture = preload("res://addons/Yume_VisualNovelEditor/E
 
 var editor_ui_instance : Object
 
+signal autoload
+
+
+
 
 #warnings-disable
 func _enter_tree():
@@ -13,9 +17,14 @@ func _enter_tree():
 	get_editor_interface().get_editor_viewport().add_child(editor_ui_instance)
 	
 	make_visible(false)
+	
+	connect("autoload", self, "_set_controller_autoload")
 
 func _exit_tree():
 	editor_ui_instance.queue_free()
+	
+	if is_connected("autoload", self, "_set_controller_autoload"):
+		disconnect("autoload", self, "_set_controller_autoload")
 
 func _ready():
 	pass
@@ -33,6 +42,9 @@ func make_visible(visible):
 		if !editor_ui_instance.editor_interface:
 			editor_ui_instance.editor_interface = get_editor_interface()
 		
+		if !editor_ui_instance.plugin_root:
+			editor_ui_instance.plugin_root = self
+		
 #		if !OS.is_in_low_processor_usage_mode():
 #			OS.set_low_processor_usage_mode(true) 
 	else:
@@ -48,4 +60,12 @@ func get_plugin_icon():
 
 func save_external_data() -> void:
 	editor_ui_instance._save_project()
+
+
+
+func _set_controller_autoload(file_name:String, file_path:String) -> void:
+	if Engine.has_singleton(file_name):
+		remove_autoload_singleton(file_name)
+	
+	add_autoload_singleton(file_name, file_path)
 
