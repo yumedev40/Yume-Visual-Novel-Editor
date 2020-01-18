@@ -94,6 +94,7 @@ func _close_scene() -> void:
 	scene_actions._reset_menu_fold_button()
 	
 	preview.reset_ui()
+	preview.preview_scene._reset()
 	
 	scene_actions.vbar.hide()
 
@@ -257,6 +258,33 @@ func build_story_tree() -> void:
 					story_scene_item.set_editable(1, true)
 					
 					story_scene_item.add_button(1, preload("res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/close_icon.png"))
+	
+	story_check = story_tree.get_root().get_children()
+	var scene_check : TreeItem
+	var move_array : Array = []
+	
+	while is_instance_valid(story_check):
+		var idx : int = int(story_check.get_text(0).split(" ")[1])
+		
+		if float(idx)/10.0 >= 1.0:
+			move_array.append(story_check)
+		
+		if is_instance_valid(story_check.get_children()):
+			scene_check = story_check.get_children()
+			
+			while is_instance_valid(scene_check):
+				var idx2 : int = int(scene_check.get_text(0).split(" ")[1])
+				
+				if float(idx2)/10.0 >= 1.0:
+					move_array.append(scene_check)
+				
+				scene_check = scene_check.get_next()
+		
+		story_check = story_check.get_next()
+	
+	for i in move_array:
+		if i is TreeItem:
+			i.move_to_bottom()
 
 
 func get_tree_data() -> Dictionary:
@@ -274,16 +302,21 @@ func get_tree_data() -> Dictionary:
 		while is_instance_valid(scene_item):
 			if story_tree.current_opened:
 				if story_tree.current_opened == scene_item:
-					if story_tree.current_opened.has_meta("script_file"):
-						scene_dict[str(scene_item.get_text(0))] = {
-							"name": scene_item.get_text(1),
-							"script_path": story_tree.current_opened.get_meta("script_file")
-						}
-					else:
-						scene_dict[str(scene_item.get_text(0))] = {
-							"name": scene_item.get_text(1),
-							"script_path": scene_item.get_tooltip(1)
-						}
+					scene_dict[str(scene_item.get_text(0))] = {
+						"name": scene_item.get_text(1),
+						"script_path": scene_actions_editor_panel.open_scene_info["scene_script_filepath"]
+					}
+					
+#					if story_tree.current_opened.has_meta("script_file"):
+#						scene_dict[str(scene_item.get_text(0))] = {
+#							"name": scene_item.get_text(1),
+#							"script_path": story_tree.current_opened.get_meta("script_file")
+#						}
+#					else:
+#						scene_dict[str(scene_item.get_text(0))] = {
+#							"name": scene_item.get_text(1),
+#							"script_path": scene_item.get_tooltip(1)
+#						}
 				else:
 					scene_dict[str(scene_item.get_text(0))] = {
 						"name": scene_item.get_text(1),
