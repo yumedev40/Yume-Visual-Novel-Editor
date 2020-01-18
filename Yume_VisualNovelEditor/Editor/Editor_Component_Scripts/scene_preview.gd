@@ -64,7 +64,7 @@ func _setup() -> void:
 		VN_Main.debug_mode = true
 		
 		yield(get_tree().create_timer(0.1),"timeout")
-		
+
 		viewport.add_child(VN_Main)
 		preview_scene = VN_Main
 		VN_Main.connect("completed", self, "_preview_completed")
