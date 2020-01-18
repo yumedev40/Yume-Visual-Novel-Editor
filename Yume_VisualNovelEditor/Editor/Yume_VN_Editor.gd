@@ -306,15 +306,15 @@ func _validate_dir() -> bool:
 			return false
 	
 	if files_found.size() > 0:
-#		flag = false
-#		_visual_validation_filepath_feedback(flag)
-#		new_project_error_label.show()
-#		new_project_error_label.append_bbcode(str("* The Specified Directory Contains One Or More Files.  Please Select Or Create An Empty Directory:\n  > ", str(new_project_directory_path.text)))
-#		return false
-		
-		flag = true
+		flag = false
 		_visual_validation_filepath_feedback(flag)
-		return true
+		new_project_error_label.show()
+		new_project_error_label.append_bbcode(str("* The Specified Directory Contains One Or More Files.  Please Select Or Create An Empty Directory:\n  > ", str(new_project_directory_path.text)))
+		return false
+		
+#		flag = true
+#		_visual_validation_filepath_feedback(flag)
+#		return true
 	else:
 		flag = true
 		_visual_validation_filepath_feedback(flag)
