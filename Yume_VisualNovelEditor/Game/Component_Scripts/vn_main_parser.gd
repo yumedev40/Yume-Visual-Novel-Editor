@@ -255,23 +255,19 @@ func call_action_stack() -> void:
 			
 			match filepath:
 				"":
-					var game_controller : Object
-					
-					if get_node_or_null("/root/yume_game_controller"):
-						game_controller = get_node("/root/yume_game_controller")
-					else:
-						push_warning("Yume game controller singleton missing -- action_failed")
-						emit_signal("failure")
-						return
-					
 					if !debug_mode:
+						var game_controller : Object
+						
+						if get_node_or_null("/root/yume_game_controller"):
+							game_controller = get_node("/root/yume_game_controller")
+						else:
+							push_warning("Yume game controller singleton missing -- action_failed")
+							emit_signal("failure")
+							return
+						
 						var main_menu_path : String = str(game_controller.directory_paths["project_directory"], "/game_scenes/main_menu/Main_Menu.tscn")
 						
 						get_tree().change_scene(main_menu_path)
-					else:
-						push_warning(str("End of story called with no destination scene set -- would return to main menu"))
-						
-						emit_signal("success")
 				_:
 					if !debug_mode:
 						get_tree().change_scene(str(filepath))
