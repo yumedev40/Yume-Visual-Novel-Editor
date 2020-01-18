@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI_Scripts/toggle_component.gd" type="Script" id=1]
+
+[node name="toggle_component" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_constants/separation = 5
+script = ExtResource( 1 )
+__meta__ = {
+"breakpoint_component": true,
+"debug_options_component": true,
+"toggle_component": true
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 13.0
+margin_right = 87.0
+margin_bottom = 27.0
+text = "Toggle button"
+
+[node name="CheckButton" type="CheckButton" parent="."]
+margin_left = 92.0
+margin_right = 168.0
+margin_bottom = 40.0
+focus_mode = 0
+enabled_focus_mode = 0
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 173.0
+margin_right = 176.0
+margin_bottom = 40.0
+
+[node name="HSeparator3" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 181.0
+margin_right = 184.0
+margin_bottom = 40.0
+
+[node name="HSeparator4" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 189.0
+margin_right = 192.0
+margin_bottom = 40.0
+
+[node name="ModifierCheckbox" type="CheckBox" parent="."]
+visible = false
+margin_left = 197.0
+margin_right = 326.0
+margin_bottom = 40.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Extra Parameter"
+
+[node name="HSeparator5" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 197.0
+margin_right = 200.0
+margin_bottom = 40.0
+
+[node name="ModifierCheckbox2" type="CheckBox" parent="."]
+visible = false
+margin_left = 197.0
+margin_right = 326.0
+margin_bottom = 40.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Extra Parameter"
+[connection signal="toggled" from="CheckButton" to="." method="_on_CheckButton_toggled"]
+[connection signal="toggled" from="ModifierCheckbox" to="." method="_on_ModifierCheckbox_toggled"]
+[connection signal="toggled" from="ModifierCheckbox2" to="." method="_on_ModifierCheckbox2_toggled"]

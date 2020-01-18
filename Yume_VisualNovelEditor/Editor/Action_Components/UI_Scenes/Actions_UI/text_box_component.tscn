@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI_Scripts/text_box_component.gd" type="Script" id=1]
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/char_icon.png" type="Texture" id=2]
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/add_variable_button.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
 
 [node name="text_box_component" type="HBoxContainer"]
 anchor_right = 1.0
@@ -18,14 +26,14 @@ __meta__ = {
 }
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
-margin_right = 1920.0
+margin_right = 1024.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
-margin_right = 1920.0
+margin_right = 1024.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -44,18 +52,37 @@ margin_bottom = 80.0
 
 [node name="LineEdit" type="TextEdit" parent="VBoxContainer2/HBoxContainer"]
 margin_left = 38.0
-margin_right = 1669.0
+margin_right = 773.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 0, 80 )
 size_flags_horizontal = 3
 highlight_current_line = true
 show_line_numbers = true
 smooth_scrolling = true
+wrap_enabled = true
+caret_blink = true
+
+[node name="PlaceholderText" type="TextEdit" parent="VBoxContainer2/HBoxContainer"]
+visible = false
+margin_left = 407.0
+margin_right = 772.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 80 )
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_styles/read_only = SubResource( 1 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+custom_styles/completion = SubResource( 4 )
+readonly = true
+show_line_numbers = true
+smooth_scrolling = true
+wrap_enabled = true
 caret_blink = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer"]
-margin_left = 1673.0
-margin_right = 1709.0
+margin_left = 777.0
+margin_right = 813.0
 margin_bottom = 80.0
 alignment = 1
 
@@ -77,27 +104,33 @@ items = [ "Global Variables", null, 0, false, false, -1, 0, null, "", true, "Pla
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1713.0
-margin_right = 1716.0
+margin_left = 817.0
+margin_right = 820.0
 margin_bottom = 80.0
 
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1720.0
-margin_right = 1723.0
+margin_left = 824.0
+margin_right = 827.0
 margin_bottom = 80.0
 
 [node name="HSeparator4" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1727.0
-margin_right = 1730.0
+margin_left = 831.0
+margin_right = 834.0
 margin_bottom = 80.0
 
 [node name="CheckButton" type="CheckButton" parent="VBoxContainer2/HBoxContainer"]
-margin_left = 1734.0
-margin_right = 1920.0
+margin_left = 838.0
+margin_right = 1024.0
 margin_bottom = 80.0
 focus_mode = 0
 enabled_focus_mode = 0
 text = "Placeholder Text"
 align = 2
+[connection signal="focus_entered" from="VBoxContainer2/HBoxContainer/LineEdit" to="." method="_on_LineEdit_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer2/HBoxContainer/LineEdit" to="." method="_on_LineEdit_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer2/HBoxContainer/LineEdit" to="." method="_on_LineEdit_mouse_exited"]
+[connection signal="request_completion" from="VBoxContainer2/HBoxContainer/LineEdit" to="." method="_on_LineEdit_request_completion"]
+[connection signal="text_changed" from="VBoxContainer2/HBoxContainer/LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="toggled" from="VBoxContainer2/HBoxContainer/CheckButton" to="." method="_on_CheckButton_toggled"]

@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI_Scripts/transition_settings_component.gd" type="Script" id=1]
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/transparency_grid.png" type="Texture" id=2]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Component_Scripts/brightness_to_transparency.gd" type="Script" id=3]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Materials/curve_ramp_recolor.tres" type="Material" id=4]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/down_arrow_grabber.png" type="Texture" id=5]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Backgrounds/candle_light_bg_00000.png" type="Texture" id=3]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Component_Scripts/brightness_to_transparency.gd" type="Script" id=4]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Materials/curve_ramp_recolor.tres" type="Material" id=5]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/down_arrow_grabber.png" type="Texture" id=6]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -26,32 +27,42 @@ uniform vec4 color : hint_color = vec4(vec3(1.0), 1.0);
 
 uniform sampler2D grid;
 
+uniform bool use_image = false;
+uniform sampler2D image;
+
 
 void fragment() {
 	vec4 grid_tex = texture(grid, vec2(SCREEN_UV.x * 80.0, SCREEN_UV.y * 40.0));
 	
-	if (modulate){
+	if (use_image){
+		COLOR = mix( texture(image, vec2(UV.x, (UV.y * 0.25) + 0.5)), grid_tex, transparency );
+		
+	} else if (modulate){
 		COLOR = mix( grid_tex * color, grid_tex, transparency );
+		
 	} else {
 		COLOR = mix( color, grid_tex, transparency );
+		
 	}
 }"
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 2 )
 shader_param/modulate = false
 shader_param/transparency = 0.0
 shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/use_image = false
 shader_param/grid = ExtResource( 2 )
+shader_param/image = ExtResource( 3 )
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=4]
 _data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
 
-[sub_resource type="CurveTexture" id=6]
+[sub_resource type="CurveTexture" id=5]
 width = 240
-curve = SubResource( 5 )
+curve = SubResource( 4 )
 
-[sub_resource type="StyleBoxEmpty" id=7]
+[sub_resource type="StyleBoxEmpty" id=6]
 
 [node name="transition_settings_component" type="HBoxContainer"]
 anchor_right = 1.0
@@ -226,21 +237,21 @@ margin_right = 1920.0
 margin_bottom = 20.0
 mouse_filter = 2
 size_flags_horizontal = 3
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer2/HBoxContainer2/PanelContainer"]
-material = SubResource( 4 )
+material = SubResource( 3 )
 margin_left = 2.0
 margin_top = 2.0
 margin_right = 1845.0
 margin_bottom = 18.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="CurveImage" type="TextureRect" parent="VBoxContainer2/HBoxContainer2/PanelContainer"]
 visible = false
-material = ExtResource( 4 )
+material = ExtResource( 5 )
 margin_left = 2.0
 margin_top = 2.0
 margin_right = 1845.0
@@ -248,7 +259,7 @@ margin_bottom = 18.0
 rect_min_size = Vector2( 120, 15 )
 mouse_filter = 2
 size_flags_horizontal = 3
-texture = SubResource( 6 )
+texture = SubResource( 5 )
 expand = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/PanelContainer"]
@@ -267,10 +278,10 @@ margin_bottom = 8.0
 focus_mode = 0
 mouse_filter = 2
 size_flags_vertical = 1
-custom_icons/grabber_disabled = ExtResource( 5 )
-custom_icons/grabber_highlight = ExtResource( 5 )
-custom_icons/grabber = ExtResource( 5 )
-custom_styles/slider = SubResource( 7 )
+custom_icons/grabber_disabled = ExtResource( 6 )
+custom_icons/grabber_highlight = ExtResource( 6 )
+custom_icons/grabber = ExtResource( 6 )
+custom_styles/slider = SubResource( 6 )
 step = 0.1
 value = 100.0
 editable = false

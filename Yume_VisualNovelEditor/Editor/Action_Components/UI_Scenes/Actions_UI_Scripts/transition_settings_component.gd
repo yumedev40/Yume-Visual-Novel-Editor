@@ -76,7 +76,23 @@ func _ready() -> void:
 			$VBoxContainer2/HBoxContainer/HSeparator.hide()
 			$VBoxContainer2/HBoxContainer/HSeparator3.hide()
 			$VBoxContainer2/HBoxContainer/HSeparator5.hide()
-	
+		"Backdrop":
+			$VBoxContainer2/HBoxContainer/SpinBox.value = 0.5
+			
+			$VBoxContainer2/HBoxContainer2/PanelContainer/VBoxContainer/PreviewSlider.value = 0.0
+			
+			$VBoxContainer2/HBoxContainer/Direction.selected = 0
+			transition_direction = false
+			
+			color_preview.set_start = true
+			
+			color_preview.set_image_flag(true)
+			
+			$VBoxContainer2/HBoxContainer/Direction.hide()
+			$VBoxContainer2/HBoxContainer/Label.hide()
+			$VBoxContainer2/HBoxContainer/HSeparator.hide()
+			$VBoxContainer2/HBoxContainer/HSeparator3.hide()
+			$VBoxContainer2/HBoxContainer/HSeparator5.hide()
 	
 	
 	# handle load data
@@ -214,6 +230,9 @@ func _on_Preview_pressed() -> void:
 			6:
 				tween_value = Tween.TRANS_BOUNCE
 				ease_value = Tween.EASE_IN
+		
+		if duration <= 0.0:
+			duration = 0.01
 		
 		preview_tween.stop_all()
 		preview_tween.interpolate_property(preview_slider, "value", start_value, end_value, duration, tween_value, ease_value)
