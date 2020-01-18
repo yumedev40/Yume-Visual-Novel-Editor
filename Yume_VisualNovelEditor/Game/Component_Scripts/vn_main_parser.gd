@@ -39,12 +39,28 @@ func _ready() -> void:
 	connect("success", self, "on_action_success")
 	connect("failure", self, "on_action_failure")
 	
+	
 	if !debug_mode && !Engine.is_editor_hint():
-		if yume_game_controller.initial_scene == "":
-#			print("start from beginning")
-			preview_complete_scene([1,1], get_initial_file())
-		else:
-			print("start from specific file")
+#		var auto_load_flag: bool = false
+#		var ps : Array = ProjectSettings.get_property_list()
+#		for i in ps:
+#			if (i["name"] as String).find("autoload") != -1:
+#				if i["name"] == "autoload/yume_game_controller":
+#					auto_load_flag = true
+		
+		if get_node_or_null("/root/yume_game_controller"):
+			if  get_node("/root/yume_game_controller").initial_scene == "":
+				preview_complete_scene([1,1], get_initial_file())
+			else:
+				print("start from specific file")
+	
+	
+#	if !debug_mode && !Engine.is_editor_hint():
+#		if yume_game_controller.initial_scene == "":
+##			print("start from beginning")
+#			preview_complete_scene([1,1], get_initial_file())
+#		else:
+#			print("start from specific file")
 
 
 func _reset() -> void:
@@ -239,8 +255,17 @@ func call_action_stack() -> void:
 			
 			match filepath:
 				"":
+					var game_controller : Object
+					
+					if get_node_or_null("/root/yume_game_controller"):
+						game_controller = get_node("/root/yume_game_controller")
+					else:
+						push_warning("Yume game controller singleton missing -- action_failed")
+						emit_signal("failure")
+						return
+					
 					if !debug_mode:
-						var main_menu_path : String = str(yume_game_controller.directory_paths["project_directory"], "/game_scenes/main_menu/Main_Menu.tscn")
+						var main_menu_path : String = str(game_controller.directory_paths["project_directory"], "/game_scenes/main_menu/Main_Menu.tscn")
 						
 						get_tree().change_scene(main_menu_path)
 					else:
@@ -415,7 +440,11 @@ func call_action_stack() -> void:
 func get_initial_file() -> String:
 	var file_path : String = ""
 	
-	var story_data_path : String = str(yume_game_controller.directory_paths["story_data"], "/story_data.yvndata")
+	var game_controller : Object
+	if get_node_or_null("/root/yume_game_controller"):
+		game_controller = get_node("/root/yume_game_controller")
+	
+	var story_data_path : String = str(game_controller.directory_paths["story_data"], "/story_data.yvndata")
 	
 	var story_data_file : File = File.new()
 	var story_data : Array = []
