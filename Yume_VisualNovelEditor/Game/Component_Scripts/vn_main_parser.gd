@@ -268,6 +268,10 @@ func call_action_stack() -> void:
 						var main_menu_path : String = str(game_controller.directory_paths["project_directory"], "/game_scenes/main_menu/Main_Menu.tscn")
 						
 						get_tree().change_scene(main_menu_path)
+					else:
+						push_warning(str("End of story called -- would return to main menu"))
+						
+						emit_signal("success")
 				_:
 					if !debug_mode:
 						get_tree().change_scene(str(filepath))
