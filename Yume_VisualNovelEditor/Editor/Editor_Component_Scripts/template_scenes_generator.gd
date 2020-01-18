@@ -8,6 +8,27 @@ func _ready() -> void:
 func _gen_template_scenes(dir_path: String) -> void:
 	# Generate scene templates
 	
+	# Create new instance of game control singleton
+	var controller_singleton_ref : GDScript = load("res://addons/Yume_VisualNovelEditor/AutoLoad_Scripts/yume_game_controller_singleton.gd")
+	
+	var controller_singleton_data : String = controller_singleton_ref.source_code
+	
+	var new_controller_instance : GDScript = GDScript.new()
+	
+	controller_singleton_data = controller_singleton_data.replace('"project_directory":null', str('"project_directory":"', dir_path,'"'))
+	
+	controller_singleton_data = controller_singleton_data.replace('"game_data":null', str('"game_data":"', dir_path,'/game_data"'))
+	
+	controller_singleton_data = controller_singleton_data.replace('"story_data":null', str('"story_data":"', dir_path,'/story_data"'))
+	
+	controller_singleton_data = controller_singleton_data.replace('"game_scenes":null', str('"game_scenes":"', dir_path,'/game_scenes"'))
+	
+	new_controller_instance.set_source_code(controller_singleton_data)
+	
+	ResourceSaver.save(str(dir_path, "/game_data/yume_game_controller.gd"), new_controller_instance)
+	
+	
+	
 	
 	# Create new instance of VN Game scene
 	var vn_main_resource : PackedScene = load("res://addons/Yume_VisualNovelEditor/Template_Scenes/VN_Components/VN_Game_Scene.tscn")

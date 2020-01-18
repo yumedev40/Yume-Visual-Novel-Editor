@@ -13,6 +13,10 @@ onready var preview_icon : Object = $"HBoxContainer/VBoxContainer/HBoxContainer/
 
 onready var preview_textbox : Object = $"HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/PreviewLabel"
 
+onready var character_name_preview_label : Object = $"HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterName"
+
+onready var character_dialogue_preview_label : Object = $"HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterDialogue"
+
 onready var node_container : Object = $"HBoxContainer/VBoxContainer/PanelContainer2/UI"
 
 onready var menu_tween : Object = $"Tween2"
@@ -36,6 +40,9 @@ var delete_tween : Object = Tween.new()
 var preview_available : bool = false
 var color_preview : bool = false
 var ramp_preview : bool = false
+var character_name_preview : bool = false
+var character_dialogue_preview : bool = false
+var image_preview : bool = false
 
 var menu_hidden : bool = false
 var menu_max_size : float = 0
@@ -216,7 +223,6 @@ func _dim_menu(flag:bool) -> void:
 
 func _clear_drop_ui() -> void:
 	if rearranged:
-		
 		if scene_node_container.drop_separator_node.get_parent():
 			vbox.move_child(parent, scene_node_container.drop_separator_node.get_index())
 			
@@ -334,10 +340,16 @@ func _on_HideButton_toggled(button_pressed: bool) -> void:
 		menu_anim(false)
 		hide_button.texture_normal = down_arrow
 		set_preview(true)
+		
 		if color_preview:
 			preview_color_visibility(true)
 		if ramp_preview:
 			preview_ramp_visibility(true)
+		if character_name_preview  || character_dialogue_preview:
+			preview_character_dialogue_visiblity(true)
+		if image_preview:
+			preview_image(true)
+		
 	else:
 		hide_button.pressed = false
 		menu_anim(true)
@@ -345,6 +357,8 @@ func _on_HideButton_toggled(button_pressed: bool) -> void:
 		set_preview(false)
 		preview_color_visibility(false)
 		preview_ramp_visibility(false)
+		preview_character_dialogue_visiblity(false)
+		preview_image(false)
 
 
 func set_preview(flag:bool, preview_text = null, preview_icon_texture = null, clear_bit_flag = 0) -> void:
@@ -408,6 +422,53 @@ func flip_preview_ramp(flip:bool = true) -> void:
 func set_preview_ramp(color_a:Color = Color.black, color_b:Color = Color.darkgray) -> void:
 		$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/PanelContainer2/PreviewRamp.material.set("shader_param/start_color", color_a)
 		$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/PanelContainer2/PreviewRamp.material.set("shader_param/end_color", color_b)
+
+
+func preview_character_dialogue_visiblity(hide:bool) -> void:
+	if !hide:
+		$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterName.hide()
+		$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterDialogue.hide()
+	else:
+		if $HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterName.text != "" || $HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterName.bbcode_text != "":
+			$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterName.show()
+		
+		if $HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterDialogue.text != "" || $HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterDialogue.bbcode_text != "":
+			$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterDialogue.show()
+		
+		if $HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterName.visible && $HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterDialogue.visible:
+			$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/HSeparator6.hide()
+		else:
+			$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/HSeparator6.show()
+
+func set_character_name(new_name:String) -> void:
+	$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterName.bbcode_text = new_name
+	
+	if $HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterName.rect_min_size.x < 200.0:
+		$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterName.rect_min_size.x = $HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterName.bbcode_text.length() * 8.0
+	
+	$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterName.hint_tooltip = $HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterName.text
+
+func set_dialogue_text(new_text:String, placeholder:bool = false) -> void:
+	$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterDialogue.bbcode_text = new_text
+	
+	$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterDialogue.hint_tooltip = str("[ ", $HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterName.text, " ]\n", $HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterDialogue.text)
+	
+	if placeholder:
+		$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterDialogue.set("custom_colors/default_color", Color.fuchsia)
+	else:
+		$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/CharacterDialogue.set("custom_colors/default_color", null)
+
+
+func preview_image(hide:bool) -> void:
+	if !hide:
+		$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/PreviewImage.hide()
+	else:
+		$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/PreviewImage.show()
+
+func set_preview_image(_image_:StreamTexture) -> void:
+	$HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer/PreviewImage.texture = _image_
+
+
 
 
 

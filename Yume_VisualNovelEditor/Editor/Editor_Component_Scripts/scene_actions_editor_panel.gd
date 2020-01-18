@@ -73,6 +73,7 @@ func _write_file(clear:bool = false) -> void:
 		
 		var file_paths : Array = actions_converter.export_to_files(editor_root.editor_root.project_directory, open_scene_info, data_array)
 		
+#		print(file_paths)
 		
 		# Update open scene path
 		var story_tree : Object = editor_root.story_tree
@@ -94,6 +95,8 @@ func _write_file(clear:bool = false) -> void:
 		update_open_scene_info(info)
 		
 		if clear:
+#			print("info cleared")
+			
 			editor_root.clear_info()
 	else:
 		var story_tree : Object = editor_root.story_tree

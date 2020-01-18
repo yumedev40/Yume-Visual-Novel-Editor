@@ -23,6 +23,14 @@ func adjust_transparency(color:Color) -> void:
 	var value : float = color.r
 	material.set("shader_param/transparency", value)
 
+func set_image_flag(flag:bool) -> void:
+	material.set("shader_param/use_image", flag)
+
+func set_image(texture:StreamTexture) -> void:
+	material.set("shader_param/image", texture)
+
+
+
 func _process(delta: float) -> void:
 	if set_start:
 		material.set("shader_param/transparency", 1.0)
