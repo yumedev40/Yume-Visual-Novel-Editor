@@ -1,4 +1,6 @@
-# Yume - Visual Novel Editor - Compatible with Godot 3.1 (experimental branch v0.2.0 works with Godot 3.2)
+# Yume - Visual Novel Editor
+
+## Compatible with Godot 3.1 (experimental branch v0.2.0 works with Godot 3.2)
 Yume is an addon for the Godot game engine that provides an integrated editor for creating visual novel games.
 
 ***
