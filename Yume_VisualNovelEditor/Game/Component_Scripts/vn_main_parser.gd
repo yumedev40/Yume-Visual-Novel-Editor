@@ -142,6 +142,8 @@ func on_action_failure() -> void:
 func preview_complete_scene(chapter_scene:Array, filepath:String) -> void:
 	progress_position = [chapter_scene[0], chapter_scene[1]]
 	
+#	print(filepath)
+	
 	parse_file(filepath)
 	update_action_state()
 
@@ -454,17 +456,22 @@ func get_initial_file() -> String:
 		story_data_file.open(story_data_path, File.READ)
 		
 		while !story_data_file.eof_reached():
-			story_data.append(parse_json(story_data_file.get_line()))
+			var next : String = story_data_file.get_line()
+			if next:
+				story_data.append(parse_json(next))
 		
 		story_data_file.close()
+	else:
+		push_error(str("Could not locat story data file ", story_data_path))
 	
 #	print(story_data)
 	
-	if typeof(story_data[0]) == TYPE_DICTIONARY:
-		if story_data[0].has("chapters"):
-			if story_data[0]["chapters"].keys().size() > 0:
-				if story_data[0]["chapters"]["Chapter 1"]["scenes"].keys().size() > 0:
-					file_path = story_data[0]["chapters"]["Chapter 1"]["scenes"]["Scene 1"]["script_path"].replace(".yscndata", ".yscn")
+	if story_data.size() > 0:
+		if typeof(story_data[0]) == TYPE_DICTIONARY:
+			if story_data[0].has("chapters"):
+				if story_data[0]["chapters"].keys().size() > 0:
+					if story_data[0]["chapters"]["Chapter 1"]["scenes"].keys().size() > 0:
+						file_path = story_data[0]["chapters"]["Chapter 1"]["scenes"]["Scene 1"]["script_path"].replace(".yscndata", ".yscn")
 	
 #	print(file_path)
 	

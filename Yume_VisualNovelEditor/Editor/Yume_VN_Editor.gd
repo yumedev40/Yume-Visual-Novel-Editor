@@ -388,6 +388,8 @@ func _setup_project_directory() -> void:
 	
 	# Create Story Folders
 	dir.make_dir_recursive(str(dirpath, "/", story_directory, "/", "story_files"))
+	dir.make_dir_recursive(str(dirpath, "/", story_directory, "/", "character_files"))
+	dir.make_dir_recursive(str(dirpath, "/", story_directory, "/", "stage_files"))
 	
 	# Create Game Data Folders
 	dir.make_dir_recursive(str(dirpath, "/", "game_data"))
@@ -406,7 +408,7 @@ func _setup_project_initial_file() -> void:
 	
 	if gen_template_scenes:
 		
-		var template_generator : GDScript = load("res://addons/Yume_VisualNovelEditor/Editor/Editor_Component_Scripts/template_scenes_generator.gd").new()
+		var template_generator : Object = load("res://addons/Yume_VisualNovelEditor/Editor/Editor_Component_Scripts/template_scenes_generator.gd").new()
 		
 		template_generator._gen_template_scenes(dirpath)
 		
@@ -453,6 +455,17 @@ func _setup_project_initial_file() -> void:
 	story_file.open(str(dirpath, "/", "story_data", "/", "story_data",".yvndata"), File.WRITE)
 	story_file.store_line(to_json(story_info))
 	story_file.close()
+	
+	
+	# Create Character Catalog
+	var catalog : Dictionary = {
+		"characters":{},
+		"stages":{}
+	}
+	var catalog_file : File = File.new()
+	catalog_file.open(str(dirpath, "/", "story_data", "/", "character_data",".yvndata"), File.WRITE)
+	catalog_file.store_line(to_json(catalog))
+	catalog_file.close()
 	
 	
 	# Print debug message
@@ -605,14 +618,20 @@ func _save_project() -> void:
 		file.store_line(to_json(project_data))
 		file.close()
 		
+		# Story Editor Save Scene Files
 		editor_screen.views_container.get_node("Story Editor").scene_actions_editor_panel.save()
 		
+		# Save Story Scene Data
 		var story_data_file : File = File.new()
 		var story_data : Dictionary = editor_screen.views_container.get_node("Story Editor").get_tree_data()
 		
 		story_data_file.open(str(dirpath, "/story_data/story_data", ".yvndata"), File.WRITE)
 		story_data_file.store_line(to_json(story_data))
 		story_data_file.close()
+		
+		# Save Character data
+		editor_screen.views_container.get_node("Character Catalog").save(str(dirpath, "/story_data/character_data", ".yvndata"))
+		
 		
 		_setup_project_settings(project_data, story_data)
 		

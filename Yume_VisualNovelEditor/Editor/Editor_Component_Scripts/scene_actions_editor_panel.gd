@@ -127,9 +127,10 @@ func _populate_scene_actions(filepath:String) -> void:
 			
 			var line : Dictionary
 			
-			if typeof(parse_json(current_line)) == TYPE_DICTIONARY:
-				line = parse_json(current_line)
-				parsed_lines_array.append(line)
+			if current_line:
+				if typeof(parse_json(current_line)) == TYPE_DICTIONARY:
+					line = parse_json(current_line)
+					parsed_lines_array.append(line)
 		
 		action_file.close()
 	

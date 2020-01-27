@@ -89,7 +89,7 @@ func _setup_tree() -> void:
 		# Go through scene list and add matching tree items
 		if editor_root.project_scene_list.keys().size() > 0:
 			for i in editor_root.project_scene_list.keys().size():
-				if editor_root.project_scene_list[editor_root.project_scene_list.keys()[i]] != "":
+				if editor_root.project_scene_list[editor_root.project_scene_list.keys()[i]] != "" && editor_root.project_scene_list[editor_root.project_scene_list.keys()[i]].get_extension() == "tscn":
 					# Setup tree item name and filepath tooltip
 					var scene_path : String = editor_root.project_scene_list[editor_root.project_scene_list.keys()[i]]
 					

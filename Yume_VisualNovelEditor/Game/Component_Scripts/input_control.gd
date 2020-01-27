@@ -43,7 +43,7 @@ func wait_for_input() -> void:
 
 
 func _on_wait_timeout() -> void:
-	timer.disconnect("timeout", self, "_on_wait_timeout")
+#	timer.call_deferred("disconnect", "timeout", self, "_on_wait_timeout")
 	timer.queue_free()
 	root.emit_signal("success")
 

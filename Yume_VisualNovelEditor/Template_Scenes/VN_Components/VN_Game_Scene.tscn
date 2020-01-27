@@ -43,13 +43,13 @@ modulate_amount = 0.0
 modulate_color = Color( 1, 1, 1, 1 )
 
 [node name="Stage" type="ViewportContainer" parent="VISUAL_COMPONENTS"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 stretch = true
 
 [node name="Viewport" type="Viewport" parent="VISUAL_COMPONENTS/Stage"]
 size = Vector2( 1920, 1080 )
+own_world = true
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 3

@@ -10,6 +10,8 @@ var mouse_over: bool = true
 var text_string : String = ""
 
 
+
+
 #warnings-disable
 func _ready() -> void:
 	set_meta("text_string_component", true)

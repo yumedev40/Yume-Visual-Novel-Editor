@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Yume_VN_Editor.gd" type="Script" id=1]
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Scripts/Editor_Main.gd" type="Script" id=2]
@@ -32,13 +32,15 @@
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/preview_circle_anim/preview_circle_anim_0006.png" type="Texture" id=30]
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/preview_circle_anim/preview_circle_anim_0007.png" type="Texture" id=31]
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Scenes/Drag_n_Drop_ScrollBox.tscn" type="PackedScene" id=32]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Views_Scripts/Menu_List.gd" type="Script" id=33]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/preview_unavailable.png" type="Texture" id=34]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/HomeScreenImages/Yume_Banner_001.png" type="Texture" id=35]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Theme/large_button.tres" type="Theme" id=36]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Windows/NewProject.tscn" type="PackedScene" id=37]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Windows/NewProject_Directory.tscn" type="PackedScene" id=38]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Windows/LoadProject_Directory.tscn" type="PackedScene" id=39]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Views_Scripts/Character_Catalog.gd" type="Script" id=33]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Component_Scripts/character_profile.gd" type="Script" id=34]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Views_Scripts/Menu_List.gd" type="Script" id=35]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/preview_unavailable.png" type="Texture" id=36]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/HomeScreenImages/Yume_Banner_001.png" type="Texture" id=37]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Theme/large_button.tres" type="Theme" id=38]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Windows/NewProject.tscn" type="PackedScene" id=39]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Windows/NewProject_Directory.tscn" type="PackedScene" id=40]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Windows/LoadProject_Directory.tscn" type="PackedScene" id=41]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.121569, 0.145098, 0.192157, 1 )
@@ -83,26 +85,31 @@ content_margin_bottom = 5.0
 bg_color = Color( 0.121569, 0.145098, 0.192157, 1 )
 
 [sub_resource type="StyleBoxEmpty" id=9]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id=10]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
 content_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxEmpty" id=10]
+[sub_resource type="StyleBoxEmpty" id=11]
 content_margin_left = 50.0
 content_margin_right = 50.0
 content_margin_top = 50.0
 content_margin_bottom = 50.0
 
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 0.121569, 0.145098, 0.192157, 1 )
 
-[sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0.196078, 0.231373, 0.309804, 1 )
-shadow_color = Color( 0.105882, 0.121569, 0.184314, 0.6 )
-shadow_size = 10
-
 [sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.196078, 0.231373, 0.309804, 1 )
+shadow_color = Color( 0.0431373, 0.0823529, 0.188235, 0.584314 )
+
+[sub_resource type="StyleBoxFlat" id=14]
 content_margin_left = 15.0
 content_margin_right = 15.0
 content_margin_top = 15.0
@@ -138,7 +145,6 @@ rect_min_size = Vector2( 0, 2 )
 custom_styles/panel = SubResource( 1 )
 
 [node name="TopBar" type="PanelContainer" parent="."]
-editor/display_folded = true
 margin_top = 2.0
 margin_right = 1920.0
 margin_bottom = 23.0
@@ -239,7 +245,6 @@ margin_right = 1920.0
 margin_bottom = 20.0
 
 [node name="EditorScreen" type="HBoxContainer" parent="."]
-editor/display_folded = true
 visible = false
 margin_top = 23.0
 margin_right = 1920.0
@@ -609,7 +614,7 @@ mouse_filter = 1
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1415.0
-margin_bottom = 588.0
+margin_bottom = 602.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -720,7 +725,7 @@ mouse_filter = 0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Actions/PanelContainer2/VBoxContainer/PanelContainer2/HBoxContainer/PreviewRunningSprite"]
 frames = SubResource( 7 )
 animation = "loading"
-frame = 3
+frame = 6
 playing = true
 offset = Vector2( 8, 8 )
 
@@ -733,7 +738,7 @@ margin_bottom = 16.0
 [node name="ActionNodes" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Actions/PanelContainer2/VBoxContainer"]
 margin_top = 40.0
 margin_right = 1408.0
-margin_bottom = 581.0
+margin_bottom = 595.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -745,16 +750,180 @@ anchor_bottom = 0.0
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 1403.0
-margin_bottom = 536.0
+margin_bottom = 550.0
 editor_root_path = NodePath("../../../../../../..")
 menu_fold_button_path = NodePath("../../PanelContainer2/HBoxContainer/MenuFoldButtons")
-max_v_bar_value = 1e+006
+max_v_bar_value = 1e+06
 min_scroll_speed = 10.0
 max_scroll_speed = 60.0
 wheel_step = 0.1
 
-[node name="Menu List" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews"]
-editor/display_folded = true
+[node name="Scene Timeline ( Experimental )" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="PanelContainer3" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1415.0
+margin_bottom = 588.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer"]
+margin_right = 1408.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 0, 20 )
+mouse_filter = 1
+custom_styles/panel = ExtResource( 6 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/PanelContainer2"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1398.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 15
+alignment = 2
+
+[node name="ProjectTag" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer"]
+visible = false
+margin_right = 1269.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer/ProjectTag"]
+margin_right = 22.95
+margin_bottom = 20.0
+rect_min_size = Vector2( 22.95, 0 )
+texture = ExtResource( 14 )
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer/ProjectTag"]
+visible = false
+margin_left = 26.0
+margin_right = 48.95
+margin_bottom = 20.0
+rect_min_size = Vector2( 22.95, 0 )
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer/ProjectTag"]
+margin_left = 26.0
+margin_top = 3.0
+margin_right = 26.0
+margin_bottom = 17.0
+mouse_filter = 1
+custom_colors/font_color = Color( 0.647059, 0.937255, 0.67451, 1 )
+
+[node name="MenuFoldButtons" type="TextureButton" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer"]
+margin_left = 1271.0
+margin_right = 1303.0
+margin_bottom = 16.0
+hint_tooltip = "Toggle all scene nodes expanded or collapsed."
+focus_mode = 0
+toggle_mode = true
+enabled_focus_mode = 0
+texture_normal = ExtResource( 9 )
+
+[node name="VSeparator" type="VSeparator" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer"]
+margin_left = 1318.0
+margin_right = 1322.0
+margin_bottom = 16.0
+
+[node name="PausePreview" type="TextureButton" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer"]
+visible = false
+margin_left = 1325.0
+margin_right = 1341.0
+margin_bottom = 20.0
+hint_tooltip = "Pause scene preview"
+toggle_mode = true
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 17 )
+texture_disabled = ExtResource( 18 )
+
+[node name="StopPreview" type="TextureButton" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer"]
+visible = false
+margin_left = 1309.0
+margin_right = 1341.0
+margin_bottom = 20.0
+hint_tooltip = "Stop scene preview"
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 20 )
+texture_disabled = ExtResource( 21 )
+
+[node name="PreviewScene" type="TextureButton" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer"]
+margin_left = 1337.0
+margin_right = 1369.0
+margin_bottom = 16.0
+hint_tooltip = "Preview scene from start"
+disabled = true
+texture_normal = ExtResource( 22 )
+texture_pressed = ExtResource( 23 )
+texture_disabled = ExtResource( 24 )
+
+[node name="PreviewRunningSprite" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer"]
+visible = false
+margin_left = 1353.0
+margin_right = 1369.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 0 )
+hint_tooltip = "Spins to indicate preview state"
+mouse_filter = 0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer/PreviewRunningSprite"]
+frames = SubResource( 7 )
+animation = "loading"
+frame = 5
+playing = true
+offset = Vector2( 8, 8 )
+
+[node name="VSeparator2" type="VSeparator" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1384.0
+margin_right = 1388.0
+margin_bottom = 16.0
+
+[node name="ActionNodes" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer"]
+margin_top = 40.0
+margin_right = 1408.0
+margin_bottom = 581.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 8 )
+
+[node name="SceneActions" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/ActionNodes" instance=ExtResource( 32 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1403.0
+margin_bottom = 536.0
+editor_root_path = NodePath("../../../../../../..")
+menu_fold_button_path = NodePath("../../../../../Scene Timeline/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer/MenuFoldButtons")
+max_v_bar_value = 1e+06
+min_scroll_speed = 10.0
+max_scroll_speed = 60.0
+wheel_step = 0.1
+
+[node name="Character Catalog" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -763,34 +932,214 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 script = ExtResource( 33 )
-center_h_handle_path = NodePath("PanelContainer/HBoxContainer/horizontal_resize2")
-center_h_handle_a_path = NodePath("PanelContainer/HBoxContainer/TabContainer")
-center_h_handle_b_path = NodePath("PanelContainer/HBoxContainer/PanelContainer")
-scene_tree_path = NodePath("PanelContainer/HBoxContainer/TabContainer/Scenes Found/PanelContainer2/Tree")
-preview_rect_path = NodePath("PanelContainer/HBoxContainer/PanelContainer/PreviewRect")
-preview_path = NodePath("PanelContainer/HBoxContainer/PanelContainer/Preview")
+core_color = Color( 0.0156863, 0.227451, 0.333333, 1 )
+extras_color = Color( 0.278431, 0.0156863, 0.0156863, 1 )
+rid_color = Color( 0.223529, 0.329412, 0.466667, 1 )
 
-[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Menu List"]
-editor/display_folded = true
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="HBoxContainer" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer"]
+margin_right = 408.0
+margin_bottom = 1021.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1905.0
+margin_right = 401.0
 margin_bottom = 1014.0
+
+[node name="HSeparator" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 394.0
+margin_bottom = 4.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 8.0
+margin_right = 394.0
+margin_bottom = 28.0
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_top = 3.0
+margin_right = 87.0
+margin_bottom = 17.0
+text = "Character List"
+
+[node name="HSeparator" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 91.0
+margin_right = 272.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="NewCharacter" type="Button" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 276.0
+margin_right = 380.0
+margin_bottom = 20.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "New Character"
+
+[node name="HSeparator2" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 384.0
+margin_right = 394.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="HSeparator2" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 32.0
+margin_right = 394.0
+margin_bottom = 36.0
+
+[node name="Tree" type="Tree" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 394.0
+margin_bottom = 1007.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+columns = 2
+hide_root = true
 
-[node name="TabContainer" type="TabContainer" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer"]
-margin_right = 470.0
-margin_bottom = 1007.0
+[node name="horizontal_resize3" type="Panel" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer"]
+margin_left = 412.0
+margin_right = 422.0
+margin_bottom = 1021.0
+rect_min_size = Vector2( 10, 0 )
+mouse_default_cursor_shape = 10
+script = ExtResource( 11 )
+damp = 0.006
+
+[node name="PanelContainer2" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer"]
+margin_left = 426.0
+margin_right = 1912.0
+margin_bottom = 1021.0
+rect_min_size = Vector2( 300, 0 )
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="TabContainer" type="TabContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2"]
+visible = false
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1479.0
+margin_bottom = 1014.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_align = 0
 
-[node name="Scenes Found" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/TabContainer"]
+[node name="Profile" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 34 )
+editor_root_path = NodePath("../../../../../../..")
+catalog_root_path = NodePath("../../../..")
+name_field_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer/LineEdit")
+description_field_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer3/HBoxContainer2/TextEdit")
+
+[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1459.0
+margin_bottom = 966.0
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer"]
+margin_right = 1454.0
+margin_bottom = 26.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_top = 6.0
+margin_right = 38.0
+margin_bottom = 20.0
+text = "Name"
+
+[node name="LineEdit" type="LineEdit" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 48.0
+margin_right = 746.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 250, 0 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.898039, 0.337255, 1 )
+text = "New Character"
+expand_to_text_length = true
+clear_button_enabled = true
+
+[node name="HSeparator" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 756.0
+margin_right = 1454.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer"]
+margin_top = 34.0
+margin_right = 1454.0
+margin_bottom = 340.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer/HBoxContainer3"]
+margin_right = 74.0
+margin_bottom = 306.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+margin_right = 74.0
+margin_bottom = 14.0
+text = "Description"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer/HBoxContainer3"]
+margin_left = 84.0
+margin_right = 1454.0
+margin_bottom = 306.0
+size_flags_horizontal = 3
+custom_constants/separation = 10
+
+[node name="TextEdit" type="TextEdit" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer/HBoxContainer3/HBoxContainer2"]
+margin_right = 1370.0
+margin_bottom = 306.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+wrap_enabled = true
+caret_blink = true
+
+[node name="VSeparator" type="VSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 348.0
+margin_right = 1454.0
+margin_bottom = 961.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Text" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -798,78 +1147,25 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="PanelContainer2" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/TabContainer/Scenes Found"]
+[node name="Visuals" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 5
-custom_styles/panel = SubResource( 9 )
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
 
-[node name="Tree" type="Tree" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/TabContainer/Scenes Found/PanelContainer2"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 452.0
-margin_bottom = 961.0
-focus_mode = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-allow_reselect = true
-hide_root = true
-
-[node name="horizontal_resize2" type="Panel" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer"]
-margin_left = 474.0
-margin_right = 484.0
-margin_bottom = 1007.0
-rect_min_size = Vector2( 10, 0 )
-mouse_default_cursor_shape = 10
-script = ExtResource( 11 )
-damp = 0.006
-
-[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer"]
-margin_left = 488.0
-margin_right = 1898.0
-margin_bottom = 1007.0
-rect_min_size = Vector2( 300, 0 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
-custom_styles/panel = SubResource( 10 )
-
-[node name="CenterContainer" type="CenterContainer" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/PanelContainer"]
-margin_left = 50.0
-margin_top = 50.0
-margin_right = 1360.0
-margin_bottom = 957.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="preview_unavailable" type="TextureRect" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/PanelContainer/CenterContainer"]
-margin_left = 505.0
-margin_top = 428.0
-margin_right = 805.0
-margin_bottom = 478.0
-texture = ExtResource( 34 )
-
-[node name="PreviewRect" type="TextureRect" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/PanelContainer"]
-margin_left = 50.0
-margin_top = 50.0
-margin_right = 1360.0
-margin_bottom = 957.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-expand = true
-stretch_mode = 6
-
-[node name="Preview" type="Viewport" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/PanelContainer"]
-disable_3d = true
-usage = 0
-render_target_v_flip = true
-
-[node name="Camera2D" type="Camera2D" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/PanelContainer/Preview"]
-anchor_mode = 0
+[node name="Audio" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
 
 [node name="Game Variables" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews"]
-editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -941,8 +1237,120 @@ margin_right = 1874.0
 margin_bottom = 931.0
 focus_mode = 0
 
+[node name="Menu List" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 35 )
+center_h_handle_path = NodePath("PanelContainer/HBoxContainer/horizontal_resize2")
+center_h_handle_a_path = NodePath("PanelContainer/HBoxContainer/TabContainer")
+center_h_handle_b_path = NodePath("PanelContainer/HBoxContainer/PanelContainer")
+scene_tree_path = NodePath("PanelContainer/HBoxContainer/TabContainer/Scenes Found/PanelContainer2/Tree")
+preview_rect_path = NodePath("PanelContainer/HBoxContainer/PanelContainer/PreviewRect")
+preview_path = NodePath("PanelContainer/HBoxContainer/PanelContainer/Preview")
+
+[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Menu List"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1905.0
+margin_bottom = 1014.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TabContainer" type="TabContainer" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer"]
+margin_right = 470.0
+margin_bottom = 1007.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tab_align = 0
+
+[node name="Scenes Found" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="PanelContainer2" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/TabContainer/Scenes Found"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_styles/panel = SubResource( 10 )
+
+[node name="Tree" type="Tree" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/TabContainer/Scenes Found/PanelContainer2"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 452.0
+margin_bottom = 961.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+allow_reselect = true
+hide_root = true
+
+[node name="horizontal_resize2" type="Panel" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer"]
+margin_left = 474.0
+margin_right = 484.0
+margin_bottom = 1007.0
+rect_min_size = Vector2( 10, 0 )
+mouse_default_cursor_shape = 10
+script = ExtResource( 11 )
+damp = 0.006
+
+[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer"]
+margin_left = 488.0
+margin_right = 1898.0
+margin_bottom = 1007.0
+rect_min_size = Vector2( 300, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+custom_styles/panel = SubResource( 11 )
+
+[node name="CenterContainer" type="CenterContainer" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/PanelContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1360.0
+margin_bottom = 957.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="preview_unavailable" type="TextureRect" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/PanelContainer/CenterContainer"]
+margin_left = 505.0
+margin_top = 428.0
+margin_right = 805.0
+margin_bottom = 478.0
+texture = ExtResource( 36 )
+
+[node name="PreviewRect" type="TextureRect" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/PanelContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1360.0
+margin_bottom = 957.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 6
+
+[node name="Preview" type="Viewport" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/PanelContainer"]
+disable_3d = true
+usage = 0
+render_target_v_flip = true
+
+[node name="Camera2D" type="Camera2D" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/PanelContainer/Preview"]
+anchor_mode = 0
+
 [node name="PropertiesPanel" type="PanelContainer" parent="EditorScreen"]
-editor/display_folded = true
 visible = false
 margin_left = 640.0
 margin_right = 1920.0
@@ -990,7 +1398,7 @@ margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 11 )
+custom_styles/panel = SubResource( 12 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WelcomeScreen"]
 margin_right = 1920.0
@@ -1025,7 +1433,8 @@ margin_left = 685.0
 margin_right = 1235.0
 margin_bottom = 400.0
 rect_min_size = Vector2( 550, 400 )
-custom_styles/panel = SubResource( 12 )
+rect_clip_content = true
+custom_styles/panel = SubResource( 13 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WelcomeScreen/VBoxContainer/HBoxContainer/welcome"]
 anchor_right = 1.0
@@ -1038,7 +1447,7 @@ margin_right = 550.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 35 )
+texture = ExtResource( 37 )
 
 [node name="PanelContainer" type="PanelContainer" parent="WelcomeScreen/VBoxContainer/HBoxContainer/welcome/VBoxContainer"]
 margin_top = 204.0
@@ -1047,7 +1456,7 @@ margin_bottom = 400.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 13 )
+custom_styles/panel = SubResource( 14 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WelcomeScreen/VBoxContainer/HBoxContainer/welcome/VBoxContainer/PanelContainer"]
 margin_left = 15.0
@@ -1109,7 +1518,7 @@ margin_left = 110.0
 margin_right = 217.0
 margin_bottom = 34.0
 focus_mode = 0
-theme = ExtResource( 36 )
+theme = ExtResource( 38 )
 enabled_focus_mode = 0
 text = "New Project"
 
@@ -1125,7 +1534,7 @@ margin_left = 300.0
 margin_right = 409.0
 margin_bottom = 34.0
 focus_mode = 0
-theme = ExtResource( 36 )
+theme = ExtResource( 38 )
 enabled_focus_mode = 0
 text = "Load Project"
 
@@ -1174,7 +1583,7 @@ margin_bottom = 1057.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="NewProjectPopup" parent="." instance=ExtResource( 37 )]
+[node name="NewProjectPopup" parent="." instance=ExtResource( 39 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -1183,7 +1592,7 @@ margin_right = 1920.0
 margin_bottom = 820.0
 popup_exclusive = false
 
-[node name="NewProjectFileDialog" parent="." instance=ExtResource( 38 )]
+[node name="NewProjectFileDialog" parent="." instance=ExtResource( 40 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -1191,7 +1600,7 @@ margin_top = 820.0
 margin_right = 1920.0
 margin_bottom = 950.0
 
-[node name="LoadProjectFileDialog" parent="." instance=ExtResource( 39 )]
+[node name="LoadProjectFileDialog" parent="." instance=ExtResource( 41 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 949.0
@@ -1205,6 +1614,10 @@ margin_bottom = 1079.0
 [connection signal="gui_input" from="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/vertical_resize" to="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/vertical_resize" method="_on_vertical_resize_gui_input"]
 [connection signal="mouse_exited" from="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/vertical_resize" to="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/vertical_resize" method="_on_vertical_resize_mouse_exited"]
 [connection signal="toggled" from="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Actions/PanelContainer2/VBoxContainer/PanelContainer2/HBoxContainer/MenuFoldButtons" to="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Actions/PanelContainer2/VBoxContainer/ActionNodes/SceneActions" method="_on_MenuFoldButtons_toggled"]
+[connection signal="toggled" from="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer/MenuFoldButtons" to="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/ActionNodes/SceneActions" method="_on_MenuFoldButtons_toggled"]
+[connection signal="pressed" from="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/NewCharacter" to="EditorScreen/PanelContainer/EditorViews/Character Catalog" method="_on_NewCharacter_pressed"]
+[connection signal="gui_input" from="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/horizontal_resize3" to="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/horizontal_resize3" method="_on_horizontal_resize_gui_input"]
+[connection signal="mouse_exited" from="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/horizontal_resize3" to="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/horizontal_resize3" method="_on_horizontal_resize_mouse_exited"]
 [connection signal="gui_input" from="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/horizontal_resize2" to="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/horizontal_resize2" method="_on_horizontal_resize_gui_input"]
 [connection signal="mouse_exited" from="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/horizontal_resize2" to="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/horizontal_resize2" method="_on_horizontal_resize_mouse_exited"]
 [connection signal="mouse_entered" from="WelcomeScreen/VBoxContainer/HBoxContainer/welcome/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/NewProject" to="." method="_on_NewProject_mouse_entered"]

@@ -70,7 +70,7 @@ func _gen_template_scenes(dir_path: String) -> void:
 	_set_node_tree_owner(_filter_array(_get_object_child_nodes(main_menu_instance)), main_menu_instance)
 	
 	# Generate menu script
-	var main_menu_script_generator : GDScript = load("res://addons/Yume_VisualNovelEditor/Editor/Editor_Component_Scripts/main_menu_script_generator.gd").new()
+	var main_menu_script_generator : Object = load("res://addons/Yume_VisualNovelEditor/Editor/Editor_Component_Scripts/main_menu_script_generator.gd").new()
 	
 	var menu_gdscript : GDScript = main_menu_script_generator.generate_menu_script(main_menu_instance)
 	
