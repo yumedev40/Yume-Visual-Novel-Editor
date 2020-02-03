@@ -226,7 +226,8 @@ func handle_round_completion() -> void:
 		
 		start_continue_indicator()
 		
-		root.get_node("InputControl").wait_for_input()
+		if root.get_node_or_null("InputControl"):
+			root.get_node("InputControl").wait_for_input()
 
 
 

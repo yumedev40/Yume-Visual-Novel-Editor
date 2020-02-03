@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Materials/node_type_material.tres" type="Material" id=1]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/node_type_base.png" type="Texture" id=2]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Scripts/character_node_icon.gd" type="Script" id=13]
+
+[node name="NodeTypeIcon" type="TextureRect"]
+material = ExtResource( 1 )
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture = ExtResource( 2 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+node_type = 9

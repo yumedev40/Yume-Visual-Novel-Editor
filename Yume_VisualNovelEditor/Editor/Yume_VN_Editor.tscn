@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=97 format=2]
 
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Yume_VN_Editor.gd" type="Script" id=1]
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Scripts/Editor_Main.gd" type="Script" id=2]
@@ -33,14 +33,37 @@
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/preview_circle_anim/preview_circle_anim_0007.png" type="Texture" id=31]
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Scenes/Drag_n_Drop_ScrollBox.tscn" type="PackedScene" id=32]
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Views_Scripts/Character_Catalog.gd" type="Script" id=33]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Component_Scripts/character_profile.gd" type="Script" id=34]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Views_Scripts/Menu_List.gd" type="Script" id=35]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/preview_unavailable.png" type="Texture" id=36]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/HomeScreenImages/Yume_Banner_001.png" type="Texture" id=37]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Theme/large_button.tres" type="Theme" id=38]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Windows/NewProject.tscn" type="PackedScene" id=39]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Windows/NewProject_Directory.tscn" type="PackedScene" id=40]
-[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Windows/LoadProject_Directory.tscn" type="PackedScene" id=41]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Component_Scripts/character_data_tabs.gd" type="Script" id=34]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Component_Scripts/character_profile.gd" type="Script" id=35]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Component_Scripts/character_text.gd" type="Script" id=36]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Theme/medium_blue_with_dark_outline_panel.tres" type="StyleBox" id=37]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Component_Scripts/character_component_preview_camera.gd" type="Script" id=38]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Materials/shaders/env_grid.shader" type="Shader" id=39]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/grid_pattern.png" type="Texture" id=40]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Component_Scripts/character_visuals.gd" type="Script" id=41]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/h_slider_centerline.png" type="Texture" id=42]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/h_slider_area.png" type="Texture" id=43]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/h_slider_fill.png" type="Texture" id=44]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Masks/SpriteMask_0001.png" type="Texture" id=45]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Views_Scripts/Menu_List.gd" type="Script" id=46]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/preview_unavailable.png" type="Texture" id=47]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/HomeScreenImages/Yume_Banner_001.png" type="Texture" id=48]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Theme/large_button.tres" type="Theme" id=49]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Windows/NewProject.tscn" type="PackedScene" id=50]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Windows/NewProject_Directory.tscn" type="PackedScene" id=51]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Windows/LoadProject_Directory.tscn" type="PackedScene" id=52]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Component_Scripts/character_2Dviewport_control.gd" type="Script" id=53]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Masks/SpriteMask_0004.png" type="Texture" id=54]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Masks/SpriteMask_0003.png" type="Texture" id=55]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Masks/SpriteMask_0002.png" type="Texture" id=56]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Masks/SpriteMask_0008.png" type="Texture" id=57]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Masks/SpriteMask_0007.png" type="Texture" id=58]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Masks/SpriteMask_0005.png" type="Texture" id=59]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Masks/SpriteMask_0006.png" type="Texture" id=60]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/linked_icon.png" type="Texture" id=61]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/unlinked_icon.png" type="Texture" id=62]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/full_rect_mask.png" type="Texture" id=63]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/no_mask_icon.png" type="Texture" id=64]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.121569, 0.145098, 0.192157, 1 )
@@ -97,19 +120,132 @@ content_margin_top = 10.0
 content_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxEmpty" id=11]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id=12]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.2, 0.231373, 0.309804, 1 )
+
+[sub_resource type="Environment" id=13]
+background_mode = 1
+background_color = Color( 0.462745, 0.470588, 0.521569, 1 )
+fog_enabled = true
+fog_color = Color( 0.462745, 0.470588, 0.521569, 1 )
+fog_depth_end = 120.0
+fog_depth_curve = 2.21915
+
+[sub_resource type="ShaderMaterial" id=14]
+shader = ExtResource( 39 )
+shader_param/grid_scale = 100.0
+shader_param/grid_color = Color( 0.584314, 0.584314, 0.639216, 1 )
+shader_param/bg_color = Color( 0.462745, 0.470588, 0.521569, 1 )
+shader_param/grid_text = ExtResource( 40 )
+
+[sub_resource type="PlaneMesh" id=15]
+size = Vector2( 600, 600 )
+
+[sub_resource type="StyleBoxEmpty" id=16]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id=17]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.12549, 0.145098, 0.192157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.12549, 0.145098, 0.192157, 0.784314 )
+
+[sub_resource type="StyleBoxTexture" id=20]
+texture = ExtResource( 43 )
+region_rect = Rect2( 0, 0, 32, 16 )
+margin_left = 7.79425
+margin_right = 7.73246
+margin_top = 7.73118
+margin_bottom = 6.94229
+
+[sub_resource type="StyleBoxTexture" id=21]
+texture = ExtResource( 44 )
+region_rect = Rect2( 0, 0, 32, 16 )
+margin_left = 7.80592
+margin_right = 7.63984
+margin_top = 7.30767
+margin_bottom = 6.9755
+
+[sub_resource type="StyleBoxEmpty" id=22]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id=23]
+bg_color = Color( 0.12549, 0.145098, 0.192157, 1 )
+
+[sub_resource type="Shader" id=24]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform sampler2D mask_image: hint_white;
+
+
+void fragment() {
+	vec4 masked_image = texture(mask_image, UV);
+	vec4 base = texture(TEXTURE, UV);
+	
+	COLOR.rgb = base.rgb;
+	COLOR.a = masked_image.r * base.a;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=25]
+shader = SubResource( 24 )
+shader_param/mask_image = ExtResource( 63 )
+
+[sub_resource type="StyleBoxEmpty" id=26]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id=27]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color( 0.12549, 0.145098, 0.192157, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=28]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id=29]
 content_margin_left = 50.0
 content_margin_right = 50.0
 content_margin_top = 50.0
 content_margin_bottom = 50.0
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=30]
 bg_color = Color( 0.121569, 0.145098, 0.192157, 1 )
 
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=31]
 bg_color = Color( 0.196078, 0.231373, 0.309804, 1 )
 shadow_color = Color( 0.0431373, 0.0823529, 0.188235, 0.584314 )
 
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="StyleBoxFlat" id=32]
 content_margin_left = 15.0
 content_margin_right = 15.0
 content_margin_top = 15.0
@@ -124,6 +260,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 home_screen_path = NodePath("WelcomeScreen")
 editor_screen_path = NodePath("EditorScreen")
 new_project_button_path = NodePath("WelcomeScreen/VBoxContainer/HBoxContainer/welcome/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/NewProject")
@@ -245,7 +385,6 @@ margin_right = 1920.0
 margin_bottom = 20.0
 
 [node name="EditorScreen" type="HBoxContainer" parent="."]
-visible = false
 margin_top = 23.0
 margin_right = 1920.0
 margin_bottom = 1080.0
@@ -274,6 +413,7 @@ drag_to_rearrange_enabled = true
 script = ExtResource( 4 )
 
 [node name="Story Editor" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -614,7 +754,7 @@ mouse_filter = 1
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1415.0
-margin_bottom = 602.0
+margin_bottom = 588.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -725,7 +865,6 @@ mouse_filter = 0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Actions/PanelContainer2/VBoxContainer/PanelContainer2/HBoxContainer/PreviewRunningSprite"]
 frames = SubResource( 7 )
 animation = "loading"
-frame = 6
 playing = true
 offset = Vector2( 8, 8 )
 
@@ -738,7 +877,7 @@ margin_bottom = 16.0
 [node name="ActionNodes" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Actions/PanelContainer2/VBoxContainer"]
 margin_top = 40.0
 margin_right = 1408.0
-margin_bottom = 595.0
+margin_bottom = 581.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -750,7 +889,7 @@ anchor_bottom = 0.0
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 1403.0
-margin_bottom = 550.0
+margin_bottom = 536.0
 editor_root_path = NodePath("../../../../../../..")
 menu_fold_button_path = NodePath("../../PanelContainer2/HBoxContainer/MenuFoldButtons")
 max_v_bar_value = 1e+06
@@ -890,7 +1029,7 @@ mouse_filter = 0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer/PreviewRunningSprite"]
 frames = SubResource( 7 )
 animation = "loading"
-frame = 5
+frame = 6
 playing = true
 offset = Vector2( 8, 8 )
 
@@ -924,7 +1063,6 @@ max_scroll_speed = 60.0
 wheel_step = 0.1
 
 [node name="Character Catalog" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -1026,8 +1164,7 @@ rect_min_size = Vector2( 300, 0 )
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
 
-[node name="TabContainer" type="TabContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2"]
-visible = false
+[node name="CharacterDataTabs" type="TabContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1479.0
@@ -1035,21 +1172,24 @@ margin_bottom = 1014.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_align = 0
+script = ExtResource( 34 )
 
-[node name="Profile" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer"]
+[node name="Profile" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
-script = ExtResource( 34 )
+script = ExtResource( 35 )
 editor_root_path = NodePath("../../../../../../..")
 catalog_root_path = NodePath("../../../..")
-name_field_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer/LineEdit")
-description_field_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer3/HBoxContainer2/TextEdit")
+name_field_path = NodePath("../../CharacterDataTabs/Profile/PanelContainer/VBoxContainer/HBoxContainer/LineEdit")
+description_field_path = NodePath("../../CharacterDataTabs/Profile/PanelContainer/VBoxContainer/HBoxContainer3/HBoxContainer2/TextEdit")
+alias_field_path = NodePath("PanelContainer/VBoxContainer/TabContainer/Alias List/PanelContainer/VBoxContainer/TextEdit")
 
-[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile"]
+[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 9 )
@@ -1057,7 +1197,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 1459.0
@@ -1067,18 +1207,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer/VBoxContainer"]
 margin_right = 1454.0
 margin_bottom = 26.0
 custom_constants/separation = 10
 
-[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer/VBoxContainer/HBoxContainer"]
 margin_top = 6.0
 margin_right = 38.0
 margin_bottom = 20.0
 text = "Name"
 
-[node name="LineEdit" type="LineEdit" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer/VBoxContainer/HBoxContainer"]
 margin_left = 48.0
 margin_right = 746.0
 margin_bottom = 26.0
@@ -1089,56 +1229,381 @@ text = "New Character"
 expand_to_text_length = true
 clear_button_enabled = true
 
-[node name="HSeparator" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 756.0
 margin_right = 1454.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer/VBoxContainer"]
 margin_top = 34.0
 margin_right = 1454.0
-margin_bottom = 340.0
+margin_bottom = 235.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer/HBoxContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer/VBoxContainer/HBoxContainer3"]
 margin_right = 74.0
-margin_bottom = 306.0
+margin_bottom = 201.0
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
 margin_right = 74.0
 margin_bottom = 14.0
 text = "Description"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer/HBoxContainer3"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer/VBoxContainer/HBoxContainer3"]
 margin_left = 84.0
 margin_right = 1454.0
-margin_bottom = 306.0
+margin_bottom = 201.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
 
-[node name="TextEdit" type="TextEdit" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer/HBoxContainer3/HBoxContainer2"]
+[node name="TextEdit" type="TextEdit" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer/VBoxContainer/HBoxContainer3/HBoxContainer2"]
 margin_right = 1370.0
-margin_bottom = 306.0
+margin_bottom = 201.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 wrap_enabled = true
 caret_blink = true
 
-[node name="VSeparator" type="VSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer/Profile/PanelContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer/VBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 348.0
+margin_top = 243.0
+margin_right = 1454.0
+margin_bottom = 247.0
+
+[node name="TabContainer" type="TabContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer/VBoxContainer"]
+margin_top = 255.0
 margin_right = 1454.0
 margin_bottom = 961.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
+size_flags_stretch_ratio = 3.5
+tab_align = 0
 
-[node name="Text" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer"]
+[node name="Alias List" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer/VBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tab_align = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer/VBoxContainer/TabContainer/Alias List"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer/VBoxContainer/TabContainer/Alias List/PanelContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1436.0
+margin_bottom = 660.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer/VBoxContainer/TabContainer/Alias List/PanelContainer/VBoxContainer"]
+margin_right = 1426.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.360784, 0.529412, 0.788235, 1 )
+text = "Aliases can be used in place of the character's default name.  Each line will be treated as a separate alias."
+autowrap = true
+
+[node name="TextEdit" type="TextEdit" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Profile/PanelContainer/VBoxContainer/TabContainer/Alias List/PanelContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 1426.0
+margin_bottom = 650.0
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0.988235, 0.611765, 0.611765, 1 )
+custom_colors/line_number_color = Color( 0.415686, 0.615686, 0.917647, 1 )
+custom_colors/current_line_color = Color( 0.180392, 0.215686, 0.298039, 1 )
+highlight_current_line = true
+show_line_numbers = true
+breakpoint_gutter = true
+highlight_all_occurrences = true
+smooth_scrolling = true
+wrap_enabled = true
+caret_blink = true
+
+[node name="Text" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 36 )
+editor_root_path = NodePath("../../../../../../..")
+catalog_root_path = NodePath("../../../..")
+nametag_color_button_path = NodePath("../../CharacterDataTabs/Text/PanelContainer/VBoxContainer/HBoxContainer/ColorPickerButton")
+dialogue_color_button_path = NodePath("../../CharacterDataTabs/Text/PanelContainer/VBoxContainer/HBoxContainer2/ColorPickerButton")
+custom_dialoguebox_field_path = NodePath("../../CharacterDataTabs/Text/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3/LineEdit")
+dialoguebox_instance_control_path = NodePath("../../CharacterDataTabs/Text/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/CustomDialoguePreview/ViewportContainer2/StageViewport/PreviewBoxPos")
+
+[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1459.0
+margin_bottom = 966.0
+custom_constants/separation = 10
+
+[node name="NameTagSection" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer"]
+margin_right = 1454.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.415686, 0.615686, 0.917647, 1 )
+text = "Name Tag"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 1454.0
+margin_bottom = 44.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_top = 3.0
+margin_right = 100.0
+margin_bottom = 17.0
+text = "Name Tag Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 110.0
+margin_right = 260.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 150, 0 )
+focus_mode = 0
+enabled_focus_mode = 0
+color = Color( 1, 1, 1, 1 )
+edit_alpha = false
+
+[node name="HSeparator" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 1454.0
+margin_bottom = 58.0
+
+[node name="DialogueTextSection" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer"]
+margin_top = 68.0
+margin_right = 1454.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0.415686, 0.615686, 0.917647, 1 )
+text = "Dialogue Text"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer"]
+margin_top = 92.0
+margin_right = 1454.0
+margin_bottom = 112.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer/HBoxContainer2"]
+margin_top = 3.0
+margin_right = 124.0
+margin_bottom = 17.0
+text = "Dialogue Text Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 134.0
+margin_right = 284.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 150, 0 )
+focus_mode = 0
+enabled_focus_mode = 0
+color = Color( 1, 1, 1, 1 )
+edit_alpha = false
+
+[node name="HSeparator2" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 122.0
+margin_right = 1454.0
+margin_bottom = 126.0
+
+[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer"]
+margin_top = 136.0
+margin_right = 1454.0
+margin_bottom = 961.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 37 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer/PanelContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1444.0
+margin_bottom = 815.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_right = 1434.0
+margin_bottom = 24.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+margin_top = 5.0
+margin_right = 192.0
+margin_bottom = 19.0
+text = "Custom Dialogue Box Filepath"
+
+[node name="LineEdit" type="LineEdit" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+margin_left = 202.0
+margin_right = 920.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+clear_button_enabled = true
+
+[node name="HSeparator" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 930.0
+margin_right = 1434.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="CustomDialoguePreview" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 1434.0
+margin_bottom = 805.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 12 )
+
+[node name="ViewportContainer2" type="ViewportContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/CustomDialoguePreview"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1429.0
+margin_bottom = 772.0
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StageViewport" type="Viewport" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/CustomDialoguePreview/ViewportContainer2"]
+size = Vector2( 1424, 767 )
+own_world = true
+handle_input_locally = false
+render_target_update_mode = 0
+
+[node name="PreviewBoxPos" type="CanvasLayer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/CustomDialoguePreview/ViewportContainer2/StageViewport"]
+
+[node name="Camera" type="Camera" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/CustomDialoguePreview/ViewportContainer2/StageViewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.66023 )
+environment = SubResource( 13 )
+current = true
+far = 150.0
+script = ExtResource( 38 )
+env_color = Color( 0.462745, 0.470588, 0.521569, 1 )
+grid_color = Color( 0.584314, 0.584314, 0.639216, 1 )
+grid_scale = 100.0
+
+[node name="MeshInstance" type="MeshInstance" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/CustomDialoguePreview/ViewportContainer2/StageViewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -33.7433, 0 )
+material_override = SubResource( 14 )
+mesh = SubResource( 15 )
+material/0 = null
+
+[node name="HSeparator3" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Text/PanelContainer/VBoxContainer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 224.0
+margin_right = 1454.0
+margin_bottom = 961.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Visuals" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 41 )
+proportional_editing_linked_color = Color( 0.980392, 0.607843, 0.607843, 1 )
+editor_root_path = NodePath("../../../../../../..")
+catalog_root_path = NodePath("../../../..")
+stage_character_instance_field_path = NodePath("../../CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/CharacterInstancePath")
+stage_instance_pos_3D_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/ViewportContainer/StageViewport/CharacterPos3D")
+stage_instance_pos_2D_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/2DStagePreview2/CharacterPos2D")
+camera_path = NodePath("../../CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/ViewportContainer/StageViewport/Camera")
+camera2D_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/2DStagePreview2/Camera2D")
+camera_slider_path = NodePath("../../CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer/HSlider")
+ui_bar_bg_path = NodePath("../../CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/PanelContainer")
+ui_bar_path = NodePath("../../CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer/HSlider")
+ui_bar_middle_path = NodePath("../../CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer/TextureRect")
+viewport_container_path = NodePath("../../CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/ViewportContainer")
+viewport_texture_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/2D stage_Preview")
+viewport3D_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/ViewportContainer/StageViewport")
+viewport2D_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/2DStagePreview2")
+preview_container_path = NodePath("../../CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer")
+display_components_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer/CheckItems/Components_Found/DisplayComponents")
+animation_components_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer/CheckItems/Components_Found2/AnimationComponents")
+visual_preview_tabs_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer")
+box_sprite_dimension_x_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer/SpinBox")
+box_sprite_dimension_y_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer/SpinBox2")
+proportional_editing_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer/ProportionalEditing")
+transparency_toggle_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer5/CheckButton")
+box_sprite_viewport_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer/BoxSpritePreview/MainSprite")
+box_sprite_preview_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer/BoxSpritePreview")
+box_sprite_2d_container_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer/BoxSpritePreview/MainSprite/2DContainer")
+box_sprite_3d_container_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer/BoxSpritePreview/MainSprite/3DContainer")
+box_main_instance_field_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer2/LineEdit")
+box_sprite_display_components_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/CheckItems2/Components_Found/DisplayComponents")
+box_sprite_animation_components_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/CheckItems2/Components_Found2/AnimationComponents")
+box_sprite_mask_field_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6/LineEdit")
+box_sprite_mask_presets_path = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/PanelContainer/ScrollContainer/GridContainer")
+
+[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1459.0
+margin_bottom = 966.0
+custom_constants/separation = 10
+
+[node name="HSeparator3" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 1454.0
+margin_bottom = 4.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer"]
+margin_top = 14.0
+margin_right = 1454.0
+margin_bottom = 961.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 15
+
+[node name="TabContainer" type="TabContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 656.0
+margin_bottom = 947.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.3
+tab_align = 0
+
+[node name="Stage Visual" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1147,8 +1612,285 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Visuals" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 638.0
+margin_bottom = 901.0
+custom_constants/separation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator2" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 628.0
+margin_bottom = 4.0
+
+[node name="Panel" type="Panel" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer"]
+margin_top = 9.0
+margin_right = 628.0
+margin_bottom = 767.0
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 18 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StageViewport" type="Viewport" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/ViewportContainer"]
+size = Vector2( 628, 758 )
+own_world = true
+handle_input_locally = false
+render_target_update_mode = 0
+
+[node name="Camera" type="Camera" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/ViewportContainer/StageViewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.66023 )
+environment = SubResource( 13 )
+current = true
+far = 150.0
+script = ExtResource( 38 )
+env_color = Color( 0.462745, 0.470588, 0.521569, 1 )
+grid_color = Color( 0.584314, 0.584314, 0.639216, 1 )
+grid_scale = 100.0
+
+[node name="CharacterPos3D" type="Spatial" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/ViewportContainer/StageViewport"]
+
+[node name="MeshInstance" type="MeshInstance" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/ViewportContainer/StageViewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -33.7433, 0 )
+material_override = SubResource( 14 )
+mesh = SubResource( 15 )
+material/0 = null
+
+[node name="2D stage_Preview" type="TextureRect" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 7
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2DStagePreview2" type="Viewport" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel"]
+size = Vector2( 537, 758 )
+own_world = true
+transparent_bg = true
+handle_input_locally = false
+disable_3d = true
+usage = 0
+render_target_update_mode = 3
+
+[node name="Camera2D" type="Camera2D" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/2DStagePreview2"]
+current = true
+process_mode = 0
+editor_draw_screen = false
+
+[node name="CharacterPos2D" type="Node2D" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/2DStagePreview2"]
+script = ExtResource( 53 )
+
+[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel"]
 visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -34.0
+margin_bottom = 1.0
+rect_min_size = Vector2( 0, 35 )
+custom_styles/panel = SubResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 308.0
+margin_bottom = 758.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/HBoxContainer"]
+margin_left = 312.0
+margin_right = 620.0
+margin_bottom = 758.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator" type="VSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 308.0
+margin_bottom = 750.0
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer"]
+visible = false
+margin_top = 726.0
+margin_right = 263.0
+margin_bottom = 734.0
+texture = ExtResource( 42 )
+stretch_mode = 4
+
+[node name="HSlider" type="HSlider" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer"]
+visible = false
+margin_top = 734.0
+margin_right = 263.0
+margin_bottom = 750.0
+custom_styles/slider = SubResource( 20 )
+custom_styles/grabber_area = SubResource( 21 )
+min_value = -1.0
+max_value = 1.0
+step = 0.1
+ticks_on_borders = true
+
+[node name="VSeparator2" type="VSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 750.0
+margin_right = 308.0
+margin_bottom = 758.0
+rect_min_size = Vector2( 0, 8 )
+
+[node name="HSeparator2" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 624.0
+margin_right = 627.0
+margin_bottom = 758.0
+
+[node name="PreviewUI" type="Tween" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/Panel"]
+
+[node name="HSeparator3" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 772.0
+margin_right = 628.0
+margin_bottom = 776.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer"]
+margin_top = 781.0
+margin_right = 628.0
+margin_bottom = 891.0
+custom_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer"]
+margin_right = 628.0
+margin_bottom = 24.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 157.0
+margin_bottom = 19.0
+text = "Character Scene Filepath"
+
+[node name="CharacterInstancePath" type="LineEdit" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 167.0
+margin_right = 628.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+clear_button_enabled = true
+caret_blink = true
+
+[node name="HSeparator" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer"]
+margin_top = 34.0
+margin_right = 628.0
+margin_bottom = 38.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer"]
+visible = false
+margin_top = 48.0
+margin_right = 537.0
+margin_bottom = 62.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+margin_right = 97.0
+margin_bottom = 14.0
+text = "Character Class"
+
+[node name="Label3" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+margin_left = 107.0
+margin_right = 537.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_colors/font_color = Color( 1, 0.773987, 0.28125, 1 )
+text = "Undefined"
+
+[node name="CheckItems" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 628.0
+margin_bottom = 110.0
+size_flags_vertical = 3
+
+[node name="HSeparator3" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer/CheckItems"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 628.0
+margin_bottom = 4.0
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer/CheckItems"]
+margin_top = 8.0
+margin_right = 628.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0.415686, 0.615686, 0.917647, 1 )
+text = "Elements Found  "
+
+[node name="Components_Found" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer/CheckItems"]
+margin_top = 26.0
+margin_right = 628.0
+margin_bottom = 42.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer/CheckItems/Components_Found"]
+margin_top = 1.0
+margin_right = 91.0
+margin_bottom = 15.0
+custom_colors/font_color = Color( 0.427451, 0.439216, 0.466667, 1 )
+text = "Image Display"
+
+[node name="DisplayComponents" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer/CheckItems/Components_Found"]
+margin_left = 101.0
+margin_right = 117.0
+margin_bottom = 16.0
+
+[node name="Components_Found2" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer/CheckItems"]
+margin_top = 46.0
+margin_right = 628.0
+margin_bottom = 62.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer/CheckItems/Components_Found2"]
+margin_top = 1.0
+margin_right = 116.0
+margin_bottom = 15.0
+custom_colors/font_color = Color( 0.427451, 0.439216, 0.466667, 1 )
+text = "Animation Control"
+
+[node name="AnimationComponents" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Stage Visual/PanelContainer/VBoxContainer/VBoxContainer/CheckItems/Components_Found2"]
+margin_left = 126.0
+margin_right = 142.0
+margin_bottom = 16.0
+
+[node name="Dialogue Box Visual" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -1156,7 +1898,412 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Audio" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/TabContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 638.0
+margin_bottom = 901.0
+
+[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer"]
+margin_right = 628.0
+margin_bottom = 443.0
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 23 )
+
+[node name="BoxSpritePreview" type="TextureRect" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer"]
+material = SubResource( 25 )
+margin_right = 628.0
+margin_bottom = 443.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainSprite" type="Viewport" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer/BoxSpritePreview"]
+size = Vector2( 256, 256 )
+own_world = true
+render_target_v_flip = true
+
+[node name="Camera" type="Camera" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer/BoxSpritePreview/MainSprite"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.69822 )
+
+[node name="2DContainer" type="Node2D" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer/BoxSpritePreview/MainSprite"]
+
+[node name="3DContainer" type="Spatial" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer/BoxSpritePreview/MainSprite"]
+
+[node name="PanelContainer2" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer"]
+margin_top = 447.0
+margin_right = 628.0
+margin_bottom = 891.0
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 26 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 618.0
+margin_bottom = 434.0
+custom_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+margin_right = 608.0
+margin_bottom = 24.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 118.0
+margin_bottom = 19.0
+text = "Sprite Dimensions"
+
+[node name="HSeparator" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 128.0
+margin_right = 131.0
+margin_bottom = 24.0
+
+[node name="Label2" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
+margin_left = 141.0
+margin_top = 5.0
+margin_right = 148.0
+margin_bottom = 19.0
+custom_colors/font_color = Color( 0.415686, 0.615686, 0.917647, 1 )
+text = "x"
+
+[node name="SpinBox" type="SpinBox" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
+margin_left = 158.0
+margin_right = 232.0
+margin_bottom = 24.0
+min_value = 2.0
+max_value = 2048.0
+value = 256.0
+suffix = "px"
+
+[node name="Label3" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
+margin_left = 242.0
+margin_top = 5.0
+margin_right = 249.0
+margin_bottom = 19.0
+custom_colors/font_color = Color( 0.415686, 0.615686, 0.917647, 1 )
+text = "y"
+
+[node name="SpinBox2" type="SpinBox" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
+margin_left = 259.0
+margin_right = 333.0
+margin_bottom = 24.0
+min_value = 2.0
+max_value = 2048.0
+value = 256.0
+suffix = "px"
+
+[node name="ProportionalEditing" type="TextureButton" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
+margin_left = 343.0
+margin_right = 367.0
+margin_bottom = 24.0
+focus_mode = 0
+toggle_mode = true
+pressed = true
+enabled_focus_mode = 0
+texture_normal = ExtResource( 62 )
+texture_pressed = ExtResource( 61 )
+stretch_mode = 5
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+margin_top = 34.0
+margin_right = 608.0
+margin_bottom = 74.0
+custom_constants/separation = 10
+
+[node name="CheckButton" type="CheckButton" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer5"]
+margin_right = 164.0
+margin_bottom = 40.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Transparency"
+
+[node name="HSeparator" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+margin_top = 84.0
+margin_right = 608.0
+margin_bottom = 88.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+margin_top = 98.0
+margin_right = 608.0
+margin_bottom = 122.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer2"]
+margin_top = 5.0
+margin_right = 163.0
+margin_bottom = 19.0
+text = "Main Sprite Instance Path"
+
+[node name="LineEdit" type="LineEdit" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer2"]
+margin_left = 173.0
+margin_right = 608.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+clear_button_enabled = true
+caret_blink = true
+
+[node name="CheckItems2" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+margin_top = 132.0
+margin_right = 608.0
+margin_bottom = 182.0
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/CheckItems2"]
+margin_right = 608.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.415686, 0.615686, 0.917647, 1 )
+text = "Elements Found  "
+
+[node name="Components_Found" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/CheckItems2"]
+margin_top = 18.0
+margin_right = 608.0
+margin_bottom = 32.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/CheckItems2/Components_Found"]
+margin_right = 91.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.427451, 0.439216, 0.466667, 1 )
+text = "Image Display"
+
+[node name="DisplayComponents" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/CheckItems2/Components_Found"]
+margin_left = 101.0
+margin_right = 101.0
+margin_bottom = 14.0
+
+[node name="Components_Found2" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/CheckItems2"]
+margin_top = 36.0
+margin_right = 608.0
+margin_bottom = 50.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/CheckItems2/Components_Found2"]
+margin_right = 116.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.427451, 0.439216, 0.466667, 1 )
+text = "Animation Control"
+
+[node name="AnimationComponents" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/CheckItems2/Components_Found2"]
+margin_left = 126.0
+margin_right = 126.0
+margin_bottom = 14.0
+
+[node name="HSeparator4" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 192.0
+margin_right = 608.0
+margin_bottom = 196.0
+
+[node name="HSeparator3" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 206.0
+margin_right = 608.0
+margin_bottom = 210.0
+
+[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+margin_top = 220.0
+margin_right = 608.0
+margin_bottom = 424.0
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 37 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 598.0
+margin_bottom = 194.0
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_right = 588.0
+margin_bottom = 24.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6"]
+margin_top = 5.0
+margin_right = 119.0
+margin_bottom = 19.0
+text = "Shape Image Mask"
+
+[node name="LineEdit" type="LineEdit" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6"]
+margin_left = 129.0
+margin_right = 588.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+clear_button_enabled = true
+caret_blink = true
+
+[node name="HSeparator4" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 28.0
+margin_right = 588.0
+margin_bottom = 32.0
+
+[node name="Label2" type="Label" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 588.0
+margin_bottom = 50.0
+custom_colors/font_color = Color( 0.470588, 0.490196, 0.537255, 1 )
+text = "Presets"
+
+[node name="HSeparator5" type="HSeparator" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 54.0
+margin_right = 588.0
+margin_bottom = 58.0
+
+[node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 62.0
+margin_right = 588.0
+margin_bottom = 184.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 27 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/PanelContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 578.0
+margin_bottom = 112.0
+
+[node name="GridContainer" type="GridContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/PanelContainer/ScrollContainer"]
+margin_right = 568.0
+margin_bottom = 102.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 9
+
+[node name="NoMask" type="TextureButton" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/PanelContainer/ScrollContainer/GridContainer"]
+margin_right = 25.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 64 )
+expand = true
+
+[node name="TextureRect" type="TextureButton" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/PanelContainer/ScrollContainer/GridContainer"]
+margin_left = 35.0
+margin_right = 60.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 45 )
+expand = true
+
+[node name="TextureRect2" type="TextureButton" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/PanelContainer/ScrollContainer/GridContainer"]
+margin_left = 70.0
+margin_right = 95.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 56 )
+expand = true
+
+[node name="TextureRect3" type="TextureButton" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/PanelContainer/ScrollContainer/GridContainer"]
+margin_left = 105.0
+margin_right = 130.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 55 )
+expand = true
+
+[node name="TextureRect4" type="TextureButton" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/PanelContainer/ScrollContainer/GridContainer"]
+margin_left = 140.0
+margin_right = 165.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 54 )
+expand = true
+
+[node name="TextureRect5" type="TextureButton" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/PanelContainer/ScrollContainer/GridContainer"]
+margin_left = 175.0
+margin_right = 200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 59 )
+expand = true
+
+[node name="TextureRect6" type="TextureButton" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/PanelContainer/ScrollContainer/GridContainer"]
+margin_left = 210.0
+margin_right = 235.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 60 )
+expand = true
+
+[node name="TextureRect7" type="TextureButton" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/PanelContainer/ScrollContainer/GridContainer"]
+margin_left = 245.0
+margin_right = 270.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 58 )
+expand = true
+
+[node name="TextureRect8" type="TextureButton" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer/Dialogue Box Visual/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/PanelContainer/ScrollContainer/GridContainer"]
+margin_left = 280.0
+margin_right = 305.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 57 )
+expand = true
+
+[node name="horizontal_resize4" type="Panel" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 671.0
+margin_right = 681.0
+margin_bottom = 947.0
+rect_min_size = Vector2( 10, 0 )
+mouse_default_cursor_shape = 10
+script = ExtResource( 11 )
+damp = 0.006
+
+[node name="TabContainer2" type="TabContainer" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 696.0
+margin_right = 1454.0
+margin_bottom = 947.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+tab_align = 0
+
+[node name="Expressions" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="State Graph" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/TabContainer2"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1245,7 +2392,7 @@ margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
-script = ExtResource( 35 )
+script = ExtResource( 46 )
 center_h_handle_path = NodePath("PanelContainer/HBoxContainer/horizontal_resize2")
 center_h_handle_a_path = NodePath("PanelContainer/HBoxContainer/TabContainer")
 center_h_handle_b_path = NodePath("PanelContainer/HBoxContainer/PanelContainer")
@@ -1285,7 +2432,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
-custom_styles/panel = SubResource( 10 )
+custom_styles/panel = SubResource( 28 )
 
 [node name="Tree" type="Tree" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/TabContainer/Scenes Found/PanelContainer2"]
 margin_left = 10.0
@@ -1315,7 +2462,7 @@ rect_min_size = Vector2( 300, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
-custom_styles/panel = SubResource( 11 )
+custom_styles/panel = SubResource( 29 )
 
 [node name="CenterContainer" type="CenterContainer" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/PanelContainer"]
 margin_left = 50.0
@@ -1330,7 +2477,7 @@ margin_left = 505.0
 margin_top = 428.0
 margin_right = 805.0
 margin_bottom = 478.0
-texture = ExtResource( 36 )
+texture = ExtResource( 47 )
 
 [node name="PreviewRect" type="TextureRect" parent="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/PanelContainer"]
 margin_left = 50.0
@@ -1393,30 +2540,31 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="WelcomeScreen" type="PanelContainer" parent="."]
-margin_top = 23.0
+visible = false
+margin_top = 551.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 12 )
+custom_styles/panel = SubResource( 30 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WelcomeScreen"]
 margin_right = 1920.0
-margin_bottom = 1057.0
+margin_bottom = 529.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VSeparator" type="VSeparator" parent="WelcomeScreen/VBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 1920.0
-margin_bottom = 324.0
+margin_bottom = 60.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="WelcomeScreen/VBoxContainer"]
-margin_top = 328.0
+margin_top = 64.0
 margin_right = 1920.0
-margin_bottom = 728.0
+margin_bottom = 464.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -1434,7 +2582,7 @@ margin_right = 1235.0
 margin_bottom = 400.0
 rect_min_size = Vector2( 550, 400 )
 rect_clip_content = true
-custom_styles/panel = SubResource( 13 )
+custom_styles/panel = SubResource( 31 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WelcomeScreen/VBoxContainer/HBoxContainer/welcome"]
 anchor_right = 1.0
@@ -1447,7 +2595,7 @@ margin_right = 550.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 37 )
+texture = ExtResource( 48 )
 
 [node name="PanelContainer" type="PanelContainer" parent="WelcomeScreen/VBoxContainer/HBoxContainer/welcome/VBoxContainer"]
 margin_top = 204.0
@@ -1456,7 +2604,7 @@ margin_bottom = 400.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 32 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WelcomeScreen/VBoxContainer/HBoxContainer/welcome/VBoxContainer/PanelContainer"]
 margin_left = 15.0
@@ -1518,7 +2666,7 @@ margin_left = 110.0
 margin_right = 217.0
 margin_bottom = 34.0
 focus_mode = 0
-theme = ExtResource( 38 )
+theme = ExtResource( 49 )
 enabled_focus_mode = 0
 text = "New Project"
 
@@ -1534,7 +2682,7 @@ margin_left = 300.0
 margin_right = 409.0
 margin_bottom = 34.0
 focus_mode = 0
-theme = ExtResource( 38 )
+theme = ExtResource( 49 )
 enabled_focus_mode = 0
 text = "Load Project"
 
@@ -1577,13 +2725,13 @@ size_flags_vertical = 3
 
 [node name="VSeparator2" type="VSeparator" parent="WelcomeScreen/VBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 732.0
+margin_top = 468.0
 margin_right = 1920.0
-margin_bottom = 1057.0
+margin_bottom = 529.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="NewProjectPopup" parent="." instance=ExtResource( 39 )]
+[node name="NewProjectPopup" parent="." instance=ExtResource( 50 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -1592,7 +2740,7 @@ margin_right = 1920.0
 margin_bottom = 820.0
 popup_exclusive = false
 
-[node name="NewProjectFileDialog" parent="." instance=ExtResource( 40 )]
+[node name="NewProjectFileDialog" parent="." instance=ExtResource( 51 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -1600,7 +2748,7 @@ margin_top = 820.0
 margin_right = 1920.0
 margin_bottom = 950.0
 
-[node name="LoadProjectFileDialog" parent="." instance=ExtResource( 41 )]
+[node name="LoadProjectFileDialog" parent="." instance=ExtResource( 52 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 949.0
@@ -1618,6 +2766,8 @@ margin_bottom = 1079.0
 [connection signal="pressed" from="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/NewCharacter" to="EditorScreen/PanelContainer/EditorViews/Character Catalog" method="_on_NewCharacter_pressed"]
 [connection signal="gui_input" from="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/horizontal_resize3" to="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/horizontal_resize3" method="_on_horizontal_resize_gui_input"]
 [connection signal="mouse_exited" from="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/horizontal_resize3" to="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/horizontal_resize3" method="_on_horizontal_resize_mouse_exited"]
+[connection signal="gui_input" from="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/horizontal_resize4" to="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/horizontal_resize4" method="_on_horizontal_resize_gui_input"]
+[connection signal="mouse_exited" from="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/horizontal_resize4" to="EditorScreen/PanelContainer/EditorViews/Character Catalog/HBoxContainer/PanelContainer2/CharacterDataTabs/Visuals/PanelContainer/VBoxContainer/HBoxContainer2/horizontal_resize4" method="_on_horizontal_resize_mouse_exited"]
 [connection signal="gui_input" from="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/horizontal_resize2" to="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/horizontal_resize2" method="_on_horizontal_resize_gui_input"]
 [connection signal="mouse_exited" from="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/horizontal_resize2" to="EditorScreen/PanelContainer/EditorViews/Menu List/PanelContainer/HBoxContainer/horizontal_resize2" method="_on_horizontal_resize_mouse_exited"]
 [connection signal="mouse_entered" from="WelcomeScreen/VBoxContainer/HBoxContainer/welcome/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/NewProject" to="." method="_on_NewProject_mouse_entered"]

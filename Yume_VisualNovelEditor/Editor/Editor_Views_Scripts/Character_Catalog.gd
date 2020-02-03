@@ -14,13 +14,35 @@ var extras_list : TreeItem
 var current_selected : TreeItem
 
 var base_char_structure : Dictionary = {
+	
 	"profile":  {
 		"name": "",
-		"description": ""
-	},
-	"text": {},
-	"visuals": {},
-	"audio": {}
+		"description": "",
+		"aliases": []
+		},
+	
+	"text": {
+		"nametag_color": [1,1,1,1],
+		"custom_dialoguebox": "",
+		"dialogue_color": [1,1,1,1]
+		},
+	
+	"visuals": {
+		"stage_instance_path": "",
+		"stage_instance_animation_player_paths": [],
+		"stage_instance_sprite_frames_paths": [],
+		
+		"box_sprite_dimensions": {
+			"x": 256,
+			"y": 256
+		},
+		"box_sprite_dimensions_proportional": true,
+		"box_sprite_transparent": false,
+		"box_sprite_instance_path": "",
+		"box_sprite_frame_image": "",
+		"box_sprite_mask_image": "res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/full_rect_mask.png",
+		"box_sprite_mask_preset": 0
+		}
 	}
 
 
@@ -43,6 +65,7 @@ func _ready() -> void:
 func _setup() -> void:
 	hide_details_tabs()
 	build_character_list()
+	sort_names()
 
 
 
@@ -64,7 +87,7 @@ func clear_ui() -> void:
 
 
 func clear_data() -> void:
-	var tabs : TabContainer = $HBoxContainer/PanelContainer2/TabContainer
+	var tabs : TabContainer = $HBoxContainer/PanelContainer2/CharacterDataTabs
 	
 	for i in tabs.get_children():
 		if i.has_method("_reset"):
@@ -115,12 +138,17 @@ func _on_NewCharacter_pressed() -> void:
 	new_character.add_button(1, preload("res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/close_icon.png"))
 	
 	character_dictionary[rid] = base_char_structure.duplicate(true)
+	character_dictionary[rid]["profile"]["name"] = "New Character"
+	
+	sort_names()
 
 
 
 func on_item_deleted(tree_item:TreeItem, Column:int, ID:int) -> void:
 	root.remove_child(tree_item)
 	hide_details_tabs()
+	
+	sort_names()
 
 
 
@@ -135,9 +163,9 @@ func on_item_selected() -> void:
 	$HBoxContainer/PanelContainer/VBoxContainer/Tree.get_selected().set_custom_bg_color(1, Color8(106, 158, 234))
 	
 	# Setup Tabs
-	$HBoxContainer/PanelContainer2/TabContainer.current_tab = 0
-	$HBoxContainer/PanelContainer2/TabContainer.show()
-	var tabs : TabContainer = $HBoxContainer/PanelContainer2/TabContainer
+	$HBoxContainer/PanelContainer2/CharacterDataTabs.current_tab = 0
+	$HBoxContainer/PanelContainer2/CharacterDataTabs.show()
+	var tabs : TabContainer = $HBoxContainer/PanelContainer2/CharacterDataTabs
 	
 	for i in tabs.get_children():
 		if i.has_method("_setup"):
@@ -157,7 +185,8 @@ func on_item_selected() -> void:
 #				file_check.close()
 #
 #				if typeof(data) == TYPE_DICTIONARY:
-			clear_data()
+#			clear_data()
+#			yield(get_tree().create_timer(0.001),"timeout")
 			i._setup(character_dictionary[current_selected.get_text(1)]) 
 #					return
 #			else:
@@ -183,6 +212,29 @@ func on_nothing_selected() -> void:
 func _on_name_change_request(new_name:String) -> void:
 	if current_selected:
 		current_selected.set_text(0, new_name)
+	
+	sort_names()
+
+
+
+func sort_names() -> void:
+	var item_array : Array = []
+	var item : TreeItem = root.get_children()
+	
+	while is_instance_valid(item):
+		item_array.append(item.get_text(0).to_lower())
+		item = item.get_next()
+	
+	item_array.sort()
+	
+	for i in item_array:
+		var names : TreeItem = root.get_children()
+		
+		while is_instance_valid(names):
+			if names.get_text(0).to_lower() == i:
+				names.move_to_bottom()
+			
+			names = names.get_next()
 
 
 
@@ -247,8 +299,8 @@ func build_character_list() -> void:
 
 # helper methods
 func hide_details_tabs() -> void:
-	$HBoxContainer/PanelContainer2/TabContainer.current_tab = 0
-	$HBoxContainer/PanelContainer2/TabContainer.hide()
+	$HBoxContainer/PanelContainer2/CharacterDataTabs.current_tab = 0
+	$HBoxContainer/PanelContainer2/CharacterDataTabs.hide()
 	clear_data()
 
 
@@ -257,7 +309,7 @@ func setup_ui() -> void:
 	$HBoxContainer/horizontal_resize3.B = $HBoxContainer/PanelContainer2
 	$HBoxContainer/horizontal_resize3._setup_init_flags()
 	
-	$HBoxContainer/PanelContainer2/TabContainer.hide()
+	$HBoxContainer/PanelContainer2/CharacterDataTabs.hide()
 
 
 static func gen_rid(tree_root:TreeItem) -> String:

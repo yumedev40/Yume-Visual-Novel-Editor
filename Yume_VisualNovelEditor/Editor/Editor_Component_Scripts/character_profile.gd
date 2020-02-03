@@ -13,6 +13,9 @@ var name_field : Object
 export(NodePath) var description_field_path : NodePath
 var description_field : Object
 
+export(NodePath) var alias_field_path : NodePath
+var alias_field : Object
+
 var character_name : String
 var description : String
 
@@ -33,19 +36,27 @@ func _ready() -> void:
 	name_field.connect("focus_exited", self, "on_name_text_entered")
 	
 	description_field.connect("text_changed", self, "on_description_text_changed")
+	
+	(alias_field as TextEdit).connect("text_changed", self, "on_alias_text_changed")
 
 
 
 func _setup(data:Dictionary) -> void:
+	# Set Aliases
+	if alias_field:
+		(alias_field as TextEdit).text = ""
+	
+	
+#	print("setup")
 	if data.has("profile"):
-		if data["profile"].has("name") && data["profile"].has("description"):
+		if data["profile"].has("name") && data["profile"].has("description") && data["profile"].has("aliases"):
+			
 			# Set Name
 			character_name = data["profile"]["name"]
 			
 			if name_field:
 				(name_field as LineEdit).text = data["profile"]["name"]
 			
-			catalog_root.character_dictionary[catalog_root.current_selected.get_text(1)]["profile"]["name"] = data["profile"]["name"]
 			
 			# Set Description
 			description = data["profile"]["description"]
@@ -53,9 +64,17 @@ func _setup(data:Dictionary) -> void:
 			if description_field:
 				(description_field as TextEdit).text = data["profile"]["description"]
 			
-			catalog_root.character_dictionary[catalog_root.current_selected.get_text(1)]["profile"]["description"] = data["profile"]["description"]
+			
+			# Set Aliases
+			if alias_field:
+				for i in data["profile"]["aliases"].size():
+					if i < data["profile"]["aliases"].size()-1:
+						(alias_field as TextEdit).text = (alias_field as TextEdit).text + data["profile"]["aliases"][i] + "\n"
+					else:
+						(alias_field as TextEdit).text = (alias_field as TextEdit).text + data["profile"]["aliases"][i]
+			
 		else:
-			push_error("Character profile is missing necessary data, check file for name and description fields")
+			push_error("Character profile is missing necessary data, check file for name, description, and aliases fields")
 	else:
 		push_error("Character profile is missing, check if file contains data")
 		_reset()
@@ -63,8 +82,14 @@ func _setup(data:Dictionary) -> void:
 
 
 func _reset() -> void:
+#	print("reset")
 	(name_field as LineEdit).text = "New Character"
 	(description_field as TextEdit).text = ""
+	
+	character_name = ""
+	description = ""
+	
+	(alias_field as TextEdit).text = ""
 
 
 
@@ -98,6 +123,21 @@ func on_description_text_changed() -> void:
 
 
 
+func on_alias_text_changed() -> void:
+	var alias_list : Array = []
+	
+	if alias_field:
+		for i in (alias_field as TextEdit).get_line_count():
+			alias_list.append((alias_field as TextEdit).get_line(i))
+	
+	print(alias_list)
+	
+	if catalog_root.current_selected:
+		catalog_root.character_dictionary[catalog_root.current_selected.get_text(1)]["profile"]["aliases"] = alias_list
+
+
+
+
 
 # Helper Methods
 
@@ -106,6 +146,7 @@ func setup_ui() -> void:
 	get_object_ref(catalog_root_path, "catalog_root")
 	get_object_ref(name_field_path, "name_field")
 	get_object_ref(description_field_path, "description_field")
+	get_object_ref(alias_field_path, "alias_field")
 
 
 func get_object_ref(path:NodePath, ref_var:String) -> void:

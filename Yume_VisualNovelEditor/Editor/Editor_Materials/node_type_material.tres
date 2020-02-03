@@ -1,0 +1,33 @@
+[gd_resource type="ShaderMaterial" load_steps=14 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_Materials/shaders/node_type_icon.shader" type="Shader" id=1]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/animated_sprite2D_icon.png" type="Texture" id=2]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/animated_sprite3D_icon.png" type="Texture" id=3]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/animation_player_icon.png" type="Texture" id=4]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/error_mark.png" type="Texture" id=5]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/multiple_node_icon.png" type="Texture" id=6]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/skeleton_2D_icon.png" type="Texture" id=7]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/skeleton_icon.png" type="Texture" id=8]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/sprite2D_icon.png" type="Texture" id=9]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/sprite_3D_icon.png" type="Texture" id=10]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/sprite_frames_resource.png" type="Texture" id=11]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/texture_rect_icon.png" type="Texture" id=12]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/animation_tree_player_icon.png" type="Texture" id=13]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/index = 10
+shader_param/multiple = false
+shader_param/TextureFrame = ExtResource( 12 )
+shader_param/Sprite2D = ExtResource( 9 )
+shader_param/AnimatedSprite2D = ExtResource( 2 )
+shader_param/Skeleton2D = ExtResource( 7 )
+shader_param/Sprite3D = ExtResource( 10 )
+shader_param/AnimatedSprite3D = ExtResource( 3 )
+shader_param/Skeleton3D = ExtResource( 8 )
+shader_param/AnimationPlayer = ExtResource( 4 )
+shader_param/AnimationTreePlayer = ExtResource( 13 )
+shader_param/SpriteFrames = ExtResource( 11 )
+shader_param/MultipleNodeMark = ExtResource( 6 )
+shader_param/ErrorMark = ExtResource( 5 )

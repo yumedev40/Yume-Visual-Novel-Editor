@@ -462,7 +462,7 @@ func get_initial_file() -> String:
 		
 		story_data_file.close()
 	else:
-		push_error(str("Could not locat story data file ", story_data_path))
+		push_error(str("Could not locate story data file ", story_data_path))
 	
 #	print(story_data)
 	
