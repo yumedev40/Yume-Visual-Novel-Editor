@@ -41,8 +41,16 @@ var base_char_structure : Dictionary = {
 		"box_sprite_instance_path": "",
 		"box_sprite_frame_image": "",
 		"box_sprite_mask_image": "res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/full_rect_mask.png",
-		"box_sprite_mask_preset": 0
-		}
+		"box_sprite_mask_preset": 0,
+		
+		"box_sprite_animation_player_paths": [],
+		"box_sprite_sprite_frames_paths": [],
+		
+		},
+	
+	"expressions": {
+	}
+	
 	}
 
 
@@ -331,11 +339,11 @@ static func gen_rid(tree_root:TreeItem) -> String:
 	
 	var random : int = clamp(randi()%10000 + 1, 1, 10000) + randi()%second_value
 	
-	var date_id : int = day + month + weekday
-	var time_id : int =  dst + hour + minute
-	var second_id : int = second
+#	var date_id : int = day + month + weekday
+#	var time_id : int =  dst + hour + minute
+#	var second_id : int = second
 	
-	rid = str("C-", year, date_id, time_id, second_id, "-", random)
+	rid = str("C-", year, day, month, weekday, dst, hour, minute, second, "-", random)
 	
 	var child_items : TreeItem = tree_root.get_children()
 	var iterator : int = 1

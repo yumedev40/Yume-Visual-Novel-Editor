@@ -1,17 +1,20 @@
 tool
 extends Panel
 
-onready var A : Object
-onready var B : Object
+var A : Object
+var B : Object
 export(float, 0, 0.1, 0.001) var damp : float = 0.003
 
 var active : bool = false
 
 
 
+
+
 #warnings-disable
 func _ready() -> void:
 	pass
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

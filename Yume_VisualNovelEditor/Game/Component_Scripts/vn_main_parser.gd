@@ -284,13 +284,20 @@ func call_action_stack() -> void:
 		
 		"expressed line":
 			# Dialogue box reference
-			var dialogue_box : Object = $UI_COMPONENTS/DialogueBox_UI/Dialogue_Box
+			var dialogue_box : Object
 			var name_string : String
 			var dialogue_string : String
+			var character_code : String
+			var custom_dialoguebox_path : String
 			
 			
 			if action_tags[0].has("text_box") && action_tags[0].has("text_string"):
 				name_string = action_tags[0]["text_string"][0]
+				
+				character_code = action_tags[0]["text_string"][1]
+				
+				custom_dialoguebox_path = action_tags[0]["text_string"][2]
+				
 				match action_tags[0]["text_box"][1]:
 					true:
 						dialogue_string = action_tags[0]["text_box"][2]
@@ -301,7 +308,26 @@ func call_action_stack() -> void:
 				emit_signal("failure")
 				return
 			
-			dialogue_box.start_dialogue(name_string, dialogue_string, debug_mode)
+			dialogue_box = $UI_COMPONENTS/DialogueBox_UI.get_child(0)
+			
+			if custom_dialoguebox_path.replace(" ", "") != "":
+				var file_check : File = File.new()
+				if file_check.file_exists(custom_dialoguebox_path):
+					if dialogue_box.filename != custom_dialoguebox_path:
+						dialogue_box = $UI_COMPONENTS/DialogueBox_UI.add_new_box(custom_dialoguebox_path)
+				else:
+					if dialogue_box.filename != $UI_COMPONENTS/DialogueBox_UI.default_box_path:
+						$UI_COMPONENTS/DialogueBox_UI._reset()
+						yield(get_tree().create_timer(0.001),"timeout")
+						dialogue_box = $UI_COMPONENTS/DialogueBox_UI.get_child(0)
+			else:
+				if dialogue_box.filename != $UI_COMPONENTS/DialogueBox_UI.default_box_path: 
+					$UI_COMPONENTS/DialogueBox_UI._reset()
+					yield(get_tree().create_timer(0.001),"timeout")
+					dialogue_box = $UI_COMPONENTS/DialogueBox_UI.get_child(0)
+			
+			
+			dialogue_box.start_dialogue(name_string, dialogue_string, debug_mode, character_code)
 			
 		"fade screen":
 			var transition_direction : bool = true

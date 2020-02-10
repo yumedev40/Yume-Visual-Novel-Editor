@@ -11,6 +11,9 @@ rect_clip_content = true
 mouse_filter = 1
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ActionsList" type="VBoxContainer" parent="."]
 anchor_right = 1.0

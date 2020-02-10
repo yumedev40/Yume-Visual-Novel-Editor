@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Characters/image_sprite/images/idle_001.png" type="Texture" id=1]
 [ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Characters/image_sprite/images/ta-da_001.png" type="Texture" id=2]
@@ -36,6 +36,23 @@ tracks/0/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 
+[sub_resource type="Animation" id=3]
+resource_name = "Rotate"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.8, 1, 1.2, 1.5, 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 250.069, 358.909 ), Vector2( 306.328, 353.96 ), Vector2( 371.377, 392.313 ), Vector2( 337.917, 496.411 ), Vector2( 269.408, 554.057 ), Vector2( 197.19, 544.136 ), Vector2( 151.616, 479.338 ), Vector2( 162.498, 387.197 ), Vector2( 250.069, 358.909 ) ]
+}
+
 [node name="Sprite" type="Sprite"]
 texture = ExtResource( 1 )
 
@@ -51,3 +68,6 @@ texture = ExtResource( 3 )
 [node name="icon" type="Sprite" parent="icon"]
 position = Vector2( -558.782, -43.2604 )
 texture = ExtResource( 3 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/Rotate = SubResource( 3 )

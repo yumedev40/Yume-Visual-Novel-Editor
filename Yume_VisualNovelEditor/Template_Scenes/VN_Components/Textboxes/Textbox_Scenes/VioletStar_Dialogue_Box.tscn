@@ -1,0 +1,166 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Game/Component_Scripts/dialogue_box.gd" type="Script" id=1]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Images/star_continue_icon.png" type="Texture" id=2]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Resources/Dynamic_Font_Files/Ubuntu_Font/Ubuntu-Bold-36px.tres" type="DynamicFont" id=3]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Resources/Dynamic_Font_Files/Ubuntu_Font/Ubuntu-BoldItalic-36px.tres" type="DynamicFont" id=4]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Resources/Dynamic_Font_Files/Ubuntu_Font/Ubuntu-Italic-36px.tres" type="DynamicFont" id=5]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Resources/Dynamic_Font_Files/Ubuntu_Font/Ubuntu-Regular-36px.tres" type="DynamicFont" id=6]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Template_Scenes/Assets/Images/test_textbox_01.png" type="Texture" id=7]
+
+[node name="Dialogue_Box" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+box_path = NodePath("HBoxContainer/NinePatchRect")
+nametag_path = NodePath("HBoxContainer/NinePatchRect/VBoxContainer/HBoxContainer/RichTextLabel")
+dialoguebox_path = NodePath("HBoxContainer/NinePatchRect/VBoxContainer/HBoxContainer2/RichTextLabel2")
+completion_sprite_path = NodePath("HBoxContainer/NinePatchRect/Continue_Icon")
+completion_sprite_offset = Vector2( 50, 35 )
+completion_sprite_texture = ExtResource( 2 )
+
+[node name="VSeparator" type="VSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 1920.0
+margin_bottom = 742.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.75
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 746.0
+margin_right = 1920.0
+margin_bottom = 1020.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.5
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 95.0
+margin_bottom = 274.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer"]
+margin_left = 99.0
+margin_right = 1819.0
+margin_bottom = 274.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 9.0
+texture = ExtResource( 7 )
+patch_margin_left = 43
+patch_margin_right = 43
+
+[node name="Continue_Icon" type="Sprite" parent="HBoxContainer/NinePatchRect"]
+visible = false
+position = Vector2( 1670, 239 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer/NinePatchRect/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 1720.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 0, 15 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/NinePatchRect/VBoxContainer"]
+margin_top = 19.0
+margin_right = 1720.0
+margin_bottom = 63.0
+custom_constants/separation = 35
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/NinePatchRect/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 3.0
+margin_bottom = 44.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/NinePatchRect/VBoxContainer/HBoxContainer"]
+margin_left = 38.0
+margin_right = 861.0
+margin_bottom = 44.88
+rect_min_size = Vector2( 0, 44.88 )
+size_flags_horizontal = 3
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = true
+scroll_active = false
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/NinePatchRect/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 896.0
+margin_right = 1720.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/NinePatchRect/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 67.0
+margin_right = 1720.0
+margin_bottom = 71.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/NinePatchRect/VBoxContainer"]
+margin_top = 75.0
+margin_right = 1720.0
+margin_bottom = 255.0
+size_flags_vertical = 3
+custom_constants/separation = 55
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/NinePatchRect/VBoxContainer/HBoxContainer2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 3.0
+margin_bottom = 180.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HBoxContainer/NinePatchRect/VBoxContainer/HBoxContainer2"]
+margin_left = 58.0
+margin_right = 1662.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 0, 42 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/bold_italics_font = ExtResource( 4 )
+custom_fonts/italics_font = ExtResource( 5 )
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+scroll_active = false
+
+[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/NinePatchRect/VBoxContainer/HBoxContainer2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1717.0
+margin_right = 1720.0
+margin_bottom = 180.0
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer/NinePatchRect/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 259.0
+margin_right = 1720.0
+margin_bottom = 274.0
+rect_min_size = Vector2( 0, 15 )
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1823.0
+margin_right = 1920.0
+margin_bottom = 274.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="VSeparator2" type="VSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 1024.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5

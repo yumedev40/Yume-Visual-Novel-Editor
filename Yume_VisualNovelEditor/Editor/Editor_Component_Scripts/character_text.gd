@@ -1,6 +1,8 @@
 tool
 extends Tabs
 
+var default_textbox := preload("res://addons/Yume_VisualNovelEditor/Template_Scenes/VN_Components/Textboxes/Textbox_Scenes/Default_Dialogue_Box.tscn")
+
 export(NodePath) var editor_root_path : NodePath
 var editor_root : Object
 
@@ -18,6 +20,7 @@ var custom_dialoguebox_field : Object
 
 export(NodePath) var dialoguebox_instance_control_path : NodePath
 var dialoguebox_instance_control : Object
+
 
 
 var nametag_color : Color = Color.white
@@ -67,9 +70,12 @@ func _setup(data:Dictionary) -> void:
 			
 			# Custom Dialoguebox Path
 			custom_dialoguebox_path = data["text"]["custom_dialoguebox"]
+			
 			if custom_dialoguebox_field:
+				
 				(custom_dialoguebox_field as LineEdit).text = data["text"]["custom_dialoguebox"]
-				if data["text"]["custom_dialoguebox"] != "":
+				
+				if data["text"]["custom_dialoguebox"].replace(" ", "") != "":
 					(custom_dialoguebox_field as LineEdit).set("custom_colors/font_color", Color.green)
 					
 					if dialoguebox_instance_control:
@@ -77,6 +83,7 @@ func _setup(data:Dictionary) -> void:
 							i.queue_free()
 						
 						var instanced_dialoguebox : Object = load(data["text"]["custom_dialoguebox"]).instance()
+						
 						dialoguebox_instance_control.add_child(instanced_dialoguebox)
 						
 						(instanced_dialoguebox as Control).size_flags_horizontal = VBoxContainer.SIZE_EXPAND_FILL
@@ -91,14 +98,37 @@ func _setup(data:Dictionary) -> void:
 						if dialoguebox_instance_control.get_child_count() > 0:
 							dialoguebox_instance_control.get_child(0).dialoguebox.set("custom_colors/default_color", dialogue_color)
 			
-					if dialoguebox_instance_control:
-						if dialoguebox_instance_control.get_child_count() > 0:
 							dialoguebox_instance_control.get_child(0).nametag.set("custom_colors/default_color", nametag_color)
 				
 				else:
+#					if dialoguebox_instance_control:
+#						for i in dialoguebox_instance_control.get_children():
+#							i.queue_free()
+					
+					(custom_dialoguebox_field as LineEdit).set("custom_colors/font_color", null)
+					
 					if dialoguebox_instance_control:
 						for i in dialoguebox_instance_control.get_children():
 							i.queue_free()
+						
+						var instanced_dialoguebox : Object = default_textbox.instance()
+						
+						dialoguebox_instance_control.add_child(instanced_dialoguebox)
+						
+						(instanced_dialoguebox as Control).size_flags_horizontal = VBoxContainer.SIZE_EXPAND_FILL
+						(instanced_dialoguebox as Control).size_flags_vertical = VBoxContainer.SIZE_EXPAND_FILL
+						
+						yield(get_tree().create_timer(0.01),"timeout")
+						
+						instanced_dialoguebox.call_deferred("start_dialogue", "Nametag", "Dialogue Text", false)
+					
+					
+					if dialoguebox_instance_control:
+						if dialoguebox_instance_control.get_child_count() > 0:
+							dialoguebox_instance_control.get_child(0).dialoguebox.set("custom_colors/default_color", dialogue_color)
+			
+							dialoguebox_instance_control.get_child(0).nametag.set("custom_colors/default_color", nametag_color)
+					
 		else:
 			push_error("Character text parameters are missing, check file for text attributes")
 	else:
@@ -162,6 +192,7 @@ func on_custom_dialoguebox_changed(new_text:String) -> void:
 	
 		flag = file_check.file_exists(new_text)
 		
+		# Check textbox path extension
 		if flag:
 			match new_text.get_extension():
 				"tscn":
@@ -195,24 +226,49 @@ func on_custom_dialoguebox_changed(new_text:String) -> void:
 				if dialoguebox_instance_control:
 					if dialoguebox_instance_control.get_child_count() > 0:
 						dialoguebox_instance_control.get_child(0).nametag.set("custom_colors/default_color", nametag_color)
-				
-				if dialoguebox_instance_control:
-					if dialoguebox_instance_control.get_child_count() > 0:
+						
 						dialoguebox_instance_control.get_child(0).dialoguebox.set("custom_colors/default_color", dialogue_color)
 				
 			_:
+				# Replace custom textbox with default one
+				if catalog_root.character_dictionary[catalog_root.current_selected.get_text(1)]["text"]["custom_dialoguebox"] != "":
+					for i in dialoguebox_instance_control.get_children():
+						i.queue_free()
+					
+					var instanced_dialoguebox : Object = default_textbox.instance()
+					dialoguebox_instance_control.add_child(instanced_dialoguebox)
+					
+					(instanced_dialoguebox as Control).size_flags_horizontal = VBoxContainer.SIZE_EXPAND_FILL
+					(instanced_dialoguebox as Control).size_flags_vertical = VBoxContainer.SIZE_EXPAND_FILL
+					
+					yield(get_tree().create_timer(0.01),"timeout")
+					
+					instanced_dialoguebox.call_deferred("start_dialogue", "Nametag", "Dialogue Text", false)
+					
+					if dialoguebox_instance_control:
+						if dialoguebox_instance_control.get_child_count() > 0:
+							dialoguebox_instance_control.get_child(0).nametag.set("custom_colors/default_color", nametag_color)
+							
+							dialoguebox_instance_control.get_child(0).dialoguebox.set("custom_colors/default_color", dialogue_color)
+				
+				
+				# Update UI and Data
 				(custom_dialoguebox_field as LineEdit).set("custom_colors/font_color", Color.red)
 				
 				catalog_root.character_dictionary[catalog_root.current_selected.get_text(1)]["text"]["custom_dialoguebox"] = ""
 				
-				if dialoguebox_instance_control:
-					for i in dialoguebox_instance_control.get_children():
-						i.queue_free()
+#				if dialoguebox_instance_control:
+#					for i in dialoguebox_instance_control.get_children():
+#						i.queue_free()
+		
+#		if !flag:
+#			(custom_dialoguebox_field as LineEdit).set("custom_colors/font_color", Color.red)
 
 
 func on_custom_dialoguebox_focus_exited() -> void:
-	if custom_dialoguebox_field:
-		on_custom_dialoguebox_changed(custom_dialoguebox_field.text)
+#	if custom_dialoguebox_field:
+#		on_custom_dialoguebox_changed(custom_dialoguebox_field.text)
+	pass
 
 
 

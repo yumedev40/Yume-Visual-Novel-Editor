@@ -50,7 +50,6 @@ enum INDICATOR_MODE {SPRITE, CHARACTER, INLINE_SPRITE, NONE}
 export(INDICATOR_MODE) var completion_mode : int = 0
 
 
-
 # Dialogue Box FSM
 var reset_on_hide : bool = false
 var debug : bool = false
@@ -91,10 +90,54 @@ func _ready() -> void:
 
 
 # Dialogue Box Finite State Machine
-func start_dialogue( _name_:String, _dialogue_:String, debug_flag:bool = false ) -> void:
+func start_dialogue( _name_:String, _dialogue_:String, debug_flag:bool = false, character_code:String = "" ) -> void:
 	packet_info = [_name_, _dialogue_]
 	
 	debug = debug_flag
+	
+	if character_code.replace(" ", "") == "":
+		nametag.set("custom_colors/default_color", null)
+		dialoguebox.set("custom_colors/default_color", null)
+	else:
+		var character_file_path : String
+		
+		if debug_flag:
+			character_file_path = str($"../../../../..".editor_root.project_directory, "/story_data/character_files/", character_code, ".ychar")
+		else:
+			character_file_path = str(yume_game_controller.directory_paths["story_data"], "/character_files/", character_code, ".ychar")
+		
+		var char_file : File = File.new()
+		
+		if char_file.file_exists(character_file_path):
+			var character_info : Dictionary
+			
+			char_file.open(character_file_path, File.READ)
+			
+			var current_line : String = char_file.get_line()
+			
+			while !char_file.eof_reached():
+				if current_line:
+					character_info = parse_json(current_line)
+				
+				current_line = char_file.get_line()
+			
+			char_file.close()
+			
+			var n_col_arr : Array = character_info["text"]["nametag_color"]
+			
+			var nametag_color : Color = Color(n_col_arr[0], n_col_arr[1], n_col_arr[2], n_col_arr[3])
+			
+			
+			var d_col_arr : Array = character_info["text"]["dialogue_color"]
+			
+			var dialoguebox_color : Color = Color(d_col_arr[0], d_col_arr[1], d_col_arr[2], d_col_arr[3])
+			
+			
+			nametag.set("custom_colors/default_color", nametag_color)
+			dialoguebox.set("custom_colors/default_color", dialoguebox_color)
+			
+		else:
+			push_error( str("Character[", character_code, "] does not exist at filepath: ", character_file_path) )
 	
 	dialogue_fsm_tick()
 

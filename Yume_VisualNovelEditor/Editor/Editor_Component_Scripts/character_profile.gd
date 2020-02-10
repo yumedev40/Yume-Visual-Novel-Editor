@@ -31,6 +31,8 @@ func _ready() -> void:
 	
 	connect("character_name_change_request", catalog_root, "_on_name_change_request")
 	
+	name_field.connect("text_changed", self, "on_name_text_entered")
+	
 	name_field.connect("text_entered", self, "on_name_text_entered")
 	
 	name_field.connect("focus_exited", self, "on_name_text_entered")
@@ -129,8 +131,6 @@ func on_alias_text_changed() -> void:
 	if alias_field:
 		for i in (alias_field as TextEdit).get_line_count():
 			alias_list.append((alias_field as TextEdit).get_line(i))
-	
-	print(alias_list)
 	
 	if catalog_root.current_selected:
 		catalog_root.character_dictionary[catalog_root.current_selected.get_text(1)]["profile"]["aliases"] = alias_list

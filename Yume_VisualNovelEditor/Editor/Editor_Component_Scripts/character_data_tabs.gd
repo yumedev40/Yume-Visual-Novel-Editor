@@ -20,4 +20,3 @@ func _on_tab_changed(tab:int) -> void:
 				$Visuals.preview_container.size_flags_stretch_ratio = $Visuals.preview_container.size_flags_stretch_ratio + 0.1
 				yield(get_tree().create_timer(0.001),"timeout")
 				$Visuals.preview_container.size_flags_stretch_ratio = $Visuals.preview_container.size_flags_stretch_ratio - 0.1
-	
