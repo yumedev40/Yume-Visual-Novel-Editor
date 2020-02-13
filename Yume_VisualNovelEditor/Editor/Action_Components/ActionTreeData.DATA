@@ -20,6 +20,27 @@
 
 
 
+
+#Category
+[category: Character]
+[description: A set of actions used to add and manipulate character visuals on screen]
+[color_theme: (252,156,156)]
+
+#Nodes
+[action: Character Entrance]
+[description: Add a character to the scene]
+[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/character_entrance_icon.png]
+[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/character_entrance_action.gd]
+
+[action: Character Exit]
+[description: Remove a character from the scene]
+[icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/character_exit_icon.png]
+[script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/character_exit_action.gd]
+
+
+
+
+
 #Category
 [category: Dialogue]
 [description: A set of actions that control the display and output of the scene's dialogue box]
@@ -75,6 +96,7 @@
 [description: Set a backdrop image]
 [icon: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Node_Icons/backdrop_node_icon.png]
 [script: res://addons/Yume_VisualNovelEditor/Editor/Action_Components/Actions/backdrop_action.gd]
+
 
 
 

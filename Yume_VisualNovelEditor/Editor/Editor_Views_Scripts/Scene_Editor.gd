@@ -87,6 +87,7 @@ func _open_scene(info:Dictionary, rearrange:bool = false) -> void:
 	
 	scene_actions._reset_menu_fold_button()
 	preview.preview_scene_button.disabled = false
+	
 
 
 func _close_scene() -> void:
@@ -114,6 +115,8 @@ func clear_info() -> void:
 			scene_actions.drop_separator_node.get_parent().remove_child(scene_actions.drop_separator_node)
 	
 	scene_actions.vbar.hide()
+	
+	scene_actions.get_node("CharacterActionsDataManager")._reset_lists()
 
 
 

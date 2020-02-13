@@ -1,0 +1,119 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI_Scripts/character_order_component.gd" type="Script" id=1]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/move_character_right_icon.png" type="Texture" id=2]
+[ext_resource path="res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/move_character_left_icon.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.12549, 0.145098, 0.192157, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.427451, 0.439216, 0.466667, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+
+[node name="character_order_component" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_constants/separation = 5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"breakpoint_component": true,
+"character_order_component": true,
+"debug_options_component": true,
+"text_string_component": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+custom_constants/separation = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+custom_constants/separation = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_right = 101.0
+margin_bottom = 94.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 101.0
+margin_bottom = 14.0
+text = "Character Order"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 116.0
+margin_right = 1920.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 1804.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 0, 67 )
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 1803.0
+margin_bottom = 66.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 2 )
+follow_focus = true
+
+[node name="character_icon_container" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer/ScrollContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1797.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 72.0
+margin_right = 1804.0
+margin_bottom = 94.0
+custom_constants/separation = 15
+alignment = 1
+
+[node name="move_left" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+margin_left = 794.0
+margin_right = 894.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 100, 0 )
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Shift Left"
+icon = ExtResource( 3 )
+
+[node name="move_right" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+margin_left = 909.0
+margin_right = 1009.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 100, 0 )
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Shift Right"
+icon = ExtResource( 2 )

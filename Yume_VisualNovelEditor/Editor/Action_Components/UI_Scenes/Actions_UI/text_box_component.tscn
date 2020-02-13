@@ -26,14 +26,14 @@ __meta__ = {
 }
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
-margin_right = 1024.0
+margin_right = 1920.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
-margin_right = 1024.0
+margin_right = 1920.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -52,7 +52,7 @@ margin_bottom = 80.0
 
 [node name="LineEdit" type="TextEdit" parent="VBoxContainer2/HBoxContainer"]
 margin_left = 38.0
-margin_right = 773.0
+margin_right = 1669.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 0, 80 )
 size_flags_horizontal = 3
@@ -81,8 +81,8 @@ wrap_enabled = true
 caret_blink = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer"]
-margin_left = 777.0
-margin_right = 813.0
+margin_left = 1673.0
+margin_right = 1709.0
 margin_bottom = 80.0
 alignment = 1
 
@@ -104,25 +104,25 @@ items = [ "Global Variables", null, 0, false, false, -1, 0, null, "", true, "Pla
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 817.0
-margin_right = 820.0
+margin_left = 1713.0
+margin_right = 1716.0
 margin_bottom = 80.0
 
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 824.0
-margin_right = 827.0
+margin_left = 1720.0
+margin_right = 1723.0
 margin_bottom = 80.0
 
 [node name="HSeparator4" type="HSeparator" parent="VBoxContainer2/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 831.0
-margin_right = 834.0
+margin_left = 1727.0
+margin_right = 1730.0
 margin_bottom = 80.0
 
 [node name="CheckButton" type="CheckButton" parent="VBoxContainer2/HBoxContainer"]
-margin_left = 838.0
-margin_right = 1024.0
+margin_left = 1734.0
+margin_right = 1920.0
 margin_bottom = 80.0
 focus_mode = 0
 enabled_focus_mode = 0

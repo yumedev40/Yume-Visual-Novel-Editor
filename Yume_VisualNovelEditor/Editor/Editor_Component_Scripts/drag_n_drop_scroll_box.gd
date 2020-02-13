@@ -17,6 +17,9 @@ onready var vbox : Object = $"ActionsList"
 onready var vbar : Object = $"VScrollBar"
 
 signal vbox_size_changed
+signal node_added
+signal node_removed
+signal node_rearranged
 
 export(float, 100, 1000000, 100) var max_v_bar_value : float = 1000000
 
@@ -316,6 +319,8 @@ func drop_data(position: Vector2, data:GDScript) -> void:
 	#		node.set_meta("action", data.get_meta("action_name"))
 		
 		_add_scene_node(node)
+		
+		emit_signal("node_added")
 	else:
 		get_tree().queue_delete(node)
 

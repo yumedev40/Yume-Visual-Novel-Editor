@@ -85,10 +85,12 @@ cast_shadow = 0
 pixel_size = 0.0277459
 alpha_cut = 2
 
-[node name="CharacterLayer" type="Spatial" parent="VISUAL_COMPONENTS/Stage/Viewport/VN_World/SceneLayers"]
+[node name="CharacterLayer3D" type="Spatial" parent="VISUAL_COMPONENTS/Stage/Viewport/VN_World/SceneLayers"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -83.25 )
 
-[node name="BGLayer4" type="Sprite3D" parent="VISUAL_COMPONENTS/Stage/Viewport/VN_World/SceneLayers/CharacterLayer"]
+[node name="CharacterLayer2D" type="Node2D" parent="VISUAL_COMPONENTS/Stage/Viewport/VN_World/SceneLayers/CharacterLayer3D"]
+
+[node name="BGLayer4" type="Sprite3D" parent="VISUAL_COMPONENTS/Stage/Viewport/VN_World/SceneLayers/CharacterLayer3D"]
 cast_shadow = 0
 pixel_size = 0.0177
 alpha_cut = 2

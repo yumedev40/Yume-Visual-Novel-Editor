@@ -229,7 +229,7 @@ func call_action_stack() -> void:
 		
 		"dialogue box visibility":
 			# Dialogue box reference
-			var dialogue_box : Object = $UI_COMPONENTS/DialogueBox_UI/Dialogue_Box
+			var dialogue_box : Object = $UI_COMPONENTS/DialogueBox_UI.get_child(0)
 			
 			var visibility : bool
 			var reset_flag : bool

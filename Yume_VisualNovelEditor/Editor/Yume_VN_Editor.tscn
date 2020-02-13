@@ -453,7 +453,7 @@ custom_constants/separation = 0
 
 [node name="LeftPanel" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI"]
 margin_right = 450.0
-margin_bottom = 456.0
+margin_bottom = 985.0
 rect_min_size = Vector2( 370, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -463,14 +463,14 @@ size_flags_stretch_ratio = 2.5
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 443.0
-margin_bottom = 449.0
+margin_bottom = 978.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="SceneList" type="TabContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/LeftPanel/VBoxContainer"]
 margin_right = 436.0
-margin_bottom = 181.0
+margin_bottom = 408.0
 rect_min_size = Vector2( 0, 110 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -493,7 +493,7 @@ anchor_bottom = 1.0
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 421.0
-margin_bottom = 138.0
+margin_bottom = 365.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -533,7 +533,7 @@ text = "New Scene"
 [node name="SceneTree" type="Tree" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/LeftPanel/VBoxContainer/SceneList/Story Scenes/PanelContainer2/VBoxContainer"]
 margin_top = 44.0
 margin_right = 414.0
-margin_bottom = 131.0
+margin_bottom = 358.0
 focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -543,11 +543,13 @@ script = ExtResource( 7 )
 chapter_heading_bg = Color( 0.164856, 0.206258, 0.289063, 1 )
 
 [node name="vertical_resize2" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/LeftPanel/VBoxContainer" instance=ExtResource( 65 )]
+margin_top = 412.0
+margin_bottom = 422.0
 
 [node name="NodeList" type="TabContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/LeftPanel/VBoxContainer"]
-margin_top = 199.0
+margin_top = 426.0
 margin_right = 436.0
-margin_bottom = 442.0
+margin_bottom = 971.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
@@ -568,7 +570,7 @@ custom_styles/panel = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/LeftPanel/VBoxContainer/NodeList/Actions/PanelContainer2"]
 margin_right = 428.0
-margin_bottom = 207.0
+margin_bottom = 509.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -604,7 +606,7 @@ rect_min_size = Vector2( 5, 0 )
 [node name="ScrollContainer" type="ScrollContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/LeftPanel/VBoxContainer/NodeList/Actions/PanelContainer2/VBoxContainer"]
 margin_top = 30.0
 margin_right = 428.0
-margin_bottom = 207.0
+margin_bottom = 509.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/bg = SubResource( 5 )
@@ -613,7 +615,7 @@ custom_styles/bg = SubResource( 5 )
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 418.0
-margin_bottom = 200.0
+margin_bottom = 469.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
@@ -624,7 +626,7 @@ hide_toggle_button_path = NodePath("../../PanelContainer/HBoxContainer/MenuFoldB
 [node name="horizontal_resize" type="Panel" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI"]
 margin_left = 450.0
 margin_right = 460.0
-margin_bottom = 456.0
+margin_bottom = 985.0
 rect_min_size = Vector2( 10, 0 )
 mouse_default_cursor_shape = 10
 script = ExtResource( 11 )
@@ -633,7 +635,7 @@ damp = 0.01
 [node name="MainScreen" type="VBoxContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI"]
 margin_left = 460.0
 margin_right = 1904.0
-margin_bottom = 456.0
+margin_bottom = 985.0
 rect_min_size = Vector2( 300, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -641,7 +643,7 @@ size_flags_stretch_ratio = 8.0
 
 [node name="PanelContainer" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen"]
 margin_right = 1444.0
-margin_bottom = 146.0
+margin_bottom = 322.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -650,7 +652,7 @@ size_flags_vertical = 3
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1437.0
-margin_bottom = 139.0
+margin_bottom = 315.0
 tab_align = 0
 
 [node name="Preview" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/PanelContainer/TabContainer"]
@@ -674,7 +676,7 @@ size_flags_vertical = 3
 
 [node name="PreviewViewport" type="TextureRect" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/PanelContainer/TabContainer/Preview/VBoxContainer"]
 margin_right = 1422.0
-margin_bottom = 96.0
+margin_bottom = 272.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 expand = true
@@ -695,18 +697,18 @@ render_target_v_flip = true
 anchor_mode = 0
 
 [node name="vertical_resize" type="Panel" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen"]
-margin_top = 150.0
+margin_top = 326.0
 margin_right = 1444.0
-margin_bottom = 160.0
+margin_bottom = 336.0
 rect_min_size = Vector2( 0, 10 )
 mouse_default_cursor_shape = 9
 script = ExtResource( 8 )
 damp = 0.006
 
 [node name="ConversationEditor" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen"]
-margin_top = 164.0
+margin_top = 340.0
 margin_right = 1444.0
-margin_bottom = 456.0
+margin_bottom = 985.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -720,11 +722,11 @@ project_tag_path = NodePath("HBoxContainer/TabContainer/Scene Actions/PanelConta
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1437.0
-margin_bottom = 285.0
+margin_bottom = 638.0
 
 [node name="TabContainer" type="TabContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer"]
 margin_right = 1430.0
-margin_bottom = 278.0
+margin_bottom = 631.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -749,7 +751,7 @@ mouse_filter = 1
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1415.0
-margin_bottom = 235.0
+margin_bottom = 588.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -860,7 +862,7 @@ mouse_filter = 0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Actions/PanelContainer2/VBoxContainer/PanelContainer2/HBoxContainer/PreviewRunningSprite"]
 frames = SubResource( 7 )
 animation = "loading"
-frame = 3
+frame = 5
 playing = true
 offset = Vector2( 8, 8 )
 
@@ -873,7 +875,7 @@ margin_bottom = 16.0
 [node name="ActionNodes" type="PanelContainer" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Actions/PanelContainer2/VBoxContainer"]
 margin_top = 40.0
 margin_right = 1408.0
-margin_bottom = 228.0
+margin_bottom = 581.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -885,13 +887,9 @@ anchor_bottom = 0.0
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 1403.0
-margin_bottom = 183.0
+margin_bottom = 536.0
 editor_root_path = NodePath("../../../../../../..")
 menu_fold_button_path = NodePath("../../PanelContainer2/HBoxContainer/MenuFoldButtons")
-max_v_bar_value = 1e+06
-min_scroll_speed = 10.0
-max_scroll_speed = 60.0
-wheel_step = 0.1
 
 [node name="Scene Timeline ( Experimental )" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer"]
 visible = false
@@ -1025,7 +1023,7 @@ mouse_filter = 0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="EditorScreen/PanelContainer/EditorViews/Story Editor/UI/MainScreen/ConversationEditor/HBoxContainer/TabContainer/Scene Timeline ( Experimental )/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer/PreviewRunningSprite"]
 frames = SubResource( 7 )
 animation = "loading"
-frame = 2
+frame = 4
 playing = true
 offset = Vector2( 8, 8 )
 
@@ -1053,10 +1051,6 @@ margin_right = 1403.0
 margin_bottom = 536.0
 editor_root_path = NodePath("../../../../../../..")
 menu_fold_button_path = NodePath("../../../../../Scene Timeline/PanelContainer3/VBoxContainer/PanelContainer2/HBoxContainer/MenuFoldButtons")
-max_v_bar_value = 1e+06
-min_scroll_speed = 10.0
-max_scroll_speed = 60.0
-wheel_step = 0.1
 
 [node name="Character Catalog" type="Tabs" parent="EditorScreen/PanelContainer/EditorViews"]
 visible = false

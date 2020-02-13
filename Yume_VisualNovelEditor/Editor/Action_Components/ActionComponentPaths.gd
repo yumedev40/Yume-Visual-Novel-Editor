@@ -8,6 +8,8 @@ const addition_animation_settings : String = "res://addons/Yume_VisualNovelEdito
 
 const breakpoint_ : String = "res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI/breakpoint_component.tscn"
 
+const character_order : String = "res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI/character_order_component.tscn"
+
 const color_picker : String = "res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI/color_picker_component.tscn"
 
 const debug_message : String = "res://addons/Yume_VisualNovelEditor/Editor/Action_Components/UI_Scenes/Actions_UI/debug_message_component.tscn"

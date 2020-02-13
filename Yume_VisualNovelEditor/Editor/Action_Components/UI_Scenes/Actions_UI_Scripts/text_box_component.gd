@@ -26,6 +26,7 @@ func _ready() -> void:
 		"Expressed Line":
 			$VBoxContainer2/HBoxContainer/Label.text = "Dialogue Text"
 			node_container_base.character_dialogue_preview = true
+			$VBoxContainer2/HBoxContainer/VBoxContainer/variables_list.hide()
 	
 	# handle load data
 	if action_node_root.loaded_action_data:

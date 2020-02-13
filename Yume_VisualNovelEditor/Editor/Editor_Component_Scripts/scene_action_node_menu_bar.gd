@@ -183,6 +183,8 @@ func _on_close_button_pressed() -> void:
 func _delete_tween_done(object:Object, key:NodePath) -> void:
 	scene_node_container.emit_signal("_vbox_size_changed", false, true)
 	
+	scene_node_container.emit_signal("node_removed")
+	
 	if !parent is VBoxContainer:
 		parent.queue_free()
 
@@ -302,6 +304,8 @@ func _dropped_anim() -> void:
 	fade_tween.stop_all()
 	fade_tween.interpolate_property(self, "modulate", Color(1,1,1,0.0), Color(1,1,1,1), 0.6,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	fade_tween.start()
+	
+	scene_node_container.emit_signal("node_rearranged")
 	
 	
 #	if !hide_button.pressed:

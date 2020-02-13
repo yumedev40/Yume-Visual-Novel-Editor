@@ -53,7 +53,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = SubResource( 5 )
-shader_param/flip = true
+shader_param/flip = false
 shader_param/start_color = Color( 0, 0, 0, 1 )
 shader_param/end_color = Color( 0.66, 0.66, 0.66, 1 )
 shader_param/use_texture = true
@@ -74,6 +74,9 @@ margin_bottom = 46.0
 size_flags_horizontal = 3
 custom_constants/separation = 0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_right = 1920.0

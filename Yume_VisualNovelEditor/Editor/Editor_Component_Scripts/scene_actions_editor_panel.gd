@@ -12,6 +12,9 @@ var scene_actions_container : Object
 export(NodePath) var project_tag_path : NodePath
 var project_tag : Object
 
+var CADM : Object
+
+
 # internal variables:
 var open_scene_info : Dictionary = {} setget set_open_scene_info
 
@@ -23,6 +26,8 @@ var keep_flag : bool = false
 #warnings-disable
 func _ready() -> void:
 	_setup_ui()
+	
+	CADM = scene_actions_container.get_node("CharacterActionsDataManager")
 
 
 func _setup_ui() -> void:
@@ -55,6 +60,7 @@ func update_scene_info(info:Dictionary) -> void:
 func _gen_action_nodes(filepath:String) -> void:
 	_clear_action_nodes()
 	_populate_scene_actions(filepath)
+	CADM.build_data_lists()
 
 
 

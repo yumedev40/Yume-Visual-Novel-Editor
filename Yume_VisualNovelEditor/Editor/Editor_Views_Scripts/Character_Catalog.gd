@@ -3,6 +3,8 @@ extends Tabs
 
 onready var editor_root : Object = $"../../.."
 
+var CADM : Object
+
 export(Color) var core_color : Color
 export(Color) var extras_color : Color
 export(Color) var rid_color : Color
@@ -55,7 +57,7 @@ var base_char_structure : Dictionary = {
 
 
 # internal
-var character_dictionary : Dictionary = {}
+var character_dictionary : Dictionary = {} setget update_character_dictionary
 
 
 
@@ -64,6 +66,9 @@ var character_dictionary : Dictionary = {}
 # warnings-disable
 func _ready() -> void:
 	setup_ui()
+	
+	CADM = $"../Story Editor".find_node("CharacterActionsDataManager", true, false)
+	
 	$HBoxContainer/PanelContainer/VBoxContainer/Tree.connect("item_selected", self, "on_item_selected")
 	$HBoxContainer/PanelContainer/VBoxContainer/Tree.connect("nothing_selected", self, "on_nothing_selected")
 	$HBoxContainer/PanelContainer/VBoxContainer/Tree.connect("button_pressed", self, "on_item_deleted")
@@ -81,7 +86,14 @@ func _reset() -> void:
 #	hide_details_tabs()
 	$HBoxContainer/PanelContainer/VBoxContainer/Tree.clear()
 	clear_ui()
-	character_dictionary.clear()
+	self.character_dictionary.clear()
+
+
+
+func update_character_dictionary(char_dict:Dictionary) -> void:
+	character_dictionary = char_dict
+	if CADM:
+		CADM.character_dictionary = char_dict
 
 
 
@@ -145,15 +157,18 @@ func _on_NewCharacter_pressed() -> void:
 	new_character.set_tooltip(1, str("RID [", rid, "]"))
 	new_character.add_button(1, preload("res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/close_icon.png"))
 	
-	character_dictionary[rid] = base_char_structure.duplicate(true)
-	character_dictionary[rid]["profile"]["name"] = "New Character"
+	self.character_dictionary[rid] = base_char_structure.duplicate(true)
+	self.character_dictionary[rid]["profile"]["name"] = "New Character"
 	
 	sort_names()
 
 
 
 func on_item_deleted(tree_item:TreeItem, Column:int, ID:int) -> void:
+	character_dictionary.erase(tree_item.get_text(1))
+	
 	root.remove_child(tree_item)
+	
 	hide_details_tabs()
 	
 	sort_names()
@@ -280,7 +295,7 @@ func build_character_list() -> void:
 					char_item.add_button(1, preload("res://addons/Yume_VisualNovelEditor/Editor/Editor_UI_Images/close_icon.png"))
 					
 					# Populate local character data dictionary
-					character_dictionary[i[0]] = base_char_structure.duplicate(true)
+					self.character_dictionary[i[0]] = base_char_structure.duplicate(true)
 					
 					var char_file_check : File = File.new()
 					var filepath : String = str(editor_root.project_directory, "/story_data/character_files/", i[0], ".ychar")
@@ -298,7 +313,7 @@ func build_character_list() -> void:
 						char_file_check.close()
 						
 						if typeof(data) == TYPE_DICTIONARY:
-							character_dictionary[i[0]] = data
+							self.character_dictionary[i[0]] = data
 
 
 
